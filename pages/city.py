@@ -984,7 +984,8 @@ def map_drawing(values_ln):
 
 @callback(Output('map_', 'figure'),
          Input('submit-button-state1_map', 'n_clicks'),
-         State('attributes_map', 'value'))
+         State('attributes_map', 'value'),
+         id='map_at')
 
 def map_display(n, values):
     full_value = ['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 'BORDER', 'SHARE CYCLE STATION']
