@@ -13,7 +13,10 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from pages import politics, index, city
 
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_exceptions=False)
+app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_exceptions=True, meta_tags=[
+        {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
+        {'charset': 'utf-8'}
+    ])
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
