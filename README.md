@@ -79,6 +79,13 @@ Urban Data Challenge 2023 への応募のため、Pythonを用い作成したも
 以下を実行してください。
 
 #### 1. このリポジトリのクローン
-`git clone <リモートレポジトリのURL>`
+`git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git`
+
+#### 2. 実行
+
+クローンしたディレクトリ（app.pyがあるディレクトリ）に移動後
+`python app.py`
+
+'http://0.0.0.8053'という結果が出れば成功です。お使いのブラウザで開いてください。なお、動作が確認されているブラウザは Google Chrome となっています。
 
 
