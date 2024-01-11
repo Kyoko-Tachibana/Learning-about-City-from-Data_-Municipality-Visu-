@@ -1739,7 +1739,8 @@ def parcat_dash(entered_year, entered_attributes):
 @callback(Output('parcat', 'figure'),
                State('input-year', 'value'),
                State('attributes', 'value'),
-               Input('submit-button-state1', 'n_clicks')
+               Input('submit-button-state1', 'n_clicks'),
+          id='parcat_at'
              )
 def update_parcat(entered_year, entered_attributes, n_clicks):
     if n_clicks%2 == 1:
