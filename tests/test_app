@@ -1,0 +1,55 @@
+import unittest
+from app import app
+from dash.testing.application_runners import import_app
+from dash.testing.wait import until
+
+class TestDashApp(unittest.TestCase):
+
+    def setUp(self):
+        self.app = app.test_client()
+        self.app.testing = True
+        self.runner = import_app(app)
+
+    def tearDown(self):
+        self.runner.cleanup()
+
+    def test_parcat_callback(self):
+        # Simulate a callback triggering with specific input values
+        response = self.runner.post_callback('parcat_at', {'input-year': 2020, 'attributes':
+        ['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'],
+        'submit-button-state1':1})
+
+        # Ensure the callback was successful (HTTP status code 200)
+        self.assertEqual(response.status_code, 200)
+
+        # Wait until the callback completes (replace 'output-graph' with the actual output ID)
+        wait_time = 180  # Adjust the wait time based on your app's callback execution time
+        wait_for_graph = until(lambda: 'parcat' in response.json(), timeout=wait_time)
+
+        # Assert that the graph output contains the expected elements
+        self.assertTrue(wait_for_graph)
+        self.assertIn('data', response.json()['parcat'])
+        self.assertIn('layout', response.json()['parcat'])
+
+        # Additional assertions based on your specific expectations
+        # For example, check for the presence of a specific trace or axis label
+
+    def test_map_callback(self):
+        response = self.runner.post_callback('map_at', {'attributes_map':
+        ['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 'BORDER', 'SHARE CYCLE STATION'],
+        'submit-button-state1_map':1})
+
+        # Ensure the callback was successful (HTTP status code 200)
+        self.assertEqual(response.status_code, 200)
+
+        # Wait until the callback completes (replace 'output-graph' with the actual output ID)
+        wait_time = 180  # Adjust the wait time based on your app's callback execution time
+        wait_for_graph = until(lambda: 'map_' in response.json(), timeout=wait_time)
+
+        # Assert that the graph output contains the expected elements
+        self.assertTrue(wait_for_graph)
+        self.assertIn('data', response.json()['map_'])
+        self.assertIn('layout', response.json()['map_'])
+
+if __name__ == '__main__':
+    unittest.main()
