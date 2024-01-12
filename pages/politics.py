@@ -920,7 +920,7 @@ layout = dbc.Container([html.Br(),
                      html.P("-Quick review on Nishi Tokyo City Council"), 
                      html.P("-Uploading your city's data and getting figures out"), html.Br(),
                     dcc.Markdown('''
-                    **Contact : westt-sskry(at)gmail.com**
+                    **Contact : westt.sskry(at)gmail.com**
                     ''')],
                     id="offcanvas-scrollable",
                     scrollable=True,
