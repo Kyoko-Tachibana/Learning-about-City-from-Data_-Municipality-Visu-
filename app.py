@@ -18,6 +18,8 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_
         {'charset': 'utf-8'}
     ])
 
+server = app.server
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
