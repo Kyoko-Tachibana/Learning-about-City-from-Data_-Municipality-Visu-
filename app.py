@@ -19,6 +19,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_
     ])
 
 server = app.server
+app.title = 'データで街について学べるサイト「まちラーン」'
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
