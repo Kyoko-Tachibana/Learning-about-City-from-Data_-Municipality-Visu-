@@ -1,6 +1,8 @@
 # データで街について学べるサイト「まちラーン」
 Urban Data Challenge 2023 への応募のため、Pythonを用い作成したものです。ベースは私の居住地である東京都西東京市の選挙や人口、施設についての分析ですが、それをほかの自治体にも応用できるような機能も搭載しています。
 
+URLはこちら https://machiran.onrender.com
+
 
 ## コンテンツ
 ### 政治
@@ -78,7 +80,7 @@ Urban Data Challenge 2023 への応募のため、Pythonを用い作成したも
 ## データソース、値の定義、アルゴリズムなど
 サイト内に記載があります。
 
-## 実行方法
+## ローカルでの実行方法
 
 ### 共通の準備
 Python 3.12 より低いバージョンで動かせる環境。（開発環境は Python 3.9.18 です。3.12 より低い全てのバージョンで動作テストを行ったわけではありませんが、3.9.2 ではテスト成功しています。）
@@ -87,7 +89,7 @@ Python 3.12 より低いバージョンで動かせる環境。（開発環境�
 以下を実行してください。
 
 #### 1. このリポジトリのクローン
-クローンするには、[Git for Windows](https://gitforwindows.org/) というソフトをインストール必要があります。
+クローンするには、[Git for Windows](https://gitforwindows.org/) というソフトをインストールする必要があります。
 
 `git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git`
 
