@@ -1,9 +1,13 @@
 # データで街について学べるサイト「まちラーン」
-Urban Data Challenge 2023 への応募のため、Pythonを用い作成したものです。ベースは私の居住地である東京都西東京市の選挙や人口、施設についての分析ですが、それをほかの自治体にも応用できるような機能も搭載しています。
+Urban Data Challenge 2023 への応募のため作成したものです。ベースは私の居住地である東京都西東京市の選挙や人口、施設についての分析ですが、それをほかの自治体にも応用できるような機能も搭載しています。
 
 URLはこちら https://machiran.onrender.com
 
 サーバーの都合上、ロードが遅い場合があります。
+
+
+## 使用ツール
+Python only で、`Dash`, `Plotly` を中心に用いました。初学者の私にとっても非常に使いやすかったです。
 
 
 ## コンテンツ
@@ -78,7 +82,9 @@ URLはこちら https://machiran.onrender.com
 ![スクリーンショット (625)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/c962fb91-3005-4d31-b34f-5898ae0d8849)
 
 #### Make graphs of your city!
-データアップロード、他自治体分析対応のグラフの表示。
+データアップロード、他自治体分析対応のグラフの表示。下では東京23区の情報を可視化しています。
+
+![スクリーンショット (632)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/6d69ff4e-1bde-4f44-a652-f6065f6264ae)
 
 
 ## データソース、値の定義、アルゴリズムなど
