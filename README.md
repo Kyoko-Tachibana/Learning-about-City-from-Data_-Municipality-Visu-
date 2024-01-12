@@ -80,20 +80,26 @@ Urban Data Challenge 2023 への応募のため、Pythonを用い作成したも
 
 ## 実行方法
 
-### Windows
+### 共通の準備
+Python 3.12 より低いバージョンで動かせる環境。（開発環境は Python 3.9.18 です。3.12 より低い全てのバージョンで動作テストを行ったわけではありませんが、3.9.2 ではテスト成功しています。）
+
+### Windows (エディション	Windows 11 Home、バージョン	23H2、OS ビルド	22631.3007 にてテスト済み)
 以下を実行してください。
 
 #### 1. このリポジトリのクローン
+クローンするには、[Git for Windows](https://gitforwindows.org/) というソフトをインストール必要があります。
+
 `git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git`
 
 #### 2. 実行
+以下を順に実行してください。
 
-クローンしたディレクトリ（app.pyがあるディレクトリ）に移動後
+`cd C:\Users\USERNAME\Learning-about-City-from-Data_-Machi-Learn-`
 
 `pip install -r requirements.txt`
 
 `python app.py`
 
-'http://0.0.0.8053'という結果が出れば成功です。お使いのブラウザで開いてください。なお、動作が確認されているブラウザは Google Chrome となっています。
+Dash is running on http://0.0.0.0:8050/ というメッセージが出れば成功です。お使いのブラウザで開いてください。なお、動作が確認されているブラウザは Google Chrome となっています。
 
 
