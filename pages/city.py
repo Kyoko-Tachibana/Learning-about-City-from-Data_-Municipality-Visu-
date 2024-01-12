@@ -244,7 +244,7 @@ layout = dbc.Container([
                      html.P("-Map visualization of facilities in Nishi Tokyo"), 
                      html.P("-Uploading your city's PLATEAU data and getting a map out"), html.Br(),
                     dcc.Markdown('''
-                    **Contact : westt-sskry(at)gmail.com**
+                    **Contact : westt.sskry(at)gmail.com**
                     ''')],
                     id="offcanvas-scrollable_map",
                     scrollable=True,
