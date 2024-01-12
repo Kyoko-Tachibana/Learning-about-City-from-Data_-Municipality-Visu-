@@ -3,6 +3,8 @@ Urban Data Challenge 2023 への応募のため、Pythonを用い作成したも
 
 URLはこちら https://machiran.onrender.com
 
+サーバーの都合上、ロードが遅い場合があります。
+
 
 ## コンテンツ
 ### 政治
@@ -43,6 +45,8 @@ URLはこちら https://machiran.onrender.com
 
 #### Relationship between multiple attributes and the Election Result
 市議会議員選挙立候補者の各種属性（年齢、性別、所属政党、得票率・数、一つ前の選挙での得票率・数、一つ前の選挙での当落）と、該当年の選挙での当落を示すグラフ。他自治体分析対応。
+
+![スクリーンショット (630)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/8aa9bb1e-0ea7-42e7-a15b-2fd522c3c878)
 
 
 #### City Council Review
