@@ -1101,7 +1101,7 @@ layout = dbc.Container([html.Br(),
              
              *2. Coocurrance network graph calculation*
              
-             -On the 100 nouns, algorithmns for NetworkX was performed.
+             -On the 100 nouns, algorithmns for `NetworkX` was performed.
              https://networkx.org/documentation/stable/reference/algorithms/index.html
             
             ''', mathjax=True)), html.P([html.B('Source'), html.Div('https://www.city.nishitokyo.tokyo.dbsr.jp/index.php/')])])],
