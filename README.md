@@ -133,11 +133,11 @@ Python 3.12 より低いバージョンで動かせる環境。（開発環境�
 #### 2. 実行
 以下を順に実行してください。
 
-`cd C:\Users\USERNAME\Learning-about-City-from-Data_-Machi-Learn-`
+`$ cd C:\Users\USERNAME\Learning-about-City-from-Data_-Machi-Learn-`
 
-`pip install -r requirements.txt`
+`$ pip install -r requirements.txt`
 
-`python app.py`
+`$ python app.py`
 
 `Dash is running on http://0.0.0.0:5000/` というメッセージが出れば成功です。ブラウザで開いてください。なお、動作が確認されているブラウザは Google Chrome となっています。
 
