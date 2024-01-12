@@ -88,7 +88,20 @@ Python only で、`Dash`, `Plotly` を中心に用いました。初学者の私
 
 
 
-## データソース、値の定義、アルゴリズムなど
+## データソース
+主に利用したオープンデータソースです。
+
+[西東京市　過去の選挙結果](https://www.city.nishitokyo.lg.jp/siseizyoho/senkyo/kekka/index.html)
+
+[西東京市　議会議事録](https://www.city.nishitokyo.tokyo.dbsr.jp/index.php/)
+
+[西東京市　人口・世帯数](https://www.city.nishitokyo.lg.jp/siseizyoho/tokei/zinko/index.html)
+
+[PLATEAU　オープンデータ-関連データセット](https://www.mlit.go.jp/plateau/)
+
+[ODPT　シェアサイクルステーションデータ](https://www.odpt.org/2022/06/28/press20220628_bikeshare/)
+
+## 値の定義、アルゴリズムなど
 サイト内に記載があります。
 
 ## ローカルでの実行方法
