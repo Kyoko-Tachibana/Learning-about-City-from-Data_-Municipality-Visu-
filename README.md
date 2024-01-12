@@ -84,6 +84,9 @@ Urban Data Challenge 2023 への応募のため、Pythonを用い作成したも
 #### 2. 実行
 
 クローンしたディレクトリ（app.pyがあるディレクトリ）に移動後
+
+`pip install -r requirements.txt`
+
 `python app.py`
 
 'http://0.0.0.8053'という結果が出れば成功です。お使いのブラウザで開いてください。なお、動作が確認されているブラウザは Google Chrome となっています。
