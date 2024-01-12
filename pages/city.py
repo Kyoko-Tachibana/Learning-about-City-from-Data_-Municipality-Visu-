@@ -509,9 +509,9 @@ layout = dbc.Container([
         
         *-Household* (Number of households)
         
-        *-0_4_m, -5_9_m, ..., -95_99_m* (Population of each age group (0 years old to 4 years old, and so on), male)
+        *-0_4_m, 5_9_m, ..., 95_99_m* (Population of each age group (0 years old to 4 years old, and so on), male)
         
-        *-0_4_f, -5_9_f, ..., -95_99_f* (Population of each age group (0 years old to 4 years old, and so on), female)
+        *-0_4_f, 5_9_f, ..., 95_99_f* (Population of each age group (0 years old to 4 years old, and so on), female)
         
         ''')]),
         html.P([html.B('Note'), html.Div('-No empty cell accepted')])], title='Basic Statistical Figures'),
