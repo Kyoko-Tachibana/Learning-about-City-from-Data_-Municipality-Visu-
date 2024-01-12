@@ -84,7 +84,8 @@ Python only で、`Dash`, `Plotly` を中心に用いました。初学者の私
 #### Make graphs of your city!
 データアップロード、他自治体分析対応のグラフの表示。下では東京23区の情報を可視化しています。
 
-![スクリーンショット (632)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/6d69ff4e-1bde-4f44-a652-f6065f6264ae)
+![スクリーンショット (633)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/773d3201-3ed5-48dc-a5b7-806466fcefe6)
+
 
 
 ## データソース、値の定義、アルゴリズムなど
