@@ -1104,7 +1104,10 @@ layout = dbc.Container([html.Br(),
              -On the 100 nouns, algorithmns for `NetworkX` was performed.
              https://networkx.org/documentation/stable/reference/algorithms/index.html
             
-            ''', mathjax=True)), html.P([html.B('Source'), html.Div('https://www.city.nishitokyo.tokyo.dbsr.jp/index.php/')])])],
+            ''', mathjax=True)), html.P([html.B('Source'), html.Div(dcc.Markdown(
+                '''
+                https://www.city.nishitokyo.tokyo.dbsr.jp/index.php/
+                '''))])])],
             color='light', outline = True),
             id='doc5',
             is_open=False,
