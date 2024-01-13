@@ -15,7 +15,10 @@ from pages import politics, index, city
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_exceptions=True, meta_tags=[
         {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
-        {'charset': 'utf-8'}
+        {'charset': 'utf-8'},
+        {'name': 'description', 'content': '地方自治体について、様々なデータを可視化'},
+        {'name': 'keywords', 'content': 'city, politics, data, graph, 街, 政治, データ, グラフ'},
+        {'name': 'author', 'content': 'https://github.com/Kyoko-Tachibana'}
     ])
 
 server = app.server
