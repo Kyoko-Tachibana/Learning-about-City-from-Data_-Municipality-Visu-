@@ -137,18 +137,18 @@ Python 3.12 より低いバージョンで動かせる環境。（開発環境�
 
 #### 1. このリポジトリのクローン
 クローンするには、[Git for Windows](https://gitforwindows.org/) をインストールする必要があります。
-
-`git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git`
+```
+git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git
+```
 
 
 #### 2. 実行
 以下を順に実行してください。
-
-`cd C:\Users\USERNAME\Learning-about-City-from-Data_-Machi-Learn-`
-
-`pip install -r requirements.txt`
-
-`python app.py`
+```
+cd C:\Users\USERNAME\Learning-about-City-from-Data_-Machi-Learn-
+pip install -r requirements.txt
+python app.py
+```
 
 `Dash is running on http://0.0.0.0:5000/` というメッセージが出れば成功です。ブラウザで開いてください。動作が確認されているブラウザは Google Chrome, Microsoft Edge となっています。ページが表示されない場合は、`http://localhost:5000` を開いてみてください。
 
