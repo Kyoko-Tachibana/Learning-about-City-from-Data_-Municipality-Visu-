@@ -1294,7 +1294,8 @@ layout = dbc.Container([html.Br(),
                      href = 'https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-', style = {'font-size':5})),
     brand = 'This page is coded in Python, uses Dash, and is deployed by Render.',
     dark = True,
-    sticky = 'bottom'
+    sticky = 'bottom',
+    style = {'height':8}
                     ))
 ])
 
