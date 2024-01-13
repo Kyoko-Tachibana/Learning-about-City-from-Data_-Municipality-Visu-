@@ -12,7 +12,7 @@ URLはこちら https://machiran.onrender.com
 
 
 ## 使用ツール
-Python only で、`Dash`, `Plotly` を中心に用いました。初学者の私にとっても非常に使いやすかったです。
+Python only で、`Dash`, `Plotly` を用いました。
 
 ### Versions (main ones only)
 ```
