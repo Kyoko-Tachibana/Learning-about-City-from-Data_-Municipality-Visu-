@@ -1,4 +1,7 @@
 # データで街について学べるサイト「まちラーン」
+
+[English ver. Readme](README-en.md)
+
 Urban Data Challenge 2023 への応募のため作成したものです。ベースは私の居住地である東京都西東京市の選挙や人口、施設についての分析ですが、それをほかの自治体にも応用できるような機能も搭載しています。
 
 URLはこちら https://machiran.onrender.com
