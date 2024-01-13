@@ -539,7 +539,15 @@ layout = dbc.Container([
                  start_collapsed=True,
              ),
         ),
-    html.Br()
+    html.Br(),
+    html.Br(),
+    dbc.NavbarSimple(dbc.NavItem(dcc.Markdown('''
+    [Github](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-)
+    ''', style = {'font-size':5})),
+    brand = 'This page was coded in Python, uses Dash, and deployed by Render.',
+    dark = True,
+    style = {'position':'sticky', height:8}
+                    )
 ])
 
 
