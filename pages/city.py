@@ -545,7 +545,7 @@ layout = dbc.Container([
         dbc.NavbarSimple(dbc.NavItem(dbc.NavLink('Github', 
     href = 'https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-'
     , style = {'font-size':5})),
-    brand = 'This page was coded in Python, uses Dash, and deployed by Render.',
+    brand = 'This page is coded in Python, uses Dash, and is deployed by Render.',
     dark = True,
     sticky = 'bottom'
                     ))
