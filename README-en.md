@@ -11,7 +11,7 @@ The load can be slow due to the server limitation.
 
 
 ## Tools
-Python only. `Dash` and `Plotly`, beginner-friendly tools, were used mainly.
+Python only. `Dash` and `Plotly` were used.
 
 ### Versions (main ones only)
 ```
