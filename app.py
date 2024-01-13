@@ -20,7 +20,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_
         {'name': 'keywords', 'content': 'city, politics, data, graph, 街, 政治, データ, グラフ'},
         {'name': 'author', 'content': 'https://github.com/Kyoko-Tachibana'},
         {'name': 'twitter:card', 'content':'summary'},
-        {'name': 'twitter:image', 'content':'url(assets/sumnail.jpg)'}
+        {'name': 'twitter:image', 'content':'url(assets/sumnail.png)'}
     ])
 
 server = app.server
