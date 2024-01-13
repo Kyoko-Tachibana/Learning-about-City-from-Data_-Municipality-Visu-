@@ -547,7 +547,8 @@ layout = dbc.Container([
     , style = {'font-size':5})),
     brand = 'This page is coded in Python, uses Dash, and is deployed by Render.',
     dark = True,
-    sticky = 'bottom'
+    sticky = 'bottom',
+    style = {'height':8}
                     ))
 ])
 
