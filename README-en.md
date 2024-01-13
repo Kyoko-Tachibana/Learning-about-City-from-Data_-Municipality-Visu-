@@ -82,7 +82,7 @@ A network graph which shows the important vocabularies in Nishitokyo City Counci
 
 
 #### Make graphs of your city!
-Data upload section for  municipality-wise-extension-prepared graphs (ones marked with ☆).
+Data upload section for  municipality-wise-extension-prepared graphs (ones marked with ☆). You can test this with files in `assets`.
 
 ![スクリーンショット (622)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/21a2977f-5093-40ff-b586-5396f341bf55)
 
@@ -106,7 +106,7 @@ open data etc. A municipality-wise extension prepared.
 
 
 #### Make graphs of your city!
-Data upload section for  municipality-wise-extension-prepared graphs (ones marked with ☆). Below is the visualization of Tokyo 23 wards.
+Data upload section for  municipality-wise-extension-prepared graphs (ones marked with ☆). Below is the visualization of Tokyo 23 wards. You can test this with files in `assets`.
 
 
 ![スクリーンショット (633)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/773d3201-3ed5-48dc-a5b7-806466fcefe6)
