@@ -11,6 +11,17 @@ URLはこちら https://machiran.onrender.com
 ## 使用ツール
 Python only で、`Dash`, `Plotly` を中心に用いました。初学者の私にとっても非常に使いやすかったです。
 
+### Versions (only main libraries)
+```
+dash==2.14.2
+dash_bootstrap_components==1.5.0
+dash_daq==0.5.0
+dash-core-components==2.0.0
+plotly==5.18.0
+geopandas==0.14.2
+nlplot==1.6.0
+```
+
 
 
 ## コンテンツ
