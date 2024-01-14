@@ -1310,7 +1310,7 @@ layout = dbc.Container([html.Br(),
     , style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki'}))
         ])
     ),
-    brand = 'This page is coded in Python, uses Dash, and is deployed by Render.',
+    brand = 'This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
     dark = True,
     brand_style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
     color = 'dark',
@@ -1344,7 +1344,9 @@ def get_network(year):
     color_palette='hls',
     width=1100,
     height=1000,
-    save=False
+    save=False,
+    theme='ggplot', 
+    bg_color='#d9e3f1'
     )
     return fig_co_network
 
