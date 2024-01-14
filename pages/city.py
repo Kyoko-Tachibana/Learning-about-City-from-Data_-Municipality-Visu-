@@ -142,7 +142,7 @@ def violin_general(df):
         ])
                       
     fig.update_traces(meanline_visible=True)
-    fig.update_yaxes(title_text='Age Group', tickvals=violin_tickval, font={'family':font_fam_sp})
+    fig.update_yaxes(title_text='Age Group', tickvals=violin_tickval, title_font={'family':font_fam_sp})
     
     return fig
 
