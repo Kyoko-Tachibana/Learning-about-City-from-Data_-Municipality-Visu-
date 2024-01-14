@@ -29,7 +29,7 @@ layout = html.Div([
     dbc.Button('都市', href = '/city', outline=True,
                style={'font-family': 'Yu Gothic', 'font-size':30, 'textAlign':'center',
                 'position':'relative', 'top':200, 'left':650}, color='light', size='lg')
-], style={'background-image':'url(assets/city_img.jpg)', 'width':'100%', 'height':'100%', 
+], style={'background-image':'url(assets/city_img.jpg)', 'height':'100%', 
           'background-size': 'cover', 'background-position':'center', 'margin-bottom':0, 
           'margin-right':0})
 
