@@ -123,7 +123,7 @@ def violin_general(df):
         {"title": "<b>Distribution of Population across age (0-99) {}</b>".format(df['Year'].unique()[i]),
         'font': {'family': font_fam_sp}}]))
     
-    fig.update_layout(paper_bgcolor="aliceblue",
+    fig.update_layout(paper_bgcolor="#d9e3f1",
                       title='<b>Choose a year</b>',
                       title_font={'family':font_fam_sp},
                       width=700,
@@ -172,7 +172,7 @@ def population_general(df):
     fig.update_yaxes(title_text="Number per a Household", secondary_y=True, row=1, col=2, title_font={'family':font_fam_sp})
     fig.update_yaxes(title_text="Number of Household", secondary_y=False, row=1, col=2, title_font={'family':font_fam_sp})
     fig.update_xaxes(title_text='Year', row=1, col=2)
-    fig.update_layout(paper_bgcolor="aliceblue", height=400, width=1000, legend={"itemsizing": "constant"})
+    fig.update_layout(paper_bgcolor="#d9e3f1", height=400, width=1000, legend={"itemsizing": "constant"})
     
     return fig
 
@@ -901,7 +901,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             lat=avg_lat,
             lon=avg_lon
         )},
-        showlegend = False, paper_bgcolor = 'mintcream')
+        showlegend = False, paper_bgcolor = '#d9e3f1')
     
         except Exception as e:
             print(e)
@@ -1033,7 +1033,7 @@ def map_drawing(values_ln):
             lat=avg_lat,
             lon=avg_lon
         )},
-        showlegend = False, paper_bgcolor = 'aliceblue')
+        showlegend = False, paper_bgcolor = '#d9e3f1')
     
     if len(values_ln) != 0:
         for i in values_ln:
