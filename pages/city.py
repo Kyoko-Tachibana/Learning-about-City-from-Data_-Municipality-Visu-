@@ -544,7 +544,7 @@ layout = dbc.Container([
     html.Br(),
     html.Br(),
     html.Br(),
-    html.Div(
+
     dbc.NavbarSimple(
         dbc.NavItem(
             dbc.Row([
@@ -562,10 +562,8 @@ layout = dbc.Container([
                      'font': 'italic 1.2rem "Fira Sans", serif'},
         color='dark',
         sticky='bottom',
-        style={'height': 25, 'width':'100vw', 'position':'relative', 'top':'5vh'},
-    ),
-    style={'position': 'sticky', 'bottom': 0, 'height': '7vh'}
-)
+        style={'height': '7vh', 'width':'100vw'},
+    )
 
 ])
 
