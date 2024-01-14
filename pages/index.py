@@ -22,14 +22,14 @@ layout = html.Div([
     **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
     ''', 
     style={'textAlign':'center', 'font-family':'游明朝', 'font-size':15})
-           , style={'position':'relative', 'top':190, 'left':200, 'width':'800px', 'color':'black'}),
+           , style={'position':'relative', 'top':190, 'left':200, 'width':'810px', 'color':'black'}),
     dbc.Button('政治', href = '/politics', outline=True, 
                style={'font-family': 'Yu Gothic', 'font-size':30, 'textAlign':'center', 'position':'relative'
                       , 'top':200, 'left':300}, color='light', size='lg'),
     dbc.Button('都市', href = '/city', outline=True,
                style={'font-family': 'Yu Gothic', 'font-size':30, 'textAlign':'center',
                 'position':'relative', 'top':200, 'left':650}, color='light', size='lg')
-], style={'background-image':'url(assets/city_img.jpg)', 'width':1263, 'height':660, 
+], style={'background-image':'url(assets/city_img.jpg)', 'width':'100%', 'height':'100%', 
           'background-size': 'cover', 'background-position':'center', 'margin-bottom':0, 
           'margin-right':0})
 
