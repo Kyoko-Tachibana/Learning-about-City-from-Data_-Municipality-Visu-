@@ -1131,7 +1131,7 @@ layout = dbc.Container([html.Br(),
     2022, id='input-year-network', clearable=False)
              ]),
     html.Br(),
-    html.Div(dbc.Spinner(dcc.Graph(id = 'network'), color='dark')),
+    html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network')], color='dark')),
     html.Br(),
     html.Br(),
     html.Br(),
