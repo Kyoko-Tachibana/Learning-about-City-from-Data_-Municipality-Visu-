@@ -544,21 +544,29 @@ layout = dbc.Container([
     html.Br(),
     html.Br(),
     html.Br(),
-    html.Div(dbc.NavbarSimple(dbc.NavItem(dbc.Row([dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                                                style={'position':'relative', 'top':4, 'left':18})),
-            dbc.Col(
-                dbc.NavLink('Github', 
-    href = 'https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-'
-    , style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki'}))
-        ])
+    html.Div(
+    dbc.NavbarSimple(
+        dbc.NavItem(
+            dbc.Row([
+                dbc.Col(html.Img(src='assets/github_mark.png', height=15,
+                                 style={'position': 'relative', 'top': 4, 'left': 18})),
+                dbc.Col(
+                    dbc.NavLink('Github',
+                                href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
+                                style={'font-size': 10, 'textAlign': 'center', 'color': 'darkkhaki'}))
+            ])
+        ),
+        brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
+        dark=True,
+        brand_style={'font-size': 5, 'textAlign': 'center', 'color': 'darkkhaki',
+                     'font': 'italic 1.2rem "Fira Sans", serif'},
+        color='dark',
+        sticky='bottom',
+        style={'height': 25},
     ),
-    brand = 'This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
-    dark = True,
-    brand_style = {'font-size':8, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
-    color = 'dark',
-    sticky = 'bottom',
-    style = {'height':40, 'position':'sticky', 'bottom':0}
-                    ), style = {'position':'sticky'})
+    style={'position': 'sticky', 'bottom': 0, 'height': '7vh'}
+)
+
 ])
 
 
