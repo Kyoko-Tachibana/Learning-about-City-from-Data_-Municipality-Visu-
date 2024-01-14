@@ -159,7 +159,7 @@ def candidate_info(df):
         )
     ])
 
-    fig.update_layout(paper_bgcolor="aliceblue",
+    fig.update_layout(paper_bgcolor="#d9e3f1",
     width=1180,
     height=500,
     autosize=False,
@@ -175,9 +175,9 @@ def vote_rate_council_mayor_general(df, n):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     
     if n==1:
-        bgcolor = 'aliceblue'
+        bgcolor = '#d9e3f1'
     else:
-        bgcolor = 'lightgray'
+        bgcolor = '#d9e3f1'
     
     fig.add_trace(go.Bar(x=df[df['Type']=='市議']['Year'], y=0.01*df[df['Type']=='市議']['Vote_rate']*df[df['Type']=='市議']['Electrates'], name='市議会議員選挙:投票者数'), secondary_y=False)
     fig.add_trace(go.Scatter(x=df[df['Type']=='市議']['Year'], y=df[df['Type']=='市議']['Vote_rate'], name='市議会議員選挙:投票率'), secondary_y=True)
@@ -227,9 +227,9 @@ def result_general(df, n):
     fig = go.Figure()
     
     if n==1:
-        bgcolor = 'aliceblue'
+        bgcolor = '#d9e3f1'
     else:
-        bgcolor = 'lightgray'
+        bgcolor = '#d9e3f1'
         
     button_list = []
     
@@ -269,9 +269,9 @@ def sex_general(df, n):
     fig = go.Figure()
     
     if n==1:
-        bgcolor = 'aliceblue'
+        bgcolor = '#d9e3f1'
     else:
-        bgcolor = 'lightgray'
+        bgcolor = '#d9e3f1'
         
     button_list = []
     
@@ -310,9 +310,9 @@ def sex_general(df, n):
 def party_across_year_general(df, n):
     fig = go.Figure()
     if n==1:
-        bgcolor = 'aliceblue'
+        bgcolor = '#d9e3f1'
     else:
-        bgcolor = 'lightgray'
+        bgcolor = '#d9e3f1'
         
     button_list = []
     for i, year in enumerate(df[df['Type']=='市議']['Year'].unique()):
@@ -349,9 +349,9 @@ def party_across_year_general(df, n):
 def age_general(df, n):
     fig = go.Figure()
     if n==1:
-        bgcolor = 'aliceblue'
+        bgcolor = '#d9e3f1'
     else:
-        bgcolor = 'lightgray'
+        bgcolor = '#d9e3f1'
         
     button_list = []
     for i, year in enumerate(df[df['Type']=='市議']['Year'].unique()):
@@ -509,7 +509,7 @@ def parcat_general6(df):
         {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]),
         'font':{'family':font_fam_sp}}]))
     
-    fig.update_layout(paper_bgcolor="lightgray",
+    fig.update_layout(paper_bgcolor="#d9e3f1",
         updatemenus=[
             dict(
                 active=0,
@@ -643,7 +643,7 @@ def parcat_general5(df):
         {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]), 
          'font':{'family':font_fam_sp}}]))
     
-    fig.update_layout(paper_bgcolor="lightgray",
+    fig.update_layout(paper_bgcolor="#d9e3f1",
         updatemenus=[
             dict(
                 active=0,
@@ -765,7 +765,7 @@ def parcat_general4(df):
         {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]),
         'font':{'family':font_fam_sp}}]))
     
-    fig.update_layout(paper_bgcolor="lightgray",
+    fig.update_layout(paper_bgcolor="#d9e3f1",
         updatemenus=[
             dict(
                 active=0,
@@ -877,7 +877,7 @@ def parcat_general3(df):
         args=[{"visible": buttons_tf[i]},
         {"title": title, 'font':{'family':font_fam_sp}}]))
     
-    fig.update_layout(paper_bgcolor="lightgray",
+    fig.update_layout(paper_bgcolor="#d9e3f1",
         updatemenus=[
             dict(
                 active=0,
@@ -1617,7 +1617,7 @@ def parcat_dash(entered_year, entered_attributes):
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'})])
             
-            fig.update_layout(paper_bgcolor = 'lavenderblush',
+            fig.update_layout(paper_bgcolor = '#d9e3f1',
                              title = '<b>{}</b>'.format(entered_year), title_font={'family':font_fam_sp})
             
             fig.show()
@@ -1759,7 +1759,7 @@ def parcat_dash(entered_year, entered_attributes):
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'})])
             
-            fig.update_layout(paper_bgcolor = 'lavenderblush',
+            fig.update_layout(paper_bgcolor = '#d9e3f1',
                 width=1200,
                 height=600,
                 autosize=True,
