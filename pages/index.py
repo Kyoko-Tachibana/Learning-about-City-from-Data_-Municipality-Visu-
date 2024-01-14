@@ -14,7 +14,7 @@ import dash_bootstrap_components as dbc
    # ''', 
     #style={'textAlign':'center', 'font-family':'游明朝', 'font-size':40, 'background-color':'lavender'
      #      }), 
-      #     style={'color':'midnightblue', 'position':'relative', 'left':400, 'top':190, 'width': '400px', 'height':'100px'
+      #     style={'color':'midnightblue', 'position':'relative', 'left':400, 'top':190, 'width': '400px', 'height':'100px',
        #           }),
     #html.Div(dcc.Markdown('''
     #**まちラーンでは各ページに表示されている、西東京市のデータに基づいた分析結果を見るのはもちろんのこと、**
@@ -39,7 +39,7 @@ layout = html.Div([
             **『まちラーン』**
         ''', 
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': 40, 'color': 'midnightblue', 
-               'background-color':'lavender'}
+               'background-color':'lavender', 'width':'40%'}
         )),
     ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)'}),
 
