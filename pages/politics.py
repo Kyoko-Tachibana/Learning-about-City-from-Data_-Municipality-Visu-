@@ -1320,7 +1320,7 @@ layout = dbc.Container([html.Br(),
                      'font': 'italic 1.2rem "Fira Sans", serif'},
         color='dark',
         sticky='bottom',
-        style={'height': 25},
+        style={'height': 25, 'width':'100vw'},
     ),
     style={'position': 'sticky', 'bottom': 0, 'height': '7vh'}
 )
