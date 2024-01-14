@@ -549,7 +549,7 @@ layout = dbc.Container([
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': 4, 'left': 18})),
+                                 style={'position': 'relative', 'top': '20%', 'left': '80%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
