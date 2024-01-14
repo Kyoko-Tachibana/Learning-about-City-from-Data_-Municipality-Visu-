@@ -549,15 +549,15 @@ layout = dbc.Container([
             dbc.Col(
                 dbc.NavLink('Github', 
     href = 'https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-'
-    , style = {'font-size':12, 'textAlign':'center', 'color':'darkkhaki'}))
+    , style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki'}))
         ])
     ),
     brand = 'This page is coded in Python, uses Dash, and is deployed by Render.',
     dark = True,
-    brand_style = {'font-size':12, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
+    brand_style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
     color = 'dark',
     sticky = 'bottom',
-    style = {'height':52, 'position':'sticky', 'bottom':0}
+    style = {'height':40, 'position':'sticky', 'bottom':0}
                     ), style = {'position':'sticky'})
 ])
 
@@ -808,7 +808,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             text=list(df_l['名称']),
             hoverinfo=['text', 'name'],
             name='LANDMARK',
-            font={'family':font_fam_sp}
+            textfont={'family':font_fam_sp}
         ))
     
             fig.add_trace(go.Scattermapbox(
@@ -819,7 +819,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             text=list(df_sta['駅名']),
             hoverinfo=['text', 'name'],
             name='STATION',
-            font={'family':font_fam_sp}
+            textfont={'family':font_fam_sp}
         ))
     
             for i in range(len(df_er['lat'])):
@@ -832,7 +832,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             text=df_er['路線名称'][i],
             hoverinfo=['text', 'name'],
             name='EMERGENCY ROUTE',
-            font={'family':font_fam_sp}
+            textfont={'family':font_fam_sp}
         ))
         
             fig.add_trace(go.Scattermapbox(
@@ -843,7 +843,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         text=list(df_sh['名称']),
         hoverinfo=['text', 'name'],
         name='SHELTER',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     ))
     
             fig.add_trace(go.Scattermapbox(
@@ -854,7 +854,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         text=list(df_pa['公園名']),
         hoverinfo=['text', 'name'],
         name='PARK',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     ))
     
             for j in range(len(df_bo['lat'])):
@@ -865,7 +865,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         line={'color':'orangered', 'width':7},
         hoverinfo=['name'],
         name='境界線',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     ))
     
             fig.add_trace(go.Scattermapbox(
@@ -876,7 +876,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         hoverinfo=['text', 'name'],
         hovertext=list(df_hellowcycle['parking_type']),
         name='ハローサイクリング',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     ))
     
             fig.add_trace(go.Scattermapbox(
@@ -888,7 +888,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         text=list(df_docomo['capacity']),
         hoverinfo=['text', 'name'],
         name='docomo',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     ))
 
             fig.update_layout(autosize=False,
@@ -933,7 +933,7 @@ def map_drawing(values_ln):
         hovertext=list(df_landmark['名称']),
         hoverinfo=['text', 'name'],
         name='LANDMARK',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     trace_station = go.Scattermapbox(
@@ -944,7 +944,7 @@ def map_drawing(values_ln):
         hovertext=list(df_station['駅名']),
         hoverinfo=['text', 'name'],
         name='STATION',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     trace_emergency_route = []
@@ -958,7 +958,7 @@ def map_drawing(values_ln):
             hovertext=df_emergency_route['路線名称'][i],
             hoverinfo=['text', 'name'],
             name='EMERGENCY ROUTE',
-            font={'family':font_fam_sp}
+            textfont={'family':font_fam_sp}
         )
         
         trace_emergency_route.append(trace_)
@@ -971,7 +971,7 @@ def map_drawing(values_ln):
         hovertext=list(df_shelter['名称']),
         hoverinfo=['text', 'name'],
         name='SHELTER',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     trace_park = go.Scattermapbox(
@@ -982,7 +982,7 @@ def map_drawing(values_ln):
         hovertext=list(df_park['公園名']),
         hoverinfo=['text', 'name'],
         name='PARK',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     trace_border = go.Scattermapbox(
@@ -992,7 +992,7 @@ def map_drawing(values_ln):
         line={'color':'orangered', 'width':10},
         hoverinfo=['name'],
         name='境界線',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     trace_hellowcycle = go.Scattermapbox(
@@ -1003,7 +1003,7 @@ def map_drawing(values_ln):
         hoverinfo=['text', 'name'],
         hovertext=list(df_hellowcycle['parking_type']),
         name='ハローサイクリング',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     trace_docomo = go.Scattermapbox(
@@ -1015,7 +1015,7 @@ def map_drawing(values_ln):
         text=list(df_docomo['capacity']),
         hoverinfo=['text', 'name'],
         name='docomo share cycle',
-        font={'family':font_fam_sp}
+        textfont={'family':font_fam_sp}
     )
     
     traces = [trace_landmark, trace_station, trace_emergency_route, trace_shelter, trace_park, trace_border, 
