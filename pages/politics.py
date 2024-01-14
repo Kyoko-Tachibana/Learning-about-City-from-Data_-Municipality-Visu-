@@ -1347,7 +1347,8 @@ def get_network(year):
     save=False
     )
 
-    fig_co_network.update_layout(plot_bgcolor='#d9e3f1')
+    ax = nlp.get_axes()
+    ax.set_facecolor('#d9e3f1')
     
     return fig_co_network
 
