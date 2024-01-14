@@ -280,7 +280,7 @@ layout = dbc.Container([
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs(
-        dbc.Tab(label='POPULATION', children=[
+        dbc.Tab(label='POPULATION', children=[html.Br(),
             dbc.Spinner(
                 dcc.Graph(
                 figure=population_general(df_pop)), color='dark'),
@@ -552,7 +552,7 @@ layout = dbc.Container([
     , style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki'}))
         ])
     ),
-    brand = 'This page is coded in Python, uses Dash, and is deployed by Render.',
+    brand = 'This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
     dark = True,
     brand_style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
     color = 'dark',
@@ -634,7 +634,7 @@ def parse_content_pop(content, filename):
         return html.Div([
             'There was an error processing this file.'
         ])
-    return html.Div(dbc.Tabs(dbc.Tab(label='POPULATION', children=[
+    return html.Div(dbc.Tabs(dbc.Tab(label='POPULATION', children=[html.Br(),
             dcc.Graph(
                 figure=population_general(df_in)),
             dcc.Graph(figure=violin_general(df_in))
