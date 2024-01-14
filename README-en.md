@@ -106,7 +106,7 @@ open data etc. A municipality-wise extension prepared.
 
 
 #### Make graphs of your city!
-Data upload section for  municipality-wise-extension-prepared graphs (ones marked with ☆). Below is the visualization of Tokyo 23 wards. You can test this with files in `assets`.
+Data upload section for  municipality-wise-extension-prepared graphs (ones marked with ☆). Below is the visualization of Tokyo 23 wards (tested with the data of Sapporo too). You can test this with files in `assets`.
 
 
 ![スクリーンショット (633)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/773d3201-3ed5-48dc-a5b7-806466fcefe6)
