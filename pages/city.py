@@ -34,7 +34,7 @@ import ast
 
 
 # In[ ]:
-
+font_fam_sp = '"Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif'
 
 df_border = pd.read_csv('assets/border.csv', encoding='shift-jis')
 df_park = pd.read_csv('assets/park.csv', encoding='shift-jis')
@@ -120,10 +120,12 @@ def violin_general(df):
         label="{}".format(list(df['Year'].unique())[i]),
         method="update",
         args=[{"visible": tf_list[i]},
-        {"title": "<b>Distribution of Population across age (0-99) {}</b>".format(df['Year'].unique()[i])}]))
+        {"title": "<b>Distribution of Population across age (0-99) {}</b>".format(df['Year'].unique()[i]),
+        'font': {'family': font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="aliceblue",
                       title='<b>Choose a year</b>',
+                      title_font={'family':font_fam_sp},
                       width=700,
                       height=400,
         updatemenus=[
@@ -140,7 +142,7 @@ def violin_general(df):
         ])
                       
     fig.update_traces(meanline_visible=True)
-    fig.update_yaxes(title_text='Age Group', tickvals=violin_tickval)
+    fig.update_yaxes(title_text='Age Group', tickvals=violin_tickval, font={'family':font_fam_sp})
     
     return fig
 
@@ -158,8 +160,8 @@ def population_general(df):
     fig.add_trace(go.Scatter(x=df['Year'], y=df['Pop_male'], name='Male Population', showlegend=True, hovertext='Male Population'), row=1, col=1)
     fig.add_trace(go.Scatter(x=df['Year'], y=df['Pop_female'], name='Female Population', showlegend=True, hovertext='Female Population')
                   , row=1, col=1)
-    fig.update_xaxes(title_text='Year', tickvals=list(df['Year'].unique()), row=1, col=1)
-    fig.update_yaxes(title_text='Population', row=1, col=1)
+    fig.update_xaxes(title_text='Year', tickvals=list(df['Year'].unique()), row=1, col=1, font={'family':font_fam_sp})
+    fig.update_yaxes(title_text='Population', row=1, col=1, font={'family':font_fam_sp})
     
     fig.add_trace(go.Bar(x=df['Year'], y=df['Household'], name='Number of Household', showlegend=True, hovertext='Number of Household')
                   , secondary_y=False, row=1, col=2)
@@ -167,8 +169,8 @@ def population_general(df):
                     hovertext='Number per a Household', showlegend=False), secondary_y=True, 
                   row=1, col=2)
     
-    fig.update_yaxes(title_text="Number per a Household", secondary_y=True, row=1, col=2)
-    fig.update_yaxes(title_text="Number of Household", secondary_y=False, row=1, col=2)
+    fig.update_yaxes(title_text="Number per a Household", secondary_y=True, row=1, col=2, font={'family':font_fam_sp})
+    fig.update_yaxes(title_text="Number of Household", secondary_y=False, row=1, col=2, font={'family':font_fam_sp})
     fig.update_xaxes(title_text='Year', row=1, col=2)
     fig.update_layout(paper_bgcolor="aliceblue", height=400, width=1000, legend={"itemsizing": "constant"})
     
@@ -805,7 +807,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             marker={'size': 15, 'symbol': list(df_l['symbol']), 'color': list(df_l['color'])},
             text=list(df_l['名称']),
             hoverinfo=['text', 'name'],
-            name='LANDMARK'
+            name='LANDMARK',
+            font={'family':font_fam_sp}
         ))
     
             fig.add_trace(go.Scattermapbox(
@@ -815,7 +818,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             marker={'size': 15, 'symbol': 'rail', 'color': 'purple'},
             text=list(df_sta['駅名']),
             hoverinfo=['text', 'name'],
-            name='STATION'
+            name='STATION',
+            font={'family':font_fam_sp}
         ))
     
             for i in range(len(df_er['lat'])):
@@ -827,7 +831,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             line={'color':'violet', 'width':3},
             text=df_er['路線名称'][i],
             hoverinfo=['text', 'name'],
-            name='EMERGENCY ROUTE'
+            name='EMERGENCY ROUTE',
+            font={'family':font_fam_sp}
         ))
         
             fig.add_trace(go.Scattermapbox(
@@ -837,7 +842,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         marker={'size': list(df_sh['size']), 'symbol': 'lodging', 'color': 'deeppink'},
         text=list(df_sh['名称']),
         hoverinfo=['text', 'name'],
-        name='SHELTER'
+        name='SHELTER',
+        font={'family':font_fam_sp}
     ))
     
             fig.add_trace(go.Scattermapbox(
@@ -847,7 +853,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         marker={'size': list(df_pa['size']), 'symbol': 'park', 'color': 'lightgreen'},
         text=list(df_pa['公園名']),
         hoverinfo=['text', 'name'],
-        name='PARK'
+        name='PARK',
+        font={'family':font_fam_sp}
     ))
     
             for j in range(len(df_bo['lat'])):
@@ -857,7 +864,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         mode='lines',
         line={'color':'orangered', 'width':7},
         hoverinfo=['name'],
-        name='境界線'
+        name='境界線',
+        font={'family':font_fam_sp}
     ))
     
             fig.add_trace(go.Scattermapbox(
@@ -867,7 +875,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         marker={'size': list(df_hellowcycle['size']), 'symbol':'bicycle-share', 'color':'black'},
         hoverinfo=['text', 'name'],
         hovertext=list(df_hellowcycle['parking_type']),
-        name='ハローサイクリング'
+        name='ハローサイクリング',
+        font={'family':font_fam_sp}
     ))
     
             fig.add_trace(go.Scattermapbox(
@@ -878,7 +887,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             size=list(df_docomo['size']), symbol='bicycle-share', color='black'),
         text=list(df_docomo['capacity']),
         hoverinfo=['text', 'name'],
-        name='docomo'
+        name='docomo',
+        font={'family':font_fam_sp}
     ))
 
             fig.update_layout(autosize=False,
@@ -891,7 +901,8 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             lat=avg_lat,
             lon=avg_lon
         )},
-        showlegend = False, paper_bgcolor = 'mintcream')
+        showlegend = False, paper_bgcolor = 'mintcream',
+            font={'family':font_fam_sp})
     
         except Exception as e:
             print(e)
@@ -922,7 +933,8 @@ def map_drawing(values_ln):
         marker={'size': 15, 'symbol': list(df_landmark['symbol']), 'color': list(df_landmark['color'])},
         hovertext=list(df_landmark['名称']),
         hoverinfo=['text', 'name'],
-        name='LANDMARK'
+        name='LANDMARK',
+        font={'family':font_fam_sp}
     )
     
     trace_station = go.Scattermapbox(
@@ -932,7 +944,8 @@ def map_drawing(values_ln):
         marker={'size': 15, 'symbol': 'rail', 'color': 'purple'},
         hovertext=list(df_station['駅名']),
         hoverinfo=['text', 'name'],
-        name='STATION'
+        name='STATION',
+        font={'family':font_fam_sp}
     )
     
     trace_emergency_route = []
@@ -945,7 +958,8 @@ def map_drawing(values_ln):
             line={'color':'violet', 'width':5},
             hovertext=df_emergency_route['路線名称'][i],
             hoverinfo=['text', 'name'],
-            name='EMERGENCY ROUTE'
+            name='EMERGENCY ROUTE',
+            font={'family':font_fam_sp}
         )
         
         trace_emergency_route.append(trace_)
@@ -957,7 +971,8 @@ def map_drawing(values_ln):
         marker={'size': list(df_shelter['size']), 'symbol': 'lodging', 'color': 'deeppink'},
         hovertext=list(df_shelter['名称']),
         hoverinfo=['text', 'name'],
-        name='SHELTER'
+        name='SHELTER',
+        font={'family':font_fam_sp}
     )
     
     trace_park = go.Scattermapbox(
@@ -967,7 +982,8 @@ def map_drawing(values_ln):
         marker={'size': list(df_park['size']), 'symbol': 'park', 'color': 'lightgreen'},
         hovertext=list(df_park['公園名']),
         hoverinfo=['text', 'name'],
-        name='PARK'
+        name='PARK',
+        font={'family':font_fam_sp}
     )
     
     trace_border = go.Scattermapbox(
@@ -976,7 +992,8 @@ def map_drawing(values_ln):
         mode='lines',
         line={'color':'orangered', 'width':10},
         hoverinfo=['name'],
-        name='境界線'
+        name='境界線',
+        font={'family':font_fam_sp}
     )
     
     trace_hellowcycle = go.Scattermapbox(
@@ -986,7 +1003,8 @@ def map_drawing(values_ln):
         marker={'size': list(df_hellowcycle['size']), 'symbol':'bicycle-share', 'color':'black'},
         hoverinfo=['text', 'name'],
         hovertext=list(df_hellowcycle['parking_type']),
-        name='ハローサイクリング'
+        name='ハローサイクリング',
+        font={'family':font_fam_sp}
     )
     
     trace_docomo = go.Scattermapbox(
@@ -997,7 +1015,8 @@ def map_drawing(values_ln):
             size=list(df_docomo['size']), symbol='bicycle-share', color='black'),
         text=list(df_docomo['capacity']),
         hoverinfo=['text', 'name'],
-        name='docomo share cycle'
+        name='docomo share cycle',
+        font={'family':font_fam_sp}
     )
     
     traces = [trace_landmark, trace_station, trace_emergency_route, trace_shelter, trace_park, trace_border, 
@@ -1015,7 +1034,7 @@ def map_drawing(values_ln):
             lat=avg_lat,
             lon=avg_lon
         )},
-        showlegend = False, paper_bgcolor = 'aliceblue')
+        showlegend = False, paper_bgcolor = 'aliceblue', font={'family':font_fam_sp})
     
     if len(values_ln) != 0:
         for i in values_ln:
