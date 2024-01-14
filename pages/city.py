@@ -901,8 +901,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             lat=avg_lat,
             lon=avg_lon
         )},
-        showlegend = False, paper_bgcolor = 'mintcream',
-            font={'family':font_fam_sp})
+        showlegend = False, paper_bgcolor = 'mintcream')
     
         except Exception as e:
             print(e)
@@ -1034,7 +1033,7 @@ def map_drawing(values_ln):
             lat=avg_lat,
             lon=avg_lon
         )},
-        showlegend = False, paper_bgcolor = 'aliceblue', font={'family':font_fam_sp})
+        showlegend = False, paper_bgcolor = 'aliceblue')
     
     if len(values_ln) != 0:
         for i in values_ln:
