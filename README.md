@@ -105,7 +105,7 @@ nlplot==1.6.0
 
 
 #### Make graphs of your city!
-データアップロード、他自治体分析対応のグラフ（頭に☆がついているもの）の表示。下では東京23区の情報を可視化しています。`assets`のファイルでテストできます。
+データアップロード、他自治体分析対応のグラフ（頭に☆がついているもの）の表示。下では東京23区の情報を可視化しています（他に札幌市のデータでテスト済み）。`assets`のファイルでテストできます。
 
 ![スクリーンショット (633)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/773d3201-3ed5-48dc-a5b7-806466fcefe6)
 
