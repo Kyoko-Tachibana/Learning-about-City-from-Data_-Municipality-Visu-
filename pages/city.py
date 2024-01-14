@@ -692,13 +692,33 @@ def parse_content_lines(content, filename):
             df_in = gpd.read_file(
                 io.StringIO(decoded.decode('utf-8')))
             
-            df_in = df_in.set_geometry('geometry').explode(index_parts=True).reset_index(drop=True)
+            geometry_type = df_in['geometry'].geom_type.unique()[0]
             
-            df_in['lon_lat'] = df_in['geometry'].apply(extract_coordinates)
-            df_in['lon'] = df_in['lon_lat'].apply(lambda x: extract_lon(x))
-            df_in['lat'] = df_in['lon_lat'].apply(lambda x: extract_lat(x))
-            df_in.drop(columns=['geometry'], inplace=True)
+            if geometry_type == 'LineString':
+                df_in = df_in.set_geometry('geometry').explode(index_parts=True).reset_index(drop=True)
+                df_in['lon_lat'] = df_in['geometry'].apply(extract_coordinates)
+                df_in['lon'] = df_in['lon_lat'].apply(lambda x: extract_lon(x))
+                df_in['lat'] = df_in['lon_lat'].apply(lambda x: extract_lat(x))
+                df_in.drop(columns=['geometry'], inplace=True)
+                
+            elif geometry_type == 'MultiPolygon':
+                df_in = df_in.set_geometry('geometry').explode(index_parts=True).reset_index(drop=True)
+                df_in['lon'] = df_in['geometry'].apply(lambda geom: list(geom.exterior.coords.xy[0]) if geom else [])
+                df_in['lat'] = df_in['geometry'].apply(lambda geom: list(geom.exterior.coords.xy[1]) if geom else [])
+                df_in.drop(columns=['geometry'], inplace=True)
+                
+            elif geometry_type == 'Polygon':
+                df_in = df_in.set_geometry('geometry').explode(index_parts=True).reset_index(drop=True)
+                df_in['lon'] = df_in['geometry'].apply(lambda geom: list(geom.exterior.coords.xy[0]) if geom else [])
+                df_in['lat'] = df_in['geometry'].apply(lambda geom: list(geom.exterior.coords.xy[1]) if geom else [])
+                df_in.drop(columns=['geometry'], inplace=True)
 
+            elif geometry_type == 'MultiLineString':
+                df_in = df_in.set_geometry('geometry').explode(index_parts=True).reset_index(drop=True)
+                df_in['lon'] = df_in['geometry'].apply(lambda geom: list(geom.coords.xy[0]) if geom else [])
+                df_in['lat'] = df_in['geometry'].apply(lambda geom: list(geom.coords.xy[1]) if geom else [])
+                df_in.drop(columns=['geometry'], inplace=True)
+                
     except Exception as e:
         print(e)
         return None
@@ -732,21 +752,31 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             df_pa = parse_content_markers(c_pa, f_pa)
             df_bo = parse_content_lines(c_bo, f_bo)
         
-            df_sh['収容人数'] = df_sh['収容人数'].fillna(0)
-            df_pa['供用済面積'] = df_pa['供用済面積'].fillna(0)
             df_bo['lon'] = df_bo['lon'].apply(lambda x: listrize(x))
             df_bo['lat'] = df_bo['lat'].apply(lambda x: listrize(x))
             df_er['lon'] = df_er['lon'].apply(lambda x: listrize(x))
             df_er['lat'] = df_er['lat'].apply(lambda x: listrize(x))
-            df_sh['収容人数'] = df_sh['収容人数'].astype(float)
-            df_pa['供用済面積'] = df_pa['供用済面積'].astype(float)
         
             df_l['symbol'] = df_l['種類'].apply(lambda x: type_symbol_conversion(x))
             df_l['color'] = df_l['種類'].apply(lambda x: type_color_conversion(x))
-            df_sh['size'] = df_sh['収容人数'].apply(
-            lambda x: sizeconversion(x, df_sh['収容人数'].max(), df_sh['収容人数'].min()))
-            df_pa['size'] = df_pa['供用済面積'].apply(
-            lambda x: sizeconversion(x, df_pa['供用済面積'].max(), df_pa['供用済面積'].min()))
+
+            if '収容人数' in df_sh.columns:
+                df_sh['収容人数'] = df_sh['収容人数'].fillna(0)
+                df_sh['収容人数'] = df_sh['収容人数'].astype(float)
+                df_sh['size'] = df_sh['収容人数'].apply(
+                lambda x: sizeconversion(x, df_sh['収容人数'].max(), df_sh['収容人数'].min()))
+                
+            else:
+                df_sh['size'] = 10
+                
+            if '供用済面積' in df_pa.columns:
+                df_pa['供用済面積'] = df_pa['供用済面積'].fillna(0)
+                df_pa['供用済面積'] = df_pa['供用済面積'].astype(float)
+                df_pa['size'] = df_pa['供用済面積'].apply(
+                lambda x: sizeconversion(x, df_pa['供用済面積'].max(), df_pa['供用済面積'].min()))
+                
+            else:
+                df_pa['size'] = 10
         
             fig = go.Figure()
     
