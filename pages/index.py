@@ -38,12 +38,13 @@ layout = html.Div([
         dbc.Col(dcc.Markdown('''
             **『まちラーン』**
         ''', 
-        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': 40, 'color': 'midnightblue', 
-        'background-color':'lavender'}
+        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': 40, 'color': 'midnightblue'}
         )),
+    ], style={'margin': 0, 'position': 'relative', 'top': '50%', 'transform': 'translateY(-50%)'}),
+
+    dbc.Row([
         dbc.Col(dcc.Markdown('''
             **まちラーンでは各ページに表示されている、西東京市のデータに基づいた分析結果を見るのはもちろんのこと、**
-      
             **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
         ''', 
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': 15, 'color': 'black'}
@@ -59,6 +60,7 @@ layout = html.Div([
 
 ], style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
           'background-size': 'cover', 'background-position': 'center', 'margin': 0})
+
 
 
 
