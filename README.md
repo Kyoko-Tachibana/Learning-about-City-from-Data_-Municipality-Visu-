@@ -156,9 +156,3 @@ python app.py
 
 `Dash is running on http://0.0.0.0:5000/` というメッセージが出れば成功です。ブラウザで開いてください。動作が確認されているブラウザは Google Chrome, Microsoft Edge となっています。ページが表示されない場合は、`http://localhost:5000` を開いてみてください。
 
-
-
-## Licence
-MIT
-
-
