@@ -41,7 +41,7 @@ layout = html.Div([
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': 40, 'color': 'midnightblue', 
                'background-color':'lavender', 'width':'40%'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'25%'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'30%'}),
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
