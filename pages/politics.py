@@ -1344,10 +1344,11 @@ def get_network(year):
     color_palette='hls',
     width=1100,
     height=1000,
-    save=False,
-    theme='ggplot', 
-    bg_color='#d9e3f1'
+    save=False
     )
+
+    fig_co_network.update_layout(plot_bgcolor='#d9e3f1')
+    
     return fig_co_network
 
 
