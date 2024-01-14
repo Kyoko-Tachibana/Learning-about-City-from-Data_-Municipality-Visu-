@@ -1131,7 +1131,7 @@ layout = dbc.Container([html.Br(),
     2022, id='input-year-network', clearable=False)
              ]),
     html.Br(),
-    html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network')], color='dark')),
+    html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
     html.Br(),
     html.Br(),
     html.Br(),
@@ -1312,7 +1312,7 @@ layout = dbc.Container([html.Br(),
     ),
     brand = 'This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
     dark = True,
-    brand_style = {'font-size':10, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
+    brand_style = {'font-size':8, 'textAlign':'center', 'color':'darkkhaki', 'font': 'italic 1.2rem "Fira Sans", serif'},
     color = 'dark',
     sticky = 'bottom',
     style = {'height':40, 'position':'sticky', 'bottom':0}
@@ -1427,26 +1427,27 @@ def parse_content(content, filename):
         return html.Div([
             'There was an error processing this file.'
         ])
-    return html.Div(dbc.Tabs([
-        dbc.Tab(label='Party', children=[
+    return html.Div(
+        dbc.Tabs([
+        dbc.Tab(label='Party', children=[html.Br(),
             dcc.Graph(
                 figure=party_across_year_general(df_in, 0))
         ]),
-        dbc.Tab(label='Sex', children=[
+        dbc.Tab(label='Sex', children=[html.Br(),
             dcc.Graph(figure=sex_general(df_in, 0)
             )
         ]),
-        dbc.Tab(label='Age', children=[
+        dbc.Tab(label='Age', children=[html.Br(),
             dcc.Graph(
                 figure=age_general(df_in, 0)
             )
         ]),
-        dbc.Tab(label='Vote Rate', children=[
+        dbc.Tab(label='Vote Rate', children=[html.Br(),
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_in, 0)
             )
         ]),
-        dbc.Tab(label='Result', children=[
+        dbc.Tab(label='Result', children=[html.Br(),
             dcc.Graph(
                 figure=result_general(df_in, 0)
             )
