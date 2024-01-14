@@ -160,8 +160,8 @@ def population_general(df):
     fig.add_trace(go.Scatter(x=df['Year'], y=df['Pop_male'], name='Male Population', showlegend=True, hovertext='Male Population'), row=1, col=1)
     fig.add_trace(go.Scatter(x=df['Year'], y=df['Pop_female'], name='Female Population', showlegend=True, hovertext='Female Population')
                   , row=1, col=1)
-    fig.update_xaxes(title_text='Year', tickvals=list(df['Year'].unique()), row=1, col=1, font={'family':font_fam_sp})
-    fig.update_yaxes(title_text='Population', row=1, col=1, font={'family':font_fam_sp})
+    fig.update_xaxes(title_text='Year', tickvals=list(df['Year'].unique()), row=1, col=1, title_font={'family':font_fam_sp})
+    fig.update_yaxes(title_text='Population', row=1, col=1, title_font={'family':font_fam_sp})
     
     fig.add_trace(go.Bar(x=df['Year'], y=df['Household'], name='Number of Household', showlegend=True, hovertext='Number of Household')
                   , secondary_y=False, row=1, col=2)
@@ -169,8 +169,8 @@ def population_general(df):
                     hovertext='Number per a Household', showlegend=False), secondary_y=True, 
                   row=1, col=2)
     
-    fig.update_yaxes(title_text="Number per a Household", secondary_y=True, row=1, col=2, font={'family':font_fam_sp})
-    fig.update_yaxes(title_text="Number of Household", secondary_y=False, row=1, col=2, font={'family':font_fam_sp})
+    fig.update_yaxes(title_text="Number per a Household", secondary_y=True, row=1, col=2, title_font={'family':font_fam_sp})
+    fig.update_yaxes(title_text="Number of Household", secondary_y=False, row=1, col=2, title_font={'family':font_fam_sp})
     fig.update_xaxes(title_text='Year', row=1, col=2)
     fig.update_layout(paper_bgcolor="aliceblue", height=400, width=1000, legend={"itemsizing": "constant"})
     
