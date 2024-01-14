@@ -35,6 +35,8 @@ from itertools import compress
 import math
 import dash_bootstrap_components as dbc
 
+font_fam_sp = '"Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif'
+
 df=pd.read_csv('assets/Data_NishiTokyo_CityCouncil.csv', encoding='shift-jis')
 df_table=pd.read_csv('assets/Data_NishiTokyo_CityCouncil_fortable.csv', encoding='shift-jis')
 df_vote_rate = pd.read_csv('assets/Vote_rate.csv')
@@ -83,13 +85,14 @@ def candidate_info(df):
                 ['<b>VOTES<br></b>(%)'], ['<b>PREVIOUS<br>VOTES</b>'], ['<b>PREVIOUS<br>VOTES</b><br>(%)']],
                 fill_color='paleturquoise',
                 align='left',
-                font_size=10),
+                font_size=10,
+                font_family=font_fam_sp),
         cells=dict(values=[df_y_mayor.Candidate, df_y_mayor.Party, df_y_mayor.Age, df_y_mayor.Sex, df_y_mayor.Career, df_y_mayor.edu, df_y_mayor.wel, 
                            df_y_mayor.city, df_y_mayor.other, df_y_mayor.Vote_num, df_y_mayor.Vote, df_y_mayor.Vote_num_p, 
                            df_y_mayor.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y_mayor.Result))]]*13,
                align='left',
-               font=dict(color='black', size=9))))
+               font=dict(color='black', size=9, family=font_fam_sp))))
 
 
     fig.update_layout(
@@ -100,51 +103,51 @@ def candidate_info(df):
                 dict(label="2022 第6回市議会議員選挙",
                      method="update",
                      args=[{"visible": [True, False, False, False, False, False, False, False, False, False, False, False]},
-                           {"title": "<b>6th City Council Election 2022</b>"}]),
+                           {"title": "<b>6th City Council Election 2022</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2018 第5回市議会議員選挙",
                      method="update",
                      args=[{"visible": [False, True, False, False, False, False, False, False, False, False, False, False]},
-                           {"title": "<b>5th City Council Election 2018</b>"}]),
+                           {"title": "<b>5th City Council Election 2018</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2014 第4回市議会議員選挙",
                      method="update",
                      args=[{"visible": [False, False, True, False, False, False, False, False, False, False, False, False]},
-                           {"title": "<b>4th City Council Election 2014</b>"}]),
+                           {"title": "<b>4th City Council Election 2014</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2010 第3回市議会議員選挙",
                      method="update",
                      args=[{"visible": [False, False, False, True, False, False, False, False, False, False, False, False]},
-                           {"title": "<b>3rd City Council Election 2010</b>"}]),
+                           {"title": "<b>3rd City Council Election 2010</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2006 第2回市議会議員選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, True, False, False, False, False, False, False, False]},
-                           {"title": "<b>2nd City Council Election 2006</b>"}]),
+                           {"title": "<b>2nd City Council Election 2006</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2002 第1回市議会議員選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, True, False, False, False, False, False, False]},
-                           {"title": "<b>1st City Council Election 2002</b>"}]),
+                           {"title": "<b>1st City Council Election 2002</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2021 第6回市長選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, False, True, False, False, False, False, False]},
-                           {"title": "<b>6th Mayor Election 2021</b>"}]),
+                           {"title": "<b>6th Mayor Election 2021</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2017 第5回市長選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, False, False, True, False, False, False, False]},
-                           {"title": "<b>5th Mayor Election 2017</b>"}]),
+                           {"title": "<b>5th Mayor Election 2017</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2013 第4回市長選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, False, False, False, True, False, False, False]},
-                           {"title": "<b>4th Mayor Election 2013</b>"}]),
+                           {"title": "<b>4th Mayor Election 2013</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2009 第3回市長選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, False, False, False, False, True, False, False]},
-                           {"title": "<b>3rd City Council Election 2010</b>"}]),
+                           {"title": "<b>3rd City Council Election 2010</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2005 第2回市長選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, False, False, False, False, False, True, False]},
-                           {"title": "<b>2nd Mayor Election 2005</b>"}]),
+                           {"title": "<b>2nd Mayor Election 2005</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="2001 第1回市長選挙",
                      method="update",
                      args=[{"visible": [False, False, False, False, False, False, False, False, False, False, False, True]},
-                           {"title": "<b>1st Mayor Election 2001</b>"}])
+                           {"title": "<b>1st Mayor Election 2001</b>", 'font':{'family':font_fam_sp}}])
             ]),
             direction="down",
             pad={"r": 10, "t": 10},
@@ -164,7 +167,7 @@ def candidate_info(df):
     template="plotly_white",
     )
 
-    fig.update_layout(title='<b>Choose a year</b>')
+    fig.update_layout(title='<b>Choose a year</b>', title_font={'family':font_fam_sp})
 
     return fig
 
@@ -190,15 +193,15 @@ def vote_rate_council_mayor_general(df, n):
                 dict(label="City Council",
                      method="update",
                      args=[{"visible": [True, True, False, False]},
-                           {"title": "<b>Vote Rate and number of City council election</b>"}]),
+                           {"title": "<b>Vote Rate and number of City council election</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="Mayor",
                      method="update",
                      args=[{"visible": [False, False, True, True]},
-                           {"title": "<b>Vote Rate and number of Mayor election</b>"}]),
+                           {"title": "<b>Vote Rate and number of Mayor election</b>", 'font':{'family':font_fam_sp}}]),
                 dict(label="City Council & Mayor",
                      method="update",
                      args=[{"visible": [True, True, True, True]},
-                           {"title": "<b>Vote Rate and number of City council election and Mayor election</b>"}])
+                           {"title": "<b>Vote Rate and number of City council election and Mayor election</b>", 'font':{'family':font_fam_sp}}])
                 
             ]),
             direction="down",
@@ -211,9 +214,9 @@ def vote_rate_council_mayor_general(df, n):
        )
     ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", xaxis_title='Year')
-    fig.update_yaxes(title_text="Vote Rate", secondary_y=True)
-    fig.update_yaxes(title_text="Vote Number", secondary_y=False)
+    fig.update_layout(title_text="<b>Choose a year</b>", xaxis_title='Year', title_font={'family':font_fam_sp})
+    fig.update_yaxes(title_text="Vote Rate", secondary_y=True, title_font={'family':font_fam_sp})
+    fig.update_yaxes(title_text="Vote Number", secondary_y=False, title_font={'family':font_fam_sp})
     
     fig.update_layout(
     dragmode="select", hovermode='closest', clickmode='select', template='plotly_white')
@@ -241,7 +244,7 @@ def result_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>Distribution of Result across candidates {}</b>".format(year)}])
+                           {"title": "<b>Distribution of Result across candidates {}</b>".format(year), 'font':{'family':font_fam_sp}}])
         button_list.append(button)
 
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -258,7 +261,7 @@ def result_general(df, n):
             yanchor="top")
           ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white')
+    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp})
     
     return fig     
 
@@ -283,7 +286,7 @@ def sex_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>Distribution of Sex across candidates {}</b>".format(year)}])
+                           {"title": "<b>Distribution of Sex across candidates {}</b>".format(year), 'font':{'family':font_fam_sp}}])
         button_list.append(button)
         
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -300,7 +303,7 @@ def sex_general(df, n):
             yanchor="top")
           ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white')
+    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp})
     
     return fig 
 
@@ -339,7 +342,7 @@ def party_across_year_general(df, n):
             y=1.35,
             yanchor="top")])
 
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white')
+    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp})
     
     return fig
 
@@ -361,7 +364,7 @@ def age_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>Distribution of Age across candidates {}</b>".format(year)}])
+                           {"title": "<b>Distribution of Age across candidates {}</b>".format(year), 'font':{'family':font_fam_sp}}])
         button_list.append(button)
 
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -379,7 +382,7 @@ def age_general(df, n):
             yanchor="top")
             ])
 
-    fig.update_layout(title_text="<b>Choose a year</b>", template = 'plotly_white')
+    fig.update_layout(title_text="<b>Choose a year</b>", template = 'plotly_white', title_font={'family':font_fam_sp})
 
     return fig
 
@@ -433,11 +436,12 @@ def parcat_general6(df):
         categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[0])), 
         ticktext=list(compress(['{}-{}'.format(age_min, age_min+da), '{}-{}'.format(age_min+da, age_min+2*da), 
         '{}-{}'.format(age_min+2*da, age_min+3*da), '{}-{}'.format(age_min+3*da, age_min+4*da), 
-        '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])))
+        '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])),
+        Tickfont={'family':font_fam_sp})
 
-        sex_dim = go.parcats.Dimension(values=df_y['Sex'], label="SEX")
+        sex_dim = go.parcats.Dimension(values=df_y['Sex'], label="SEX", Tickfont={'family':font_fam_sp})
 
-        party_dim = go.parcats.Dimension(values=df_y['Party'], label="PARTY")
+        party_dim = go.parcats.Dimension(values=df_y['Party'], label="PARTY", Tickfont={'family':font_fam_sp})
 
         votedrate_dim = go.parcats.Dimension(
         values=df_y['Vote_new'], label="VOTE(%)", categoryorder='array', categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[1])),
@@ -445,7 +449,8 @@ def parcat_general6(df):
                                                                                    votedrate_min+2*dvr), 
         '{}-{}'.format(votedrate_min+2*dvr, votedrate_min+3*dvr), '{}-{}'.format(votedrate_min+3*dvr, 
                                                                                  votedrate_min+4*dvr), 
-        '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[1])))
+        '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[1])),
+        Tickfont={'family':font_fam_sp})
 
         votedratef_dim = go.parcats.Dimension(
         values=df_y['Vote_p_new'], label="PREVIOUS VOTE(%)", categoryorder='array', categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[2])),
@@ -453,33 +458,34 @@ def parcat_general6(df):
                                                                                       votedratef_min+2*dvrf), 
         '{}-{}'.format(votedratef_min+2*dvrf, votedratef_min+3*dvrf), '{}-{}'.format(votedratef_min+3*dvrf, 
                                                                                      votedratef_min+4*dvrf), 
-        '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[2])))
+        '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[2])),
+        Tickfont={'family':font_fam_sp})
 
         if 0 in df_y['Result_p'].unique() and 1 in df_y['Result_p'].unique():
 
             electedf_dim = go.parcats.Dimension(values=df_y['Result_p'], label='PREVIOUS RESULT', categoryorder = 'array', categoryarray=[0, 1], 
-                                       ticktext=['Not elected', 'Elected'])
+                                       ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
         if 0 not in df_y['Result_p'].unique():
             
             electedf_dim = go.parcats.Dimension(values=df_y['Result_p'], label='PREVIOUS RESULT', categoryorder = 'array', categoryarray=[1], 
-                                       ticktext=['Elected'])
+                                       ticktext=['Elected'], Tickfont={'family':font_fam_sp})
         if 1 not in df_y['Result_p'].unique():
             
             electedf_dim = go.parcats.Dimension(values=df_y['Result_p'], label='PREVIOUS RESULT', categoryorder = 'array', categoryarray=[0], 
-                                       ticktext=['Not Elected'])
+                                       ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})
 
         if 0 in df_y['Result'].unique() and 1 in df_y['Result'].unique():
 
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0, 1], 
-                                       ticktext=['Not elected', 'Elected'])
+                                       ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
         if 0 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[1], 
-                                       ticktext=['Elected'])
+                                       ticktext=['Elected'], Tickfont={'family':font_fam_sp})
         if 1 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0], 
-                                       ticktext=['Not Elected'])
+                                       ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})
 
         full_ats = [age_dim, sex_dim, party_dim, votedrate_dim, votedratef_dim, electedf_dim, elected_dim]
 
@@ -500,7 +506,8 @@ def parcat_general6(df):
         label="{}".format(yunique[i]),
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i])}]))
+        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]),
+        'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="lightgray",
         updatemenus=[
@@ -589,7 +596,8 @@ def parcat_general5(df):
                                                                                    votedrate_min+2*dvr), 
         '{}-{}'.format(votedrate_min+2*dvr, votedrate_min+3*dvr), '{}-{}'.format(votedrate_min+3*dvr, 
                                                                                  votedrate_min+4*dvr), 
-        '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[1])))
+        '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[1])),
+        Tickfont={'family':font_fam_sp})
 
         votedratef_dim = go.parcats.Dimension(
         values=df_y['Vote_p_new'], label="PREVIOUS VOTE(%)", categoryorder='array', categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[2])),
@@ -597,20 +605,21 @@ def parcat_general5(df):
                                                                                       votedratef_min+2*dvrf), 
         '{}-{}'.format(votedratef_min+2*dvrf, votedratef_min+3*dvrf), '{}-{}'.format(votedratef_min+3*dvrf, 
                                                                                      votedratef_min+4*dvrf), 
-        '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[2])))
+        '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[2])),
+        Tickfont={'family':font_fam_sp})
 
         if 0 in df_y['Result'].unique() and 1 in df_y['Result'].unique():
 
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0, 1], 
-                                       ticktext=['Not elected', 'Elected'])
+                                       ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
         if 0 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[1], 
-                                       ticktext=['Elected'])
+                                       ticktext=['Elected'], Tickfont={'family':font_fam_sp})
         if 1 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0], 
-                                       ticktext=['Not Elected'])
+                                       ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})
 
         full_ats = [age_dim, sex_dim, party_dim, votedrate_dim, votedratef_dim, elected_dim]
 
@@ -619,8 +628,8 @@ def parcat_general5(df):
 
         fig.add_trace(go.Parcats(dimensions=full_ats,            
                   hoveron='color', hoverinfo='count+probability',
-                  labelfont={'size': 15, 'family': 'Times'},
-                  tickfont={'size': 13, 'family': 'Times'},
+                  labelfont={'size': 15, 'family': font_fam_sp},
+                  tickfont={'size': 13, 'family': font_fam_sp},
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'}))
     
@@ -631,7 +640,8 @@ def parcat_general5(df):
         label="{}".format(yunique[i]),
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i])}]))
+        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]), 
+         'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="lightgray",
         updatemenus=[
@@ -705,11 +715,12 @@ def parcat_general4(df):
         categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[0])), 
         ticktext=list(compress(['{}-{}'.format(age_min, age_min+da), '{}-{}'.format(age_min+da, age_min+2*da), 
         '{}-{}'.format(age_min+2*da, age_min+3*da), '{}-{}'.format(age_min+3*da, age_min+4*da), 
-        '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])))
+        '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])),
+                                      Tickfont={'family':font_fam_sp})
 
-        sex_dim = go.parcats.Dimension(values=df_y['Sex'], label="SEX")
+        sex_dim = go.parcats.Dimension(values=df_y['Sex'], label="SEX", Tickfont={'family':font_fam_sp})
 
-        party_dim = go.parcats.Dimension(values=df_y['Party'], label="PARTY")
+        party_dim = go.parcats.Dimension(values=df_y['Party'], label="PARTY", Tickfont={'family':font_fam_sp})
 
         votedrate_dim = go.parcats.Dimension(
         values=df_y['Vote_new'], label="VOTE(%)", categoryorder='array', categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[1])),
@@ -717,20 +728,20 @@ def parcat_general4(df):
                                                                                    votedrate_min+2*dvr), 
         '{}-{}'.format(votedrate_min+2*dvr, votedrate_min+3*dvr), '{}-{}'.format(votedrate_min+3*dvr, 
                                                                                  votedrate_min+4*dvr), 
-        '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[1])))
+        '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[1])), Tickfont={'family':font_fam_sp})
 
         if 0 in df_y['Result'].unique() and 1 in df_y['Result'].unique():
 
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0, 1], 
-                                       ticktext=['Not elected', 'Elected'])
+                                       ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
         if 0 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[1], 
-                                       ticktext=['Elected'])
+                                       ticktext=['Elected'], Tickfont={'family':font_fam_sp})
         if 1 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0], 
-                                       ticktext=['Not Elected'])
+                                       ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})
 
         full_ats = [age_dim, sex_dim, party_dim, votedrate_dim, elected_dim]
 
@@ -739,8 +750,8 @@ def parcat_general4(df):
 
         fig.add_trace(go.Parcats(dimensions=full_ats,            
                   hoveron='color', hoverinfo='count+probability',
-                  labelfont={'size': 15, 'family': 'Times'},
-                  tickfont={'size': 13, 'family': 'Times'},
+                  labelfont={'size': 15, 'family': font_fam_sp},
+                  tickfont={'size': 13, 'family': font_fam_sp},
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'}))
     
@@ -751,7 +762,8 @@ def parcat_general4(df):
         label="{}".format(yunique[i]),
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i])}]))
+        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]),
+        'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="lightgray",
         updatemenus=[
@@ -821,24 +833,24 @@ def parcat_general3(df):
         categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[0])), 
         ticktext=list(compress(['{}-{}'.format(age_min, age_min+da), '{}-{}'.format(age_min+da, age_min+2*da), 
         '{}-{}'.format(age_min+2*da, age_min+3*da), '{}-{}'.format(age_min+3*da, age_min+4*da), 
-        '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])))
+        '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])), Tickfont={'family':font_fam_sp})
 
-        sex_dim = go.parcats.Dimension(values=df_y['Sex'], label="SEX")
+        sex_dim = go.parcats.Dimension(values=df_y['Sex'], label="SEX", Tickfont={'family':font_fam_sp})
 
-        party_dim = go.parcats.Dimension(values=df_y['Party'], label="PARTY")
+        party_dim = go.parcats.Dimension(values=df_y['Party'], label="PARTY", Tickfont={'family':font_fam_sp})
         
         if 0 in df_y['Result'].unique() and 1 in df_y['Result'].unique():
 
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0, 1], 
-                                       ticktext=['Not elected', 'Elected'])
+                                       ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
         if 0 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[1], 
-                                       ticktext=['Elected'])
+                                       ticktext=['Elected'], Tickfont={'family':font_fam_sp})
         if 1 not in df_y['Result'].unique():
             
             elected_dim = go.parcats.Dimension(values=df_y['Result'], label='RESULT', categoryorder = 'array', categoryarray=[0], 
-                                       ticktext=['Not Elected'])    
+                                       ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})    
         
 
         full_ats = [age_dim, sex_dim, party_dim, elected_dim]
@@ -848,8 +860,8 @@ def parcat_general3(df):
 
         fig.add_trace(go.Parcats(dimensions=full_ats,            
                   hoveron='color', hoverinfo='count+probability',
-                  labelfont={'size': 15, 'family': 'Times'},
-                  tickfont={'size': 13, 'family': 'Times'},
+                  labelfont={'size': 15, 'family': font_fam_sp},
+                  tickfont={'size': 13, 'family': font_fam_sp},
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'}))
         
@@ -863,7 +875,7 @@ def parcat_general3(df):
         label=label,
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": title}]))
+        {"title": title, 'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="lightgray",
         updatemenus=[
@@ -1521,65 +1533,70 @@ def parcat_dash(entered_year, entered_attributes):
                      categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[0])),
                      ticktext=list(compress(['{}-{}'.format(age_min, age_min+da), '{}-{}'.format(age_min+da, age_min+2*da), 
                      '{}-{}'.format(age_min+2*da, age_min+3*da), '{}-{}'.format(age_min+3*da, age_min+4*da), 
-                     '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])))
+                     '{}-{}'.format(age_min+4*da, age_min+5*da)], counts_ln[0])),
+                                          Tickfont={'family':font_fam_sp})
 
-            sex_dim = go.parcats.Dimension(values=df['Sex'], label="SEX")
+            sex_dim = go.parcats.Dimension(values=df['Sex'], label="SEX", Tickfont={'family':font_fam_sp})
 
-            party_dim = go.parcats.Dimension(values=df['Party'], label="PARTY")
+            party_dim = go.parcats.Dimension(values=df['Party'], label="PARTY", Tickfont={'family':font_fam_sp})
  
             vote_dim = go.parcats.Dimension(values=df['Vote_num_new'], label='VOTE', categoryorder='array', 
                       categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[1])),
                       ticktext=list(compress(['{}-{}'.format(vote_min, vote_min+dv), '{}-{}'.format(vote_min+dv, vote_min+2*dv), 
                       '{}-{}'.format(vote_min+2*dv, vote_min+3*dv), '{}-{}'.format(vote_min+3*dv, vote_min+4*dv), 
-                      '{}-{}'.format(vote_min+4*dv, vote_min+5*dv)], counts_ln[1])))
+                      '{}-{}'.format(vote_min+4*dv, vote_min+5*dv)], counts_ln[1])),
+                                           Tickfont={'family':font_fam_sp})
 
             votedrate_dim = go.parcats.Dimension(values=df['Vote_new'], label="VOTE(%)", categoryorder='array', 
                            categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[2])),
                            ticktext=list(compress(['{}-{}'.format(votedrate_min, votedrate_min+dvr), '{}-{}'.format(votedrate_min+dvr, votedrate_min+2*dvr), 
                            '{}-{}'.format(votedrate_min+2*dvr, votedrate_min+3*dvr), '{}-{}'.format(votedrate_min+3*dvr, votedrate_min+4*dvr), 
-                           '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[2])))
+                           '{}-{}'.format(votedrate_min+4*dvr, votedrate_min+5*dvr)], counts_ln[2])),
+                                                Tickfont={'family':font_fam_sp})
 
             votef_dim = go.parcats.Dimension(values=df['Vote_num_p_new'], label='PREVIOUS VOTE', categoryorder='array', 
                        categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[3])),
                        ticktext=list(compress(['{}-{}'.format(votef_min, votef_min+dvf), '{}-{}'.format(votef_min+dvf, votef_min+2*dvf), 
                        '{}-{}'.format(votef_min+2*dvf, votef_min+3*dvf), '{}-{}'.format(votef_min+3*dvf, votef_min+4*dvf), 
-                       '{}-{}'.format(votef_min+4*dvf, votef_min+5*dvf)], counts_ln[3])))
+                       '{}-{}'.format(votef_min+4*dvf, votef_min+5*dvf)], counts_ln[3])),
+                                            Tickfont={'family':font_fam_sp})
 
             votedratef_dim = go.parcats.Dimension(values=df['Vote_p_new'], label="PREVIOUS VOTE(%)", categoryorder='array', 
                             categoryarray=list(compress([0, 1, 2, 3, 4], counts_ln[4])),
                             ticktext=list(compress(['{}-{}'.format(votedratef_min, votedratef_min+dvrf), '{}-{}'.format(votedratef_min+dvrf, votedratef_min+2*dvrf), 
                             '{}-{}'.format(votedratef_min+2*dvrf, votedratef_min+3*dvrf), '{}-{}'.format(votedratef_min+3*dvrf, votedratef_min+4*dvrf), 
-                            '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[4])))
+                            '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[4])),
+                                                 Tickfont={'family':font_fam_sp})
 
             if 0 in df['Result_p'].unique() and 1 in df['Result_p'].unique():
 
                 electedf_dim = go.parcats.Dimension(values=df['Result_p'], label='PREVIOUS RESULT', categoryarray=[0, 1], categoryorder = 'array',
-                          ticktext=['Not elected', 'Elected'])
+                          ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
                 
             if 0 not in df['Result_p'].unique():
                 
                 electedf_dim = go.parcats.Dimension(values=df['Result_p'], label='PREVIOUS RESULT', categoryarray=[1], categoryorder = 'array',
-                          ticktext=['Elected'])
+                          ticktext=['Elected'], Tickfont={'family':font_fam_sp})
                 
             if 1 not in df['Result_p'].unique():
                 
                 electedf_dim = go.parcats.Dimension(values=df['Result_p'], label='PREVIOUS RESULT', categoryarray=[0], categoryorder = 'array',
-                          ticktext=['Not Elected'])
+                          ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})
     
             if 0 in df['Result'].unique() and 1 in df['Result'].unique():
     
                 elected_dim = go.parcats.Dimension(values=df['Result'], label='RESULT', categoryarray=[0, 1], categoryorder = 'array',
-                          ticktext=['Not elected', 'Elected'])
+                          ticktext=['Not elected', 'Elected'], Tickfont={'family':font_fam_sp})
         
             if 0 not in df['Result'].unique():       
                 
                 elected_dim = go.parcats.Dimension(values=df['Result'], label='RESULT', categoryarray=[1], categoryorder = 'array',
-                          ticktext=['Elected'])
+                          ticktext=['Elected'], Tickfont={'family':font_fam_sp})
                 
             if 1 not in df['Result'].unique():
                 
                 elected_dim = go.parcats.Dimension(values=df['Result'], label='RESULT', categoryarray=[0], categoryorder = 'array',
-                          ticktext=['Not Elected'])
+                          ticktext=['Not Elected'], Tickfont={'family':font_fam_sp})
                 
             full_ats = [age_dim, sex_dim, party_dim, vote_dim, votedrate_dim, votef_dim, votedratef_dim, electedf_dim]
 
@@ -1595,13 +1612,13 @@ def parcat_dash(entered_year, entered_attributes):
             fig = go.Figure(
                   data = [go.Parcats(dimensions=dimensions,            
                   hoveron='color', hoverinfo='count+probability',
-                  labelfont={'size': 15, 'family': 'Times'},
-                  tickfont={'size': 13, 'family': 'Times'},
+                  labelfont={'size': 15, 'family': font_fam_sp},
+                  tickfont={'size': 13, 'family': font_fam_sp},
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'})])
             
             fig.update_layout(paper_bgcolor = 'lavenderblush',
-                             title = '<b>{}</b>'.format(entered_year))
+                             title = '<b>{}</b>'.format(entered_year), title_font={'family':font_fam_sp})
             
             fig.show()
     
@@ -1737,8 +1754,8 @@ def parcat_dash(entered_year, entered_attributes):
 
             fig = go.Figure(data = [go.Parcats(dimensions=dimensions,            
                   hoveron='color', hoverinfo='count+probability',
-                  labelfont={'size': 15, 'family': 'Times'},
-                  tickfont={'size': 13, 'family': 'Times'},
+                  labelfont={'size': 15, 'family': font_fam_sp},
+                  tickfont={'size': 13, 'family': font_fam_sp},
                   arrangement='freeform',
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'})])
             
