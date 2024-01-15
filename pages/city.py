@@ -571,9 +571,9 @@ layout = dbc.Container([
         color='info',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
-    ), style={'overflow-x':'hidden'}
+    )
 
-])
+], style={'overflow-x':'hidden'})
 
 
 # In[ ]:
