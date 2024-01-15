@@ -41,7 +41,7 @@ layout = html.Div([
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '4.5vw', 'color': 'midnightblue', 
                'background-color':'lavender', 'width':'40vw'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'35vw'}),
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
@@ -49,18 +49,18 @@ layout = html.Div([
             
             **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
         ''', 
-        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.42vw', 'color': 'black', 'width':'80vw'}
+        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.42vw', 'color': 'black', 'width':'70%'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'10vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
 
     dbc.Row([
         dbc.Col(dbc.Button('政治', href='/politics', outline=True, 
-               style={'font-family': 'Yu Gothic', 'font-size': '5vw', 'textAlign': 'center'}, color='light', size='lg')),
+               style={'font-family': 'Yu Gothic', 'font-size': '4vw', 'textAlign': 'center'}, color='light', size='lg')),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
-               style={'font-family': 'Yu Gothic', 'font-size': '5vw', 'textAlign': 'center'}, color='light', size='lg')),
+               style={'font-family': 'Yu Gothic', 'font-size': '4vw', 'textAlign': 'center'}, color='light', size='lg')),
     ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'20%'}),
 
-], style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 'width':'100vw', 
+], style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
           'background-size': 'cover', 'background-position': 'center', 'margin': 0})
 
 
