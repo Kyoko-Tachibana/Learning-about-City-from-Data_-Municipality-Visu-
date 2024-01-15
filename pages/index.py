@@ -41,7 +41,7 @@ layout = html.Div([
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '4.5vw', 'color': 'midnightblue', 
                'background-color':'lavender', 'width':'40vw'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'35vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
@@ -49,19 +49,19 @@ layout = html.Div([
             
             **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
         ''', 
-        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '2vw', 'color': 'black', 'width':'70%'}
+        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '2vw', 'color': 'black', 'width':'80%'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'10vw'}),
 
     dbc.Row([
         dbc.Col(dbc.Button('政治', href='/politics', outline=True, 
-               style={'font-family': 'Yu Gothic', 'font-size': '4vw', 'textAlign': 'center'}, color='light', size='lg')),
+               style={'font-family': 'Yu Gothic', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
-               style={'font-family': 'Yu Gothic', 'font-size': '4vw', 'textAlign': 'center'}, color='light', size='lg')),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'20%'}),
+               style={'font-family': 'Yu Gothic', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
+    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20%'}),
 
-], style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
-          'background-size': 'cover', 'background-position': 'center', 'margin': 0})
+],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
+          'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'})
 
 
 
