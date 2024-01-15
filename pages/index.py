@@ -58,7 +58,7 @@ layout = html.Div([
                style={'font-family': 'Yu Gothic', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
                style={'font-family': 'Yu Gothic', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
-    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20%'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
           'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'})
