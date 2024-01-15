@@ -1323,7 +1323,7 @@ layout = dbc.Container([html.Br(),
     dbc.NavbarSimple(
         dbc.NavItem(
             dbc.Row([
-                dbc.Col(html.Img(src='assets/github_mark.png', height=15,
+                dbc.Col(html.Img(src='assets/github_mark.png', height='5vh',
                                  style={'position': 'relative', 'top': '16%', 'left': '83%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
@@ -1333,7 +1333,7 @@ layout = dbc.Container([html.Br(),
         ),
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
         dark=True,
-        brand_style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'navy',
+        brand_style={'font-size': '3vw', 'textAlign': 'center', 'color': 'navy',
                      'font': 'italic 1.2rem "Fira Sans", serif'},
         color='info',
         sticky='bottom',
