@@ -1057,14 +1057,23 @@ layout = dbc.Container([html.Br(),
     html.Hr(),
     html.Br(),
     html.Br(),
-    html.Div(['Choose a year: ', dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', clearable=False,
-                                             style={'color':'midnightblue', 'width':'20vw'})
-             ]),
-    
-    html.Div([html.Div(['Choose Attributes: ', 
-    dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], id='attributes', inline=True,
-                  style = {'display': 'flex', 'color':'midnightblue'}
-                 )])]),
+    html.Div(dbc.Card(
+        dbc.CardBody([dbc.Col([
+                  dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
+                  dbc.Row(
+                  children=[
+                            dcc.Markdown('''Choose a year''', style={'color':'white'}), 
+                            dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', 
+                                                  clearable=False, style={'width':'15vw', 'color':'white'})]), 
+                  dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
+                          dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
+                                         'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], 
+                                    id='attributes', inline=True, style = {'display': 'flex', 'color':'white'}
+                 )])
+              ])
+            ]), color = 'info'
+          )
+         ),
     html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
     html.Div(id='selection_completed'),
@@ -1130,9 +1139,14 @@ layout = dbc.Container([html.Br(),
     html.Hr(),
     html.Br(),
     html.Br(),
-    html.Div(['Choose a year: ', dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
-    2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'20vw'})
-             ]),
+    html.Div(dbc.Card(dbc.CardBody([dbc.Col([
+        dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
+        dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white'}), 
+                          dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
+    2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw'})
+             ])
+    ])
+    ]))),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
     html.Br(),
