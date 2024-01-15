@@ -1034,12 +1034,14 @@ layout = dbc.Container([html.Br(),
             dbc.CardBody([
             html.P( 
             dcc.Markdown('''
-            Each rectangle corresponds to a discrete value taken on by that variable. 
-            The relative heights of the rectangles reflect the relative frequency of 
-            occurrence of the corresponding value.
-            Combinations of category rectangles across dimensions are connected by ribbons, 
-            where the height of the ribbon corresponds to the relative frequency of 
-            occurrence of the combination of categories in the data set.
+            > Each rectangle corresponds to a discrete value taken on by that variable. 
+            > The relative heights of the rectangles reflect the relative frequency of 
+            > occurrence of the corresponding value.
+            > Combinations of category rectangles across dimensions are connected by ribbons, 
+            > where the height of the ribbon corresponds to the relative frequency of 
+            > occurrence of the combination of categories in the data set.
+
+            [(Plotly Official Document)](https://plotly.com/python/parallel-categories-diagram/)
             
             Ribbons highlighted in green are those of candidates elected.
             
@@ -1055,12 +1057,13 @@ layout = dbc.Container([html.Br(),
     html.Hr(),
     html.Br(),
     html.Br(),
-    html.Div(['Choose a year: ', dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', clearable=False)
+    html.Div(['Choose a year: ', dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', clearable=False,
+                                             style={'color':'midnightblue', 'width':'20vw'})
              ]),
     
     html.Div([html.Div(['Choose Attributes: ', 
     dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], id='attributes', inline=True,
-                  style = {'display': 'flex'}
+                  style = {'display': 'flex', 'color':'midnightblue'}
                  )])]),
     html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
@@ -1128,7 +1131,7 @@ layout = dbc.Container([html.Br(),
     html.Br(),
     html.Br(),
     html.Div(['Choose a year: ', dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
-    2022, id='input-year-network', clearable=False)
+    2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'20vw'})
              ]),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
@@ -1306,18 +1309,18 @@ layout = dbc.Container([html.Br(),
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': '20%', 'left': '80%'})),
+                                 style={'position': 'relative', 'top': '10%', 'left': '83%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
-                                style={'font-size': 10, 'textAlign': 'center', 'color': 'darkkhaki'}))
+                                style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'azure'}))
             ])
         ),
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
         dark=True,
-        brand_style={'font-size': 5, 'textAlign': 'center', 'color': 'darkkhaki',
+        brand_style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'azure',
                      'font': 'italic 1.2rem "Fira Sans", serif'},
-        color='dark',
+        color='primary',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
     )
