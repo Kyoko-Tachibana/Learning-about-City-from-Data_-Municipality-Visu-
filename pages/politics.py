@@ -1145,8 +1145,9 @@ layout = dbc.Container([html.Br(),
                           dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
     2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw'})
              ])
-    ])
-    ]))),
+       ])
+      ]), color='info'
+    )),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
     html.Br(),
