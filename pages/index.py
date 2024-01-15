@@ -49,9 +49,9 @@ layout = html.Div([
             
             **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
         ''', 
-        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '2vw', 'color': 'black', 'width':'80%'}
+        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.6vw', 'color': 'black', 'width':'90%'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'10vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'5vw'}),
 
     dbc.Row([
         dbc.Col(dbc.Button('政治', href='/politics', outline=True, 
