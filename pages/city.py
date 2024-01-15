@@ -548,19 +548,19 @@ layout = dbc.Container([
     dbc.NavbarSimple(
         dbc.NavItem(
             dbc.Row([
-                dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': '20%', 'left': '80%'})),
+                dbc.Col(html.Img(src='assets/github_mark.png', height='2vh',
+                                 style={'position': 'relative', 'top': '10%', 'left': '80%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
-                                style={'font-size': 10, 'textAlign': 'center', 'color': 'darkkhaki'}))
+                                style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'azure'}))
             ])
         ),
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
         dark=True,
-        brand_style={'font-size': 5, 'textAlign': 'center', 'color': 'darkkhaki',
+        brand_style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'azure',
                      'font': 'italic 1.2rem "Fira Sans", serif'},
-        color='dark',
+        color='primary',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
     )
