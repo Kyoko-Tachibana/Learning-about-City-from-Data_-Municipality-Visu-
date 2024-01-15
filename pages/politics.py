@@ -1341,7 +1341,7 @@ layout = dbc.Container([html.Br(),
     )
     
 
-], style={'overflow-x':'hidden'})
+], style={'overflow-x':'auto'})
 
 
 # In[ ]:
