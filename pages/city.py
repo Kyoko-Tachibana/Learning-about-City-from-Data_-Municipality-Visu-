@@ -331,12 +331,19 @@ layout = dbc.Container([
              html.Div(dbc.Spinner(dcc.Graph(id='map_'), color='dark')
                       , style={'position':'relative', 'left':150}),
              html.Br(),
-             html.Div([html.Div(['Choose Attributes: ', 
+             html.Div([dbc.Card(
+                 dbc.CardBody(dbc.Col([
+                     dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
+                     dbc.Row(children=
+                     [dbc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map', inline=True,
-                  style = {'display': 'flex', 'color':'midnightblue'}
-                 )])]),
+                  style = {'display': 'flex', 'color':'white'}
+                 )])
+                ])
+            ))
+        ]),
     html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
     html.Div(id='selection_completed_map'),
