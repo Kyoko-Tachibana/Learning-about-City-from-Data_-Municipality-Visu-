@@ -49,7 +49,7 @@ layout = html.Div([
             
             **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
         ''', 
-        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.42vw', 'color': 'black', 'width':'70%'}
+        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '2vw', 'color': 'black', 'width':'70%'}
         )),
     ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
 
