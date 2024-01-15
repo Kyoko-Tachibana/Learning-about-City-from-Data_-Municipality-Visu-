@@ -342,7 +342,7 @@ layout = dbc.Container([
                   style = {'display': 'flex', 'color':'white'}
                  )])
                 ])
-            ))
+            ), color='info')
         ]),
     html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
