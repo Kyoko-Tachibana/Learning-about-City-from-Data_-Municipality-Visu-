@@ -331,6 +331,7 @@ layout = dbc.Container([
              html.Div(dbc.Spinner(dcc.Graph(id='map_'), color='dark')
                       , style={'position':'relative', 'left':150}),
              html.Br(),
+             html.Br(),
              html.Div([dbc.Card(
                  dbc.CardBody(dbc.Col([
                      dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
@@ -555,7 +556,7 @@ layout = dbc.Container([
     dbc.NavbarSimple(
         dbc.NavItem(
             dbc.Row([
-                dbc.Col(html.Img(src='assets/github_mark.png', height='2vh',
+                dbc.Col(html.Img(src='assets/github_mark.png', height='15',
                                  style={'position': 'relative', 'top': '16%', 'left': '80%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
@@ -570,7 +571,7 @@ layout = dbc.Container([
         color='info',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
-    )
+    ), style={'overflow-x':'hidden'}
 
 ])
 
