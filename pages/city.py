@@ -335,7 +335,7 @@ layout = dbc.Container([
                  dbc.CardBody(dbc.Col([
                      dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
                      dbc.Row(children=
-                     [dbc.Markdown('''Choose Attributes''', style={'color':'white'}), 
+                     [dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map', inline=True,
