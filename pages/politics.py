@@ -1323,7 +1323,7 @@ layout = dbc.Container([html.Br(),
     dbc.NavbarSimple(
         dbc.NavItem(
             dbc.Row([
-                dbc.Col(html.Img(src='assets/github_mark.png', height='5vh',
+                dbc.Col(html.Img(src='assets/github_mark.png', height=15,
                                  style={'position': 'relative', 'top': '16%', 'left': '83%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
