@@ -573,7 +573,7 @@ layout = dbc.Container([
         style={'height': '3vh', 'width':'100vw'},
     )
 
-], style={'overflow-x':'hidden'})
+], style={'overflow-x':'auto'})
 
 
 # In[ ]:
