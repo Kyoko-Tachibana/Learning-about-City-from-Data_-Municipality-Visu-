@@ -1071,7 +1071,7 @@ layout = dbc.Container([html.Br(),
                                     id='attributes', inline=True, style = {'display': 'flex', 'color':'white'}
                  )])
               ])
-            ]), color = 'info'
+            ]), color = 'info', style={'width': '100%', 'margin': 'auto'}
           )
          ),
     html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info')),
@@ -1146,7 +1146,7 @@ layout = dbc.Container([html.Br(),
     2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw'})
              ])
        ])
-      ]), color='info'
+      ]), color='info', style={'width': '100%', 'margin': 'auto'}
     )),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
