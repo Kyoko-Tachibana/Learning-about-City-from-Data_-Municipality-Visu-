@@ -335,7 +335,7 @@ layout = dbc.Container([
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map', inline=True,
-                  style = {'display': 'flex'}
+                  style = {'display': 'flex', 'color':'midnightblue'}
                  )])]),
     html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
@@ -549,7 +549,7 @@ layout = dbc.Container([
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height='2vh',
-                                 style={'position': 'relative', 'top': '10%', 'left': '80%'})),
+                                 style={'position': 'relative', 'top': '10%', 'left': '83%'})),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
