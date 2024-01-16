@@ -4,7 +4,7 @@
 # In[2]:
 
 
-from dash import html
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 
