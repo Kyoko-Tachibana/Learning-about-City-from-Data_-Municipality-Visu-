@@ -563,7 +563,7 @@ layout = dbc.Container([
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
         dark=True,
         brand_style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'navy',
-                     'font': 'italic 1.2rem "Fira Sans", serif'},
+                     'font': 'italic'},
         color='info',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
