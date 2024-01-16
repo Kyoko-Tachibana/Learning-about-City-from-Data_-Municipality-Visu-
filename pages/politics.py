@@ -958,25 +958,25 @@ layout = html.Div([html.Br(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
-        dbc.Tab(label='PARTY', tab_id='party', children=[
+        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', children=[
             dcc.Graph(
                 figure=party_across_year_general(df, 1))
         ]),
-        dbc.Tab(label='SEX', tab_id='sex', children=[
+        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', children=[
             dcc.Graph(figure=sex_general(df, 1)
             )
         ]),
-        dbc.Tab(label='AGE', tab_id='age', children=[
+        dbc.Tab(label='AGE', tab_id='age', id = 'age_', children=[
             dcc.Graph(
                 figure=age_general(df, 1)
             )
         ]),
-        dbc.Tab(label='VOTE RATE', tab_id='voterate', children=[
+        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', children=[
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_vote_rate, 1)
             )
         ]),
-        dbc.Tab(label='RESULT', tab_id='result', children=[
+        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', children=[
             dcc.Graph(
                 figure=result_general(df, 1)
             )
@@ -1180,25 +1180,25 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div([
         dbc.Tabs([
-            dbc.Tab(tab_id='set 1', label='SET 1', children=[html.Br(),
+            dbc.Tab(tab_id='set 1', id = 'set 1_', label='SET 1', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")])
         ]),
-        dbc.Tab(tab_id='set 2', label='SET 2', children=[html.Br(),
+        dbc.Tab(tab_id='set 2', id = 'set 2_', label='SET 2', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light")])
         ]),
-        dbc.Tab(tab_id='set 3', label='SET 3', children=[html.Br(),
+        dbc.Tab(tab_id='set 3', id = 'set 3_', label='SET 3', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")])
         ]),
-        dbc.Tab(tab_id='set 4', label='SET 4', children=[html.Br(),
+        dbc.Tab(tab_id='set 4', id = 'set 4_', label='SET 4', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
