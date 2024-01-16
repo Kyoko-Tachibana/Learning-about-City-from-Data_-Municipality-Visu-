@@ -324,7 +324,7 @@ layout = html.Div([
              html.Br(),
              html.Div([dbc.Card(
                  dbc.CardBody([
-                     html.H4('SET VALUES', className="card-title", style={'color':'white'}),
+                     html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'3vw'}),
                      html.Div([
                      dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
