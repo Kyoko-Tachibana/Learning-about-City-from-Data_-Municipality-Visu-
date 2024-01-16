@@ -14,18 +14,17 @@ from pages import politics, index, city
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH], suppress_callback_exceptions=True, meta_tags=[
-        {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},
-        {'charset': 'utf-8'},
-        {'name': 'description', 'content': '地方自治体について、様々なデータを可視化'},
-        {'name': 'keywords', 'content': 'city, politics, data, graph, 街, 政治, データ, グラフ'},
-        {'name': 'author', 'content': 'https://github.com/Kyoko-Tachibana'},
-        {'name': 'twitter:card', 'content':'summary'},
-        {'name': 'twitter:image', 'content':'assets/sumnail.png'},
-        {'property': 'og:image', 'content':'assets/sumnail.png'}
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+        {"name": "description", "content": "地方自治体について、様々なデータを可視化"},
+        {"name": "keywords", "content": "city, politics, data, graph, 街, 政治, データ, グラフ"},
+        {"name": "author", "content": "https://github.com/Kyoko-Tachibana"},
+        {"name": "twitter:card", "content":"summary"},
+        {"name": "twitter:image", "content":"assets/sumnail.png"},
+        {"property": "og:image", "content":"assets/sumnail.png"}
     ])
 
 server = app.server
-app.title = 'データで街について学べるサイト「まちラーン」'
+app.title = "データで街について学べるサイト「まちラーン」"
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
