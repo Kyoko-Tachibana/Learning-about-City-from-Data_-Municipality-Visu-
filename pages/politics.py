@@ -902,7 +902,7 @@ def parcat_general3(df):
 # In[2]:
 
 
-layout = dbc.Container([html.Br(),
+layout = html.Div([html.Br(),
                 html.Div(html.H1('POLITICS', className='display-1',
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
@@ -1293,7 +1293,7 @@ layout = dbc.Container([html.Br(),
     html.Br(),
     html.Br(),
     html.Br(),
-    dbc.NavbarSimple(
+    html.Div(dbc.NavbarSimple(
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height=15,
@@ -1311,7 +1311,7 @@ layout = dbc.Container([html.Br(),
         color='info',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
-    )
+    ))
     
 
 ])
