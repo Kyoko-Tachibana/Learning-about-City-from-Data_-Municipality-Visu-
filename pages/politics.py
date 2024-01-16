@@ -18,7 +18,6 @@ import io
 from dash import callback, State
 from dash.dependencies import Input, Output
 from plotly.colors import n_colors
-from dash import Dash
 from itertools import compress
 import math
 import dash_bootstrap_components as dbc
