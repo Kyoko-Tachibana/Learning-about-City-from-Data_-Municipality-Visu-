@@ -6,8 +6,6 @@
 
 import pandas as pd
 import ast
-import plotly
-import plotly.express as px
 import dash
 from dash import html
 from dash import dcc
@@ -20,9 +18,7 @@ import numpy as np
 import base64
 import io
 from dash import callback, State
-from dash import callback, State
 from dash.dependencies import Input, Output
-import dash_daq as daq
 from plotly.colors import n_colors
 from plotly.subplots import make_subplots
 from dash import Dash
