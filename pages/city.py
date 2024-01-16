@@ -473,7 +473,7 @@ layout = html.Div([
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': '16%', 'left': '83%'})),
+                                 style={'position': 'relative', 'top': '16%', 'left': '83%'}, alt='Official Github Logo')),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
