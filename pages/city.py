@@ -10,7 +10,6 @@ import plotly.express as px
 import dash
 from dash import html
 from dash import dcc
-import matplotlib.patches as mpatches
 from dash.exceptions import PreventUpdate
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
