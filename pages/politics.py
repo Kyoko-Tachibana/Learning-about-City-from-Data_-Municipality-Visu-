@@ -13,7 +13,6 @@ import nlplot
 from dash.exceptions import PreventUpdate
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
-import plotly.io as pio
 import numpy as np
 import base64
 import io
