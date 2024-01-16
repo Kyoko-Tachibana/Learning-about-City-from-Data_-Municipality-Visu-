@@ -961,25 +961,25 @@ layout = html.Div([html.Br(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
-        dbc.Tab(label='PARTY', tab_id='party' ,children=[
+        dbc.Tab(label='PARTY', tab_id='party', children=[
             dcc.Graph(
                 figure=party_across_year_general(df, 1))
         ]),
-        dbc.Tab(label='SEX', tab_id='sex' ,children=[
+        dbc.Tab(label='SEX', tab_id='sex', children=[
             dcc.Graph(figure=sex_general(df, 1)
             )
         ]),
-        dbc.Tab(label='AGE', tab_id='age' ,children=[
+        dbc.Tab(label='AGE', tab_id='age', children=[
             dcc.Graph(
                 figure=age_general(df, 1)
             )
         ]),
-        dbc.Tab(label='VOTE RATE', tab_id='voterate' ,children=[
+        dbc.Tab(label='VOTE RATE', tab_id='voterate', children=[
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_vote_rate, 1)
             )
         ]),
-        dbc.Tab(label='RESULT', tab_id='result' ,children=[
+        dbc.Tab(label='RESULT', tab_id='result', children=[
             dcc.Graph(
                 figure=result_general(df, 1)
             )
