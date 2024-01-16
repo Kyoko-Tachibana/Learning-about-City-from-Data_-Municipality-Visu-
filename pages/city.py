@@ -485,7 +485,7 @@ layout = html.Div([
         style={'height': '3vh', 'width':'100vw'},
     ))
 
-])
+], lang='en')
 
 
 # In[ ]:
