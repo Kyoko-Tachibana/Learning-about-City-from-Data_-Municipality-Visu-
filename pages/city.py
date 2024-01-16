@@ -5,22 +5,18 @@
 
 
 import pandas as pd
-import plotly
-import plotly.express as px
 import dash
 from dash import html
 from dash import dcc
 from dash.exceptions import PreventUpdate
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
-import plotly.io as pio
 import numpy as np
 import base64
 import io
 import dash_bootstrap_components as dbc
 from dash import callback, State
 from dash.dependencies import Input, Output
-import dash_daq as daq
 from plotly.colors import n_colors
 import ipywidgets as widgets
 from dash import Dash
