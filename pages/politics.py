@@ -1064,7 +1064,7 @@ layout = dbc.Container([html.Br(),
                   children=[
                             dcc.Markdown('''Choose a year''', style={'color':'white'}), 
                             dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', 
-                                                  clearable=False, style={'width':'15vw', 'color':'white', 'font-size':'3vw'})]), 
+                                                  clearable=False, style={'width':'15vw', 'color':'white', 'font-size':'2vw'})]), 
                   dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                           dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
                                          'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], 
@@ -1143,7 +1143,7 @@ layout = dbc.Container([html.Br(),
         dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white'}), 
                           dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
-    2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw', 'font-size':'3vw'})
+    2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw', 'font-size':'2vw'})
              ])
        ])
       ]), color='info', style={'width': '100%', 'margin': 'auto'}
