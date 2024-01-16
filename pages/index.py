@@ -55,9 +55,9 @@ layout = html.Div([
 
     dbc.Row([
         dbc.Col(dbc.Button('政治', href='/politics', outline=True, 
-               style={'font-family': 'Yu Gothic', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
+               style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
-               style={'font-family': 'Yu Gothic', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
+               style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center'}, color='light', size='lg')),
     ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
