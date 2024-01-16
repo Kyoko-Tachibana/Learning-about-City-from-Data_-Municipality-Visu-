@@ -219,8 +219,7 @@ layout = html.Div([
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
                 html.Div('西東京市の都市・人口情報を見る。ほかの自治体の都市・人口情報を可視化する。', 
-                style={'font-family':'游明朝', 'textAlign':'left', 'color':'royalblue', 'font-size':20}
-                                      , className="fw-light"),
+                style={'font-family':'游明朝', 'textAlign':'left', 'color':'royalblue', 'font-size':20}),
                 html.Br(),
                 html.Br(),
                 html.Div(
@@ -231,7 +230,7 @@ layout = html.Div([
                    n_clicks=0,
                ),
                dbc.Offcanvas(
-                    [html.Hr(), html.P(
+                    [html.P(
                     "A resource for knowing, learning about and\ngetting excited about a city,\ndesigned mainly for Nishi Tokyo City, Tokyo,\nbut can be applied to any other city."
                     ),
                      html.P("-Map visualization of facilities in Nishi Tokyo"), 
@@ -267,7 +266,6 @@ layout = html.Div([
             id='doc1_map',
             is_open=False,
         )),
-        html.Hr(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs(
@@ -315,7 +313,6 @@ layout = html.Div([
             id='doc2_map',
             is_open=False,
         )),
-             html.Hr(),
              html.Br(),
              html.Br(),
              html.Div(dbc.Spinner(dcc.Graph(id='map_'), color='dark')
@@ -330,10 +327,10 @@ layout = html.Div([
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map',
-                  style = {'display': 'flex', 'color':'white'}
-                 )], style={'display': 'flex', 'flexDirection': 'column'})
+                  style = {'display': 'flex', 'color':'white', 'flexDirection': 'column'}
+                 )])
                  ]
-            ), color='info', style={'width': '100%', 'margin': 'auto'})
+            ), className='set-value-card')
         ]),
     html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
@@ -353,7 +350,6 @@ layout = html.Div([
             id='doc3_map',
             is_open=False,
         )),
-    html.Hr(),
     html.Br(),
     html.Br(),
     html.H3('Basic Statistical Figures', style={'textAlign': 'left', 'color': '#503D36', 'font-size': 20}),
