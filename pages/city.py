@@ -415,7 +415,6 @@ layout = dbc.Container([
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains BORDER info'
         ]),
         className=upload-box-style,
-        ,
         multiple=False
     )]),
     html.Div(dbc.Button('SUBMIT FILES (Be sure all of the 6 forms are filled)', color='info', n_clicks=0, id='submit_upload_map1')),
