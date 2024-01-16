@@ -271,7 +271,7 @@ layout = html.Div([
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs(
-        dbc.Tab(label='POPULATION', tab_id = 'pop' children=[html.Br(),
+        dbc.Tab(label='POPULATION', tab_id = 'pop', children=[html.Br(),
             dbc.Spinner(
                 dcc.Graph(
                 figure=population_general(df_pop)), color='dark'),
