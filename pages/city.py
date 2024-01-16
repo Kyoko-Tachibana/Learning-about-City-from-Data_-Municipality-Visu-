@@ -271,14 +271,14 @@ layout = html.Div([
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs(
-        dbc.Tab(label='POPULATION', children=[html.Br(),
+        dbc.Tab(label='POPULATION', tab_id = 'pop' children=[html.Br(),
             dbc.Spinner(
                 dcc.Graph(
                 figure=population_general(df_pop)), color='dark'),
             dbc.Spinner(
                 dcc.Graph(figure=violin_general(df_pop)), color='dark')
-        ]),
-    )
+        ]), id='basic_city'
+        )
     ),
         html.Br(),
         html.Br(),
