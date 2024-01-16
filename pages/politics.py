@@ -1092,17 +1092,17 @@ layout = html.Div([html.Br(),
              https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction
              
              $$
-             tf-idf(noun,\ minutes) = tf(noun,\ minutes)\\times{idf(noun)}
+             tf-idf(\text{noun}, \text{minutes}) = \text{tf}(\text{noun}, \text{minutes}) \times \text{idf}(noun)
              $$
-             
+
              $$
-             tf(noun, minutes) = The\ number\ of\ times\ a\ noun\ occurs\ in\ a\ minutes
+             \text{tf}(\text{noun}, \text{minutes}) = \text{The number of times a noun occurs in a minute}
              $$
-             
+
              $$
-             idf(noun) = 
-             \\ln{\\frac{1 + Number\ of\ lines\ in\ a\ minute}{1 + Number\ of\ lines\ that\ contain\ the\ noun}} + 1
+             \text{idf}(\text{noun}) = \ln{\left(\frac{1 + \text{Number of lines in a minute}}{1 + \text{Number of lines that contain the noun}}\right)} + 1
              $$
+
              
              -Top 100 nouns regarding the tf-idf score were extracted.  
              
