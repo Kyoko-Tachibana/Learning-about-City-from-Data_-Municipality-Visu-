@@ -11,14 +11,10 @@ import plotly.express as px
 import dash
 from dash import html
 from dash import dcc
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
 import matplotlib.patches as mpatches
 import nlplot
 from dash.exceptions import PreventUpdate
 from plotly.subplots import make_subplots
-import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import plotly.io as pio
 import numpy as np
