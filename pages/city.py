@@ -333,16 +333,14 @@ layout = dbc.Container([
              html.Br(),
              html.Br(),
              html.Div([dbc.Card(
-                 dbc.CardBody(dbc.Col([
-                     dbc.Row(html.H4('SET VALUES', className="card-title", style={'color':'white'})),
-                     dbc.Row(children=
-                     [dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
+                 dbc.CardBody([
+                     html.H4('SET VALUES', className="card-title", style={'color':'white'}),
+                     dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map', inline=True,
                   style = {'display': 'flex', 'color':'white'}
-                 )])
-                ])
+                 )]
             ), color='info', style={'width': '100%', 'margin': 'auto'})
         ]),
     html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
