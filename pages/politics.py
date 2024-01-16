@@ -940,7 +940,7 @@ layout = dbc.Container([html.Br(),
         html.Br(),               
         html.Div([html.H2('Basic Statistical Figures', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-                  dbc.Button('?', outline=True, color='info', style={'textAlign': 'center', 'font-size': 15}, n_clicks=0, id='doc_button1')
+                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button1')
                  ]),
         html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
@@ -997,7 +997,7 @@ layout = dbc.Container([html.Br(),
     html.Br(),
     html.Div([html.H2('Candidates Name, Pledges and other info', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-             dbc.Button('?', outline=True, color='info', style={'textAlign': 'center', 'font-size': 15}, n_clicks=0, id='doc_button2')]),
+             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2')]),
     html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('TABLE DESCRIPTION'),
             dbc.CardBody([
@@ -1023,7 +1023,7 @@ layout = dbc.Container([html.Br(),
     html.Br(),
     html.Div([html.H2('Relationship between multiple attributes and the Election Result', 
                       style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}), 
-             dbc.Button('?', outline=True, color='info', style={'textAlign': 'center', 'font-size': 15}, n_clicks=0, id='doc_button3')]),
+             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3')]),
     html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
             dbc.CardBody([
@@ -1078,8 +1078,7 @@ layout = dbc.Container([html.Br(),
     html.Br(),
     html.Br(),
     html.Div([html.H2('City Council Review', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-             dbc.Button('?', outline=True, color='info', 
-                        style={'textAlign': 'center', 'font-size': 15, 'className':'mb-3'}, n_clicks=0, id='doc_button5')]),
+             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button5')]),
     html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
             dbc.CardBody([
@@ -1149,8 +1148,7 @@ layout = dbc.Container([html.Br(),
     html.Br(),
     html.Br(),
     html.Div([html.H2('Make graphs of your city!', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-             dbc.Button('?', outline=True, color='info', 
-                        style={'textAlign': 'center', 'font-size': 15, 'className':'mb-3'}, n_clicks=0, id='doc_button4')]),
+             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button4')]),
     html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('DESCRIPTION'),
             dbc.CardBody([html.P(dcc.Markdown('''
