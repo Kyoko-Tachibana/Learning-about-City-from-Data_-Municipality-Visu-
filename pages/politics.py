@@ -19,7 +19,6 @@ import io
 from dash import callback, State
 from dash.dependencies import Input, Output
 from plotly.colors import n_colors
-from plotly.subplots import make_subplots
 from dash import Dash
 from itertools import compress
 import math
@@ -962,30 +961,30 @@ layout = html.Div([html.Br(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
-        dbc.Tab(label='PARTY', children=[
+        dbc.Tab(label='PARTY', tab_id='party' ,children=[
             dcc.Graph(
                 figure=party_across_year_general(df, 1))
         ]),
-        dbc.Tab(label='SEX', children=[
+        dbc.Tab(label='SEX', tab_id='sex' ,children=[
             dcc.Graph(figure=sex_general(df, 1)
             )
         ]),
-        dbc.Tab(label='AGE', children=[
+        dbc.Tab(label='AGE', tab_id='age' ,children=[
             dcc.Graph(
                 figure=age_general(df, 1)
             )
         ]),
-        dbc.Tab(label='VOTE RATE', children=[
+        dbc.Tab(label='VOTE RATE', tab_id='voterate' ,children=[
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_vote_rate, 1)
             )
         ]),
-        dbc.Tab(label='RESULT', children=[
+        dbc.Tab(label='RESULT', tab_id='result' ,children=[
             dcc.Graph(
                 figure=result_general(df, 1)
             )
         ])
-    ])
+    ], id='basic_politics')
     ),
     html.Br(),
     html.Br(),
@@ -1188,25 +1187,25 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div([
         dbc.Tabs([
-            dbc.Tab(tab_id='SET 1', label='SET 1', children=[html.Br(),
+            dbc.Tab(tab_id='set 1', label='SET 1', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")])
         ]),
-        dbc.Tab(tab_id='SET 2', label='SET 2', children=[html.Br(),
+        dbc.Tab(tab_id='set 2', label='SET 2', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light")])
         ]),
-        dbc.Tab(tab_id='SET 3', label='SET 3', children=[html.Br(),
+        dbc.Tab(tab_id='set 3', label='SET 3', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")])
         ]),
-        dbc.Tab(tab_id='SET 4', label='SET 4', children=[html.Br(),
+        dbc.Tab(tab_id='set 4', label='SET 4', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
