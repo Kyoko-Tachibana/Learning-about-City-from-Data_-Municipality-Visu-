@@ -4,7 +4,7 @@
 # In[2]:
 
 
-from dash import Dash, dcc, html, Input, Output, callback
+from dash import Dash, dcc, html
 import dash_bootstrap_components as dbc
 
 
