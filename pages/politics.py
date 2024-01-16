@@ -11,7 +11,6 @@ import plotly.express as px
 import dash
 from dash import html
 from dash import dcc
-import matplotlib.patches as mpatches
 import nlplot
 from dash.exceptions import PreventUpdate
 from plotly.subplots import make_subplots
@@ -1172,17 +1171,7 @@ layout = dbc.Container([html.Br(),
         id='upload-data',
         children=html.Div(['Drag and Drop or ',html.A('Select a CSV File')
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
-        # Allow multiple files to be uploaded
+        className='upload-box-style',
         multiple=False
     )]),
     
@@ -1198,17 +1187,7 @@ layout = dbc.Container([html.Br(),
         id='upload-data2',
         children=html.Div(['Drag and Drop or ',html.A('Select a CSV File')
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
-        # Allow multiple files to be uploaded
+        className='upload-box-style',
         multiple=False
     )]),
     
