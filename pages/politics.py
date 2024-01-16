@@ -1064,7 +1064,7 @@ layout = dbc.Container([html.Br(),
                   children=[
                             dcc.Markdown('''Choose a year''', style={'color':'white'}), 
                             dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', 
-                                                  clearable=False, style={'width':'15vw', 'color':'white', 'font-size':'2vw'})]), 
+                                                  clearable=False, style={'width':'15vw', 'color':'midnightblue', 'font-size':'2vw'})]), 
                   dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                           dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
                                          'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], 
