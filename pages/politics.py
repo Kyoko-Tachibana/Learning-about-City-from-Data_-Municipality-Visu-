@@ -6,7 +6,6 @@
 
 import pandas as pd
 import ast
-import dash
 from dash import html
 from dash import dcc
 import nlplot
@@ -897,11 +896,11 @@ def parcat_general3(df):
 
 
 layout = html.Div([html.Br(),
-                html.Div(html.H1('POLITICS', className='display-1',
+                html.Div(html.H1('POLITICS', 
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
                 html.Div('西東京市の政治についての分析を見る。ほかの自治体の政治を分析する。'
-                         , className="fw-light",
+                         ,
                 style=
                 {'font-family':'游明朝', 'textAlign':'left', 'color':'royalblue', 'font-size':20}),
                 html.Br(),
@@ -957,7 +956,6 @@ layout = html.Div([html.Br(),
             id='doc1',
             is_open=False,
         )),
-        html.Hr(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
@@ -1008,7 +1006,6 @@ layout = html.Div([html.Br(),
             id='doc2',
             is_open=False,
         )),
-    html.Hr(),
     html.Br(),
     html.Br(),
     html.Div(dbc.Spinner(dcc.Graph(figure = candidate_info(df_table)), color='dark')),
@@ -1043,7 +1040,6 @@ layout = html.Div([html.Br(),
             id='doc3',
             is_open=False,
         )),
-    html.Hr(),
     html.Br(),
     html.Br(),
     html.Div(dbc.Card(
@@ -1060,7 +1056,7 @@ layout = html.Div([html.Br(),
                                     id='attributes', inline=True, style = {'display': 'flex', 'color':'white'}
                  )])
               ])
-            ]), color = 'info', style={'width': '100%', 'margin': 'auto'}
+            ]), className='set-value-card'
           )
          ),
     html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info')),
@@ -1124,7 +1120,6 @@ layout = html.Div([html.Br(),
             id='doc5',
             is_open=False,
         )),
-    html.Hr(),
     html.Br(),
     html.Br(),
     html.Div(dbc.Card(dbc.CardBody([dbc.Col([
@@ -1134,7 +1129,7 @@ layout = html.Div([html.Br(),
     2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw', 'font-size':'2vw'})
              ])
        ])
-      ]), color='info', style={'width': '100%', 'margin': 'auto'}
+      ]), className='set-value-card'
     )),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
@@ -1153,7 +1148,6 @@ layout = html.Div([html.Br(),
             id='doc4',
             is_open=False,
         )),
-    html.Hr(),
     html.Br(),
     html.Br(),
     html.H3('Basic Statistical Figures', style={'textAlign': 'left', 'color': '#503D36', 'font-size': 20}),
