@@ -4,7 +4,7 @@
 # In[2]:
 
 
-from dash import Dash, dcc, html
+from dash import html
 import dash_bootstrap_components as dbc
 
 
@@ -61,7 +61,7 @@ layout = html.Div([
     ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
-          'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'})
+          'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'}, lang='ja')
 
 
 
