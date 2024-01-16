@@ -255,7 +255,7 @@ layout = dbc.Container([
              html.Br(),            
              html.Div([html.H2('Basic Statistical Figures', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-                  dbc.Button('?', outline=True, color='info', style={'textAlign': 'center', 'font-size': 15}, n_clicks=0, id='doc_button1_map')
+                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button1_map')
                  ]),
              html.Div(dbc.Collapse(
                  dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
@@ -290,8 +290,7 @@ layout = dbc.Container([
         html.Br(),
         html.Div([html.H2('City Features', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-                  dbc.Button('?', outline=True, color='info', 
-                             style={'textAlign': 'center', 'font-size': 15}, n_clicks=0, id='doc_button2_map')
+                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2_map')
                  ]),
              html.Div(dbc.Collapse(
                       dbc.Card([dbc.CardHeader('MAP DESCRIPTION'),
@@ -348,8 +347,7 @@ layout = dbc.Container([
     html.Br(),
     html.Br(),
     html.Div([html.H2('Make figures of your city!', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-             dbc.Button('?', outline=True, color='info', 
-                        style={'textAlign': 'center', 'font-size': 15, 'className':'mb-3'}, n_clicks=0, id='doc_button3_map')]),
+             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3_map')]),
     html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('DESCRIPTION'),
             dbc.CardBody([html.P(dcc.Markdown('''
@@ -369,16 +367,7 @@ layout = dbc.Container([
         id='upload-data_pop',
         children=html.Div(['Drag and Drop or ',html.A('Select a CSV File')
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
         multiple=False
     )),
     html.H3('Your Graphs:', style={'font-size':20}),
@@ -391,106 +380,43 @@ layout = dbc.Container([
         id='upload-data_landmark',
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains LANDMARK info'
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_station',
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains STATION info'
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_emergency_route',
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains EMERGENCY ROUTE info'
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_shelter',
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains SHELTER info'
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_park',
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains PARK info'
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_border',
         children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains BORDER info'
         ]),
-        style={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
-        style_active={
-            'width': '100%',
-            'height': '60px',
-            'lineHeight': '60px',
-            'borderWidth': '5px',
-            'borderStyle': 'solid',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        },
+        className=upload-box-style,
+        ,
         multiple=False
     )]),
     html.Div(dbc.Button('SUBMIT FILES (Be sure all of the 6 forms are filled)', color='info', n_clicks=0, id='submit_upload_map1')),
