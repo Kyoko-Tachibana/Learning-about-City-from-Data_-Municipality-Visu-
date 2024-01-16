@@ -18,7 +18,6 @@ import dash_bootstrap_components as dbc
 from dash import callback, State
 from dash.dependencies import Input, Output
 from plotly.colors import n_colors
-import ipywidgets as widgets
 import geopandas as gpd
 import ast
 
