@@ -275,7 +275,7 @@ layout = html.Div([
                 figure=population_general(df_pop)), color='dark', id='pop_graph'),
             dbc.Spinner(
                 dcc.Graph(figure=violin_general(df_pop)), color='dark')
-        ]), id='basic_city'
+        ]), id='basic_city', style={'color':'navy'}
         )
     ),
         html.Br(),
@@ -332,7 +332,8 @@ layout = html.Div([
                  ]
             ), className='set-value-card', color='info')
         ]),
-    html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
+    html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info', 
+                        style={'color':'navy'})),
     html.Br(),
     html.Div(id='selection_completed_map'),
     html.Br(),
@@ -409,7 +410,8 @@ layout = html.Div([
         className='upload-box-style',
         multiple=False
     )]),
-    html.Div(dbc.Button('SUBMIT FILES (Be sure all of the 6 forms are filled)', color='info', n_clicks=0, id='submit_upload_map1')),
+    html.Div(dbc.Button('SUBMIT FILES (Be sure all of the 6 forms are filled)', color='info', n_clicks=0, id='submit_upload_map1'
+                       , style={'color':'navy'})),
     html.Br(),
     html.H3('Your Map:', style={'font-size':20, 'color':'navy'}),
     html.Br(),
