@@ -260,7 +260,7 @@ layout = html.Div([
             https://www.city.nishitokyo.lg.jp/siseizyoho/tokei/zinko/index.html
             
             '''))])])],
-            color='info', outline = True),
+            color='dark', outline = True),
             id='doc1_map',
             is_open=False,
         )),
@@ -307,7 +307,7 @@ layout = html.Div([
             
             https://www.odpt.org/2022/06/28/press20220628_bikeshare/
             ''')])])],
-            color='info', outline = True),
+            color='dark', outline = True),
             id='doc2_map',
             is_open=False,
         )),
@@ -344,7 +344,7 @@ layout = html.Div([
             By uploading CSV or GeoJSON files, you can obtain figures. File format restriction is strict. 
             Please see below for the info.
             '''))])],
-            color='info', outline = True),
+            color='dark', outline = True),
             id='doc3_map',
             is_open=False,
         )),
@@ -476,7 +476,7 @@ layout = html.Div([
         ),
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
         dark=True,
-        brand_style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'navy',
+        brand_style={'font-size': '1.5vw', 'textAlign': 'center', 'color': 'navy',
                      'font': 'italic'},
         color='info',
         sticky='bottom',
