@@ -1065,7 +1065,8 @@ layout = html.Div([html.Br(),
             ]), className='set-value-card', color='info'
           )
          ),
-    html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info')),
+    html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info', 
+                        style={'color':'navy'})),
     html.Br(),
     html.Div(id='selection_completed'),
     html.Br(),
