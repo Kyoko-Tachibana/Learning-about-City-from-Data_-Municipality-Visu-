@@ -328,7 +328,7 @@ layout = html.Div([
                   style = {'display': 'flex', 'color':'white', 'flexDirection': 'column'}
                  )])
                  ]
-            ), className='set-value-card')
+            ), className='set-value-card', color='info')
         ]),
     html.Div(dbc.Button(id='submit-button-state1_map', n_clicks=0, children='Select Values', color='info')),
     html.Br(),
@@ -467,7 +467,7 @@ layout = html.Div([
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': '16%', 'left': '83%'}, alt='Official Github Logo')),
+                                 style={'position': 'relative', 'top': '16%'}, alt='Official Github Logo')),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
