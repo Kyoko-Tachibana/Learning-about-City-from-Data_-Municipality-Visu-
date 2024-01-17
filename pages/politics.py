@@ -1055,7 +1055,7 @@ layout = html.Div([html.Br(),
                                     id='attributes', inline=True, style = {'display': 'flex', 'color':'white'}
                  )])
               ])
-            ]), className='set-value-card'
+            ]), className='set-value-card', color='info'
           )
          ),
     html.Div(dbc.Button(id='submit-button-state1', n_clicks=0, children='Select Values', color='info')),
@@ -1128,7 +1128,7 @@ layout = html.Div([html.Br(),
     2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw', 'font-size':'2vw'}))
              ])
        ])
-      ]), className='set-value-card'
+      ]), className='set-value-card', color='info'
     )),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
@@ -1284,7 +1284,7 @@ layout = html.Div([html.Br(),
         dbc.NavItem(
             dbc.Row([
                 dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': '16%', 'left': '83%'}, alt='Official Github Logo')),
+                                 style={'position': 'relative', 'top': '16%'}, alt='Official Github Logo')),
                 dbc.Col(
                     dbc.NavLink('Github',
                                 href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
@@ -1294,7 +1294,7 @@ layout = html.Div([html.Br(),
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
         dark=True,
         brand_style={'font-size': '3vw', 'textAlign': 'center', 'color': 'navy',
-                     'font': 'italic 1.2rem "Fira Sans", serif'},
+                     'font': 'italic'},
         color='info',
         sticky='bottom',
         style={'height': '3vh', 'width':'100vw'},
