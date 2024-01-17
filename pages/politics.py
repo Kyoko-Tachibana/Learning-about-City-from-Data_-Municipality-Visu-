@@ -1296,7 +1296,7 @@ layout = html.Div([html.Br(),
                 dbc.NavLink(
                     dbc.Row(
                         [
-                            dbc.Col(html.Img(src='assets/github_mark.png', height=15), width="auto"),
+                            dbc.Col(html.Img(src='assets/github_mark.png', height=15, alt='Github Official Logo'), width="auto"),
                             dbc.Col("Github", style={'font-size': '12px', 'textAlign': 'center', 'color': 'mintcream'}),
                         ],
                         align="center",
