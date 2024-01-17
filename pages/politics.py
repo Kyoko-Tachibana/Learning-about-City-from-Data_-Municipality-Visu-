@@ -38,7 +38,7 @@ for y in range(2001, 2023):
 
 def candidate_info(df):
     fig = go.Figure()
-    colors = n_colors('rgb(239, 238, 255)', 'rgb(255, 236, 251)', 2, colortype='rgb')
+    colors = n_colors('rgb(169, 181, 255)', 'rgb(255, 169, 236)', 2, colortype='rgb')
     for year in df[df['Type']=='市議']['Year'].unique():
         df_y = df[(df['Year']==year)&(df['Type']=='市議')]
 
@@ -58,7 +58,7 @@ def candidate_info(df):
                            df_y.Vote_num, df_y.Vote, df_y.Vote_num_p, df_y.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y.Result))]]*13,
                align='left',
-               font=dict(color='navy', size=12))))
+               font=dict(color='silver', size=12))))
 
     for year in df[df['Type']=='市長']['Year'].unique():
         df_y_mayor = df[(df['Year']==year)&(df['Type']=='市長')]
@@ -81,7 +81,7 @@ def candidate_info(df):
                            df_y_mayor.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y_mayor.Result))]]*13,
                align='left',
-               font=dict(color='navy', size=12, family=font_fam_sp))))
+               font=dict(color='silver', size=12, family=font_fam_sp))))
 
 
     fig.update_layout(
@@ -960,35 +960,35 @@ layout = html.Div([html.Br(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
-        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', style={'color':'navy'}, 
+        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', 
             children=[
             dcc.Graph(
                 figure=party_across_year_general(df, 1), id='party_graph')
         ]),
-        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', style={'color':'navy'},
+        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', 
                 children=[
             dcc.Graph(figure=sex_general(df, 1), id='sex_graph'
             )
         ]),
-        dbc.Tab(label='AGE', tab_id='age', id = 'age_', style={'color':'navy'},
+        dbc.Tab(label='AGE', tab_id='age', id = 'age_', 
                 children=[
             dcc.Graph(
                 figure=age_general(df, 1), id='age_graph'
             )
         ]),
-        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', style={'color':'navy'},
+        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', 
                 children=[
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_vote_rate, 1), id='vr_graph'
             )
         ]),
-        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', style={'color':'navy'},
+        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', 
                 children=[
             dcc.Graph(
                 figure=result_general(df, 1), id='result_graph'
             )
         ])
-    ])
+    ], style={'color':'navy'})
     ),
     html.Br(),
     html.Br(),
@@ -1204,7 +1204,7 @@ layout = html.Div([html.Br(),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS RESULT', text_color="dark", color="light")], id='badge_4')
         ])
-    ], id='upload2_tabs')
+    ], id='upload2_tabs', style={'color':'navy'})
     ]), 
     html.Br(), dbc.Button(id='submit-button-state2', n_clicks=0, children='Change Sets', color='info'),
     html.Div(id='selection_completed2'),
@@ -1309,7 +1309,7 @@ layout = html.Div([html.Br(),
 
     
 
-], lang='en', className='main-page-layout')
+], lang="en", className='main-page-layout')
 
 
 # In[ ]:
