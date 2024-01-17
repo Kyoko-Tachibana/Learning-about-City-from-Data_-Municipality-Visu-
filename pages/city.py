@@ -230,12 +230,13 @@ layout = html.Div([
                dbc.Offcanvas(
                     [html.P(
                     "A resource for knowing, learning about and\ngetting excited about a city,\ndesigned mainly for Nishi Tokyo City, Tokyo,\nbut can be applied to any other city."
-                    ),
-                     html.P("-Map visualization of facilities in Nishi Tokyo"), 
-                     html.P("-Uploading your city's PLATEAU data and getting a map out"), html.Br(),
+                    , style={'color':'navy'}),
+                     html.P("-Map visualization of facilities in Nishi Tokyo", style={'color':'navy'}), 
+                     html.P("-Uploading your city's PLATEAU data and getting a map out", style={'color':'navy'}), 
+                     html.Br(),
                     dcc.Markdown('''
                     **Contact : westt.sskry(at)gmail.com**
-                    ''')],
+                    ''', style={'color':'navy'})],
                     id="offcanvas-scrollable_map",
                     scrollable=True,
                     title="About this page",
@@ -250,16 +251,16 @@ layout = html.Div([
                   dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button1_map')
                  ]),
              html.Div(dbc.Collapse(
-                 dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
+                 dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION', style={'color':'navy'}),
                  dbc.CardBody([
                  html.P( 
                  dcc.Markdown('''
             *POPULATION*: The trend of population and its distribution across age (0-99) of Nishi Tokyo 2003-2023. 
                           The value for 2003 is that of Jan 1st 2004. Other years have value of Dec 1st of that year.
-            ''')), html.P([html.B('Source'), html.Div(dcc.Markdown('''
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), html.Div(dcc.Markdown('''
             https://www.city.nishitokyo.lg.jp/siseizyoho/tokei/zinko/index.html
             
-            '''))])])],
+            ''', style={'color':'navy'}))])])],
             color='dark', outline = True),
             id='doc1_map',
             is_open=False,
@@ -267,7 +268,7 @@ layout = html.Div([
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs(
-        dbc.Tab(label='POPULATION', tab_id = 'pop', id = 'pop_', style={'aria-controls':'pop_graph', 'aria-label':'Population'},
+        dbc.Tab(label='POPULATION', tab_id = 'pop', id = 'pop_', style={'color':'navy'},
                 children=[html.Br(),
             dbc.Spinner(
                 dcc.Graph(
@@ -285,7 +286,7 @@ layout = html.Div([
                   dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2_map')
                  ]),
              html.Div(dbc.Collapse(
-                      dbc.Card([dbc.CardHeader('MAP DESCRIPTION'),
+                      dbc.Card([dbc.CardHeader('MAP DESCRIPTION', style={'color':'navy'}),
                       dbc.CardBody([
              html.P( 
                       dcc.Markdown('''
@@ -302,12 +303,12 @@ layout = html.Div([
             *BORDER*: Provided by PLATEAU
             
             *SHARE CYCLE STATION*: Icon size has a correlation with its rentalable bike number. Provided by ODPT
-            ''')), html.P([html.B('Source'), 
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), 
             dcc.Markdown('''
             https://www.geospatial.jp/ckan/dataset/plateau-13229-nishitokyo-shi-2022/resource/d6d01b02-9c53-46c9-99c7-0a4f75da34dd
             
             https://www.odpt.org/2022/06/28/press20220628_bikeshare/
-            ''')])])],
+            ''', style={'color':'navy'})])])],
             color='dark', outline = True),
             id='doc2_map',
             is_open=False,
@@ -340,18 +341,18 @@ layout = html.Div([
     html.Div([html.H2('Make figures of your city!', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
              dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3_map')]),
     html.Div(dbc.Collapse(
-            dbc.Card([dbc.CardHeader('DESCRIPTION'),
+            dbc.Card([dbc.CardHeader('DESCRIPTION', style={'color':'navy'}),
             dbc.CardBody([html.P(dcc.Markdown('''
             By uploading CSV or GeoJSON files, you can obtain figures. File format restriction is strict. 
             Please see below for the info.
-            '''))])],
+            ''', style={'color':'navy'}))])],
             color='dark', outline = True),
             id='doc3_map',
             is_open=False,
         )),
     html.Br(),
     html.Br(),
-    html.H3('Basic Statistical Figures', style={'textAlign': 'left', 'color': '#503D36', 'font-size': 20}),
+    html.H3('Basic Statistical Figures', style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
     html.Div(
     dcc.Upload(
         id='upload-data_pop',
@@ -360,11 +361,11 @@ layout = html.Div([
         className='upload-box-style',
         multiple=False
     )),
-    html.H3('Your Graphs:', style={'font-size':20}),
+    html.H3('Your Graphs:', style={'font-size':20, 'color':'navy'}),
     html.Br(),
     html.Div(id='output-data-upload_pop'),
     html.Br(),
-    html.H3('City Features', style={'textAlign': 'left', 'color': '#503D36', 'font-size': 20}),
+    html.H3('City Features', style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
     html.Div([
     dcc.Upload(
         id='upload-data_landmark',
@@ -410,18 +411,19 @@ layout = html.Div([
     )]),
     html.Div(dbc.Button('SUBMIT FILES (Be sure all of the 6 forms are filled)', color='info', n_clicks=0, id='submit_upload_map1')),
     html.Br(),
-    html.H3('Your Map:', style={'font-size':20}),
+    html.H3('Your Map:', style={'font-size':20, 'color':'navy'}),
     html.Br(),
     html.Div(id='output-data-upload_map1', style={'position':'relative', 'left':150}),
     html.Br(),
     html.Br(),
-    html.H3('File Format'),
+    html.H3('File Format', style={'color':'navy'}),
     html.Br(),
     html.Div(
     dbc.Accordion([
         dbc.AccordionItem(
-        [html.P([html.B('File Type'), html.Div('-CSV')]), html.P([html.B('Encoding'), html.Div('-Shift JIS')]),
-        html.P([html.B('Columns'), dcc.Markdown('''
+        [html.P([html.B('File Type', style={'color':'navy'}), html.Div('-CSV', style={'color':'navy'})]), 
+         html.P([html.B('Encoding', style={'color':'navy'}), html.Div('-Shift JIS', style={'color':'navy'})]),
+        html.P([html.B('Columns', style={'color':'navy'}), dcc.Markdown('''
         *-Year* (Year)
         
         *-Pop_male* (Total population of male)
@@ -434,11 +436,13 @@ layout = html.Div([
         
         *-0_4_f, 5_9_f, ..., 95_99_f* (Population of each age group (0 years old to 4 years old, and so on), female)
         
-        ''')]),
-        html.P([html.B('Note'), html.Div('-No empty cell accepted')])], title='Basic Statistical Figures'),
+        ''', style={'color':'navy'})]),
+        html.P([html.B('Note', style={'color':'navy'}), html.Div('-No empty cell accepted', style={'color':'navy'})])], 
+            title='Basic Statistical Figures'),
             dbc.AccordionItem(
-                [html.P([html.B("File Type"),html.Div("-GeoJSON")]), html.P([html.B("Encoding"), html.Div("-UTF-8")]), 
-                 html.P([html.B("Formats"),dcc.Markdown('''
+                [html.P([html.B("File Type", style={'color':'navy'}),html.Div("-GeoJSON", style={'color':'navy'})]), 
+                 html.P([html.B("Encoding", style={'color':'navy'}), html.Div("-UTF-8", style={'color':'navy'})]), 
+                 html.P([html.B("Formats", style={'color':'navy'}),dcc.Markdown('''
                  **PLATEAU open data GeoJSON files are the expected inputs here. Please see: https://www.mlit.go.jp/plateau/open-data/**
                  
                 *-Landmark* (Longitude, Latitude, Type, Name)
@@ -452,8 +456,9 @@ layout = html.Div([
                 *-Park* (Longitude, Latitude, Area, Name)
                 
                 *-Border* (City Border, Your map's center is located based on this file)
-                 ''')]),
-                html.P([html.B("Note"), html.Div("-Columns which have nulls (NaNs, N/As) are replaced with 0 automatically")])]
+                 ''', style={'color':'navy'})]),
+                html.P([html.B("Note", style={'color':'navy'}), 
+                        html.Div("-Columns which have nulls (NaNs, N/As) are replaced with 0 automatically", style={'color':'navy'})])]
                 , title="City Features"
             ),],
                  flush=True,
