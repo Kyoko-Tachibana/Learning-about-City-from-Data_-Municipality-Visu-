@@ -1047,7 +1047,7 @@ layout = html.Div([html.Br(),
                   dbc.Row(
                   children=[
                             dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'12px'}), 
-                            html.Div(dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', 
+                            html.Div(dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], value=2022, id='input-year', 
                                                   clearable=False, className='dropdown'))]), 
                   dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'12px'}), 
                           dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
@@ -1125,7 +1125,7 @@ layout = html.Div([html.Br(),
         dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'13px'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'12px'}), 
                           html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
-    2022, id='input-year-network', clearable=False, className='dropdown'))
+    value=2022, id='input-year-network', clearable=False, className='dropdown'))
              ])
        ])
       ]), className='set-value-card', color='info'
