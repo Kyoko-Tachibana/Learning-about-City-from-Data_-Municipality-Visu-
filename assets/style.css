@@ -30,6 +30,7 @@
     color: midnightblue; 
     font-size: 2vw;
     textAlign: center;
+    aria-role: listbox;
 }
 
 
