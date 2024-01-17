@@ -75,7 +75,7 @@ def candidate_info(df):
                 align='left',
                 font_size=10,
                 font_family=font_fam_sp,
-                color='navy'),
+                font=dict(color='navy', size=12)),
         cells=dict(values=[df_y_mayor.Candidate, df_y_mayor.Party, df_y_mayor.Age, df_y_mayor.Sex, df_y_mayor.Career, df_y_mayor.edu, df_y_mayor.wel, 
                            df_y_mayor.city, df_y_mayor.other, df_y_mayor.Vote_num, df_y_mayor.Vote, df_y_mayor.Vote_num_p, 
                            df_y_mayor.Vote_p],
