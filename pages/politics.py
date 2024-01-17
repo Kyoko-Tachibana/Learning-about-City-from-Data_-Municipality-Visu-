@@ -1301,7 +1301,7 @@ layout = html.Div([html.Br(),
     ))
     
 
-], lang='en')
+], lang='en', className='main-page-layout')
 
 
 # In[ ]:
