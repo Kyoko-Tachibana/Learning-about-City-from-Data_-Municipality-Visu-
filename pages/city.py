@@ -321,11 +321,11 @@ layout = html.Div([
                  dbc.CardBody([
                      html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'3vw'}),
                      html.Div([
-                     dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
+                     dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'12px'}), 
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map',
-                  style = {'display': 'flex', 'color':'white', 'flexDirection': 'column'}
+                  style = {'display': 'flex', 'color':'white', 'flexDirection': 'column', 'font-size':'12px'}
                  )])
                  ]
             ), className='set-value-card', color='info')
