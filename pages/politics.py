@@ -1280,25 +1280,32 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Br(),
     html.Br(),
-    html.Div(dbc.NavbarSimple(
-        dbc.NavItem(
-            dbc.Row([
-                dbc.Col(html.Img(src='assets/github_mark.png', height=15,
-                                 style={'position': 'relative', 'top': '16%'}, alt='Official Github Logo')),
-                dbc.Col(
-                    dbc.NavLink('Github',
-                                href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
-                                style={'font-size': '1.5vh', 'textAlign': 'center', 'color': 'navy'}))
-            ])
-        ),
+    html.Div(
+    dbc.NavbarSimple(
+        children=[
+            dbc.NavItem(
+                dbc.NavLink(
+                    dbc.Row(
+                        [
+                            dbc.Col(html.Img(src='assets/github_mark.png', height=15), width="auto"),
+                            dbc.Col("Github", style={'font-size': '12px', 'textAlign': 'center', 'color': 'navy'}),
+                        ],
+                        align="center",
+                        className="align-items-center",
+                    ),
+                    href='https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-',
+                )
+            )
+        ],
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
-        dark=True,
-        brand_style={'font-size': '1.5vw', 'textAlign': 'center', 'color': 'navy',
-                     'font': "italic"},
+        brand_style={'font-size': '12px', 'textAlign': 'center', 'color': 'navy', 'font': 'italic'},
         color='info',
+        dark=True,
         sticky='bottom',
-        style={'height': '3vh', 'width':'100vw'},
-    ))
+        style={'height': '5vh', 'width': '100vw'},
+    )
+)
+
     
 
 ], lang='en', className='main-page-layout')
