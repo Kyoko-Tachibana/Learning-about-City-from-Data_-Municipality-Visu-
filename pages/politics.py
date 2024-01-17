@@ -911,7 +911,7 @@ layout = html.Div([html.Br(),
                dbc.Button(
                     "ABOUT",
                     id="about-offcanvas-scrollable",
-                   n_clicks=0,
+                   n_clicks=0, style={'color':'navy'}
                ),
                dbc.Offcanvas(
                     [html.Hr(), html.P(
