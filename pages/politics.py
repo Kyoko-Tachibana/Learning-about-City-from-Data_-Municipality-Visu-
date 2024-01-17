@@ -1048,7 +1048,7 @@ layout = html.Div([html.Br(),
                   children=[
                             dcc.Markdown('''Choose a year''', style={'color':'white'}), 
                             html.Div(dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], 2022, id='input-year', 
-                                                  clearable=False, style={'width':'15vw', 'color':'midnightblue', 'font-size':'2vw'}))]), 
+                                                  clearable=False, className='dropdown'))]), 
                   dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white'}), 
                           dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
                                          'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], 
@@ -1089,13 +1089,19 @@ layout = html.Div([html.Br(),
              on them, where frequent but less meaningful terms were scored lower, and less frequent but 
              meaningful ones were scored higher. 
              For more info: 
-             https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction
+             [scikit-learn text feature extraction](https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction)
              
-             $tf-idf(\text{noun}, \text{minutes}) = \text{tf}(\text{noun}, \text{minutes}) \times \text{idf}(noun)$
+             $$
+             tf-idf(noun, \text{minutes}) = \text{tf}(noun, \text{minutes}) \times \text{idf}(noun)
+             $$
 
-             $\text{tf}(\text{noun}, \text{minutes}) = \text{The number of times a noun occurs in a minute}$
+             $$
+             tf(noun, \text{minutes}) = \text{The number of times a noun occurs in a minute}
+             $$
 
-             $\text{idf}(\text{noun}) = \ln{\left(\frac{1 + \text{Number of lines in a minute}}{1 + \text{Number of lines that contain the noun}}\right)} + 1$
+             $$
+             idf(noun) = \ln{\left(\frac{1 + \text{Number of lines in a minute}}{1 + \text{Number of lines that contain the noun}}\right)} + 1
+             $$
 
              
              -Top 100 nouns regarding the tf-idf score were extracted.  
@@ -1119,7 +1125,7 @@ layout = html.Div([html.Br(),
         dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'3vw'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white'}), 
                           html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
-    2022, id='input-year-network', clearable=False, style={'color':'midnightblue', 'width':'15vw', 'font-size':'2vw'}))
+    2022, id='input-year-network', clearable=False, className='dropdown'))
              ])
        ])
       ]), className='set-value-card', color='info'
