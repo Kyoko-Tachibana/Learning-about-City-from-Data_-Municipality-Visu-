@@ -58,7 +58,7 @@ def candidate_info(df):
                            df_y.Vote_num, df_y.Vote, df_y.Vote_num_p, df_y.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y.Result))]]*13,
                align='left',
-               font=dict(color='silver', size=12))))
+               font=dict(color='black', size=12))))
 
     for year in df[df['Type']=='市長']['Year'].unique():
         df_y_mayor = df[(df['Year']==year)&(df['Type']=='市長')]
@@ -81,7 +81,7 @@ def candidate_info(df):
                            df_y_mayor.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y_mayor.Result))]]*13,
                align='left',
-               font=dict(color='silver', size=12, family=font_fam_sp))))
+               font=dict(color='black', size=12, family=font_fam_sp))))
 
 
     fig.update_layout(
@@ -1050,13 +1050,13 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div(dbc.Card(
         dbc.CardBody([dbc.Col([
-                  dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'13px'})),
+                  dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'16px'})),
                   dbc.Row(
                   children=[
-                            dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'12px'}), 
+                            dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'16px'}), 
                             html.Div(dcc.Dropdown([2022, 2018, 2014, 2010, 2006, 2002], value=2022, id='input-year', 
                                                   clearable=False, className='dropdown'))]), 
-                  dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'12px'}), 
+                  dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'16px'}), 
                           dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
                                          'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], 
                                     id='attributes', style = {'display': 'flex', 'color':'white'}
@@ -1117,8 +1117,8 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Br(),
     html.Div(dbc.Card(dbc.CardBody([dbc.Col([
-        dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'13px'})),
-        dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'12px'}), 
+        dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'16px'})),
+        dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'16px'}), 
                           html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
     value=2022, id='input-year-network', clearable=False, className='dropdown'))
              ])
