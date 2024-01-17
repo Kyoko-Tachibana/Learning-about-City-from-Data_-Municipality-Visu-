@@ -1052,7 +1052,7 @@ layout = html.Div([html.Br(),
                   dbc.Row(children=[dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'12px'}), 
                           dcc.Checklist(['AGE', 'SEX', 'PARTY', 'VOTE', 'VOTE(%)', 
                                          'PREVIOUS VOTE', 'PREVIOUS VOTE(%)', 'PREVIOUS RESULT'], 
-                                    id='attributes', inline=True, style = {'display': 'flex', 'color':'white'}
+                                    id='attributes', style = {'display': 'flex', 'color':'white'}
                  )])
               ])
             ]), className='set-value-card', color='info'
