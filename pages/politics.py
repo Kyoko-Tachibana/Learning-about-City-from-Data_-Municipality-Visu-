@@ -50,14 +50,15 @@ def candidate_info(df):
                 ['<b>EDUCATIONAL</b><br><b>PLEDGE</b>'], ['<b>WELFARE</b><br><b>PLEDGE</b>'], 
                 ['<b>CITYPLANNING</b><br><b>PLEDGE</b>'], ['<b>OTHER</b><br><b>PLEDGE</b>'], ['<b>VOTES<br></b>'], 
                 ['<b>VOTES<br></b>(%)'], ['<b>PREVIOUS<br>VOTES<br></b>'], ['<b>PREVIOUS<br>VOTES<br></b>(%)']],
-                fill_color='aliceblue',
+                fill_color="#d9e3f1",
                 align='left',
-                font_size=10),
+                font_size=10,
+                color='navy'),
         cells=dict(values=[df_y.Candidate, df_y.Party, df_y.Age, df_y.Sex, df_y.Career, df_y.edu, df_y.wel, df_y.city, df_y.other, 
                            df_y.Vote_num, df_y.Vote, df_y.Vote_num_p, df_y.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y.Result))]]*13,
                align='left',
-               font=dict(color='black', size=12))))
+               font=dict(color='navy', size=12))))
 
     for year in df[df['Type']=='市長']['Year'].unique():
         df_y_mayor = df[(df['Year']==year)&(df['Type']=='市長')]
@@ -70,16 +71,17 @@ def candidate_info(df):
                 ['<b>EDUCATIONAL</b><br><b>PLEDGE</b>'], ['<b>WELFARE</b><br><b>PLEDGE</b>'], 
                 ['<b>CITYPLANNING</b><br><b>PLEDGE</b>'], ['<b>OTHER</b><br><b>PLEDGE</b>'], ['<b>VOTES<br></b>'], 
                 ['<b>VOTES<br></b>(%)'], ['<b>PREVIOUS<br>VOTES</b>'], ['<b>PREVIOUS<br>VOTES</b><br>(%)']],
-                fill_color='paleturquoise',
+                fill_color="#d9e3f1",
                 align='left',
                 font_size=10,
-                font_family=font_fam_sp),
+                font_family=font_fam_sp,
+                color='navy'),
         cells=dict(values=[df_y_mayor.Candidate, df_y_mayor.Party, df_y_mayor.Age, df_y_mayor.Sex, df_y_mayor.Career, df_y_mayor.edu, df_y_mayor.wel, 
                            df_y_mayor.city, df_y_mayor.other, df_y_mayor.Vote_num, df_y_mayor.Vote, df_y_mayor.Vote_num_p, 
                            df_y_mayor.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y_mayor.Result))]]*13,
                align='left',
-               font=dict(color='black', size=12, family=font_fam_sp))))
+               font=dict(color='navy', size=12, family=font_fam_sp))))
 
 
     fig.update_layout(
@@ -914,13 +916,13 @@ layout = html.Div([html.Br(),
                dbc.Offcanvas(
                     [html.Hr(), html.P(
                     "A resource for knowing, learning about and\ngetting excited about city council election,\ndesigned mainly for Nishi Tokyo City, Tokyo,\nbut can be applied to any other city."
-                    ),
-                     html.P("-Figures on elections held in Nishi Tokyo City"), 
-                     html.P("-Quick review on Nishi Tokyo City Council"), 
-                     html.P("-Uploading your city's data and getting figures out"), html.Br(),
+                    , style={'color':'navy'}),
+                     html.P("-Figures on elections held in Nishi Tokyo City", style={'color':'navy'}), 
+                     html.P("-Quick review on Nishi Tokyo City Council", style={'color':'navy'}), 
+                     html.P("-Uploading your city's data and getting figures out", style={'color':'navy'}), html.Br(),
                     dcc.Markdown('''
                     **Contact : westt.sskry(at)gmail.com**
-                    ''')],
+                    ''', style={'color':'navy'})],
                     id="offcanvas-scrollable",
                     scrollable=True,
                     title="About this page",
@@ -948,9 +950,9 @@ layout = html.Div([html.Br(),
             *VOTE RATE*: Vote Rate of each election
             
             *RESULT*: Distribution of Result(Elected or not) across the candidates'
-            ''')), html.P([html.B('Source'), dcc.Markdown('''
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), dcc.Markdown('''
             https://www.city.nishitokyo.lg.jp/siseizyoho/senkyo/kekka/index.html
-            ''')])])],
+            ''', style={'color':'navy'})])])],
             color='info', outline = True),
             id='doc1',
             is_open=False,
@@ -958,29 +960,29 @@ layout = html.Div([html.Br(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
-        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', style={'aria-controls':'party_graph', 'aria-label':'Party'}, 
+        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', style={'color':'navy'}, 
             children=[
             dcc.Graph(
                 figure=party_across_year_general(df, 1), id='party_graph')
         ]),
-        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', style={'aria-controls':'sex_graph', 'aria-label':'Sex'},
+        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', style={'color':'navy'},
                 children=[
             dcc.Graph(figure=sex_general(df, 1), id='sex_graph'
             )
         ]),
-        dbc.Tab(label='AGE', tab_id='age', id = 'age_', style={'aria-controls':'age_graph', 'aria-label':'Age'},
+        dbc.Tab(label='AGE', tab_id='age', id = 'age_', style={'color':'navy'},
                 children=[
             dcc.Graph(
                 figure=age_general(df, 1), id='age_graph'
             )
         ]),
-        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', style={'aria-controls':'vr_graph', 'aria-label':'Vote Rate'},
+        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', style={'color':'navy'},
                 children=[
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_vote_rate, 1), id='vr_graph'
             )
         ]),
-        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', style={'aria-controls':'result_graph', 'aria-label':'Result'},
+        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', style={'color':'navy'},
                 children=[
             dcc.Graph(
                 figure=result_general(df, 1), id='result_graph'
@@ -995,7 +997,7 @@ layout = html.Div([html.Br(),
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
              dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2')]),
     html.Div(dbc.Collapse(
-            dbc.Card([dbc.CardHeader('TABLE DESCRIPTION'),
+            dbc.Card([dbc.CardHeader('TABLE DESCRIPTION', style={'color':'navy'}),
             dbc.CardBody([
             html.P(dcc.Markdown('''
             *Pledges, Career*: Extracted from Election Gazetta of each candidate. 
@@ -1003,9 +1005,9 @@ layout = html.Div([html.Br(),
             (*i.e* these could be reflecting editor's bias) 
             
             Candidates whose columns are highlighted in pink were elected and in blue not."
-            ''')), html.P([html.B('Source'), dcc.Markdown('''
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), dcc.Markdown('''
             https://www.city.nishitokyo.lg.jp/siseizyoho/senkyo/kekka/index.html
-            ''')])])],
+            ''', style={'color':'navy'})])])],
             color='dark', outline = True),
             id='doc2',
             is_open=False,
@@ -1020,7 +1022,7 @@ layout = html.Div([html.Br(),
                       style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}), 
              dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3')]),
     html.Div(dbc.Collapse(
-            dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
+            dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION', style={'color':'navy'}),
             dbc.CardBody([
             html.P( 
             dcc.Markdown('''
@@ -1037,9 +1039,9 @@ layout = html.Div([html.Br(),
             
             *PREVIOUS VOTE/ VOTE(%)/ RESULT*: 
             If a candidate hasn't run for the previous election, 0/ Not Elected was assigned for them.
-            ''')), html.P([html.B('Source'), dcc.Markdown('''
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), dcc.Markdown('''
             https://www.city.nishitokyo.lg.jp/siseizyoho/senkyo/kekka/index.html
-            ''')])])],
+            ''', style={'color':'navy'})])])],
             color='secondary', outline = True),
             id='doc3',
             is_open=False,
@@ -1074,7 +1076,7 @@ layout = html.Div([html.Br(),
     html.Div([html.H2('City Council Review', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
              dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button5')]),
     html.Div(dbc.Collapse(
-            dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION'),
+            dbc.Card([dbc.CardHeader('GRAPH DESCRIPTION', style={'color':'navy'}),
             dbc.CardBody([
             html.P( 
             dcc.Markdown('''
@@ -1096,30 +1098,17 @@ layout = html.Div([html.Br(),
              For more info: 
              [scikit-learn text feature extraction](https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction)
              
-             $$
-             tf-idf(noun, \text{minutes}) = \text{tf}(noun, \text{minutes}) \times \text{idf}(noun)
-             $$
-
-             $$
-             tf(noun, \text{minutes}) = \text{The number of times a noun occurs in a minute}
-             $$
-
-             $$
-             idf(noun) = \ln{\left(\frac{1 + \text{Number of lines in a minute}}{1 + \text{Number of lines that contain the noun}}\right)} + 1
-             $$
-
-             
              -Top 100 nouns regarding the tf-idf score were extracted.  
              
              *2. Coocurrance network graph calculation*
              
              -On the 100 nouns, algorithmns for `NetworkX` was performed.
-             https://networkx.org/documentation/stable/reference/algorithms/index.html
+             [NetworkX documentation](https://networkx.org/documentation/stable/reference/algorithms/index.html)
             
-            ''', mathjax=True)), html.P([html.B('Source'), html.Div(dcc.Markdown(
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), html.Div(dcc.Markdown(
                 '''
                 https://www.city.nishitokyo.tokyo.dbsr.jp/index.php/
-                '''))])])],
+                ''', style={'color':'navy'}))])])],
             color='dark', outline = True),
             id='doc5',
             is_open=False,
@@ -1143,18 +1132,18 @@ layout = html.Div([html.Br(),
     html.Div([html.H2('Make graphs of your city!', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
              dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button4')]),
     html.Div(dbc.Collapse(
-            dbc.Card([dbc.CardHeader('DESCRIPTION'),
+            dbc.Card([dbc.CardHeader('DESCRIPTION', style={'color':'navy'}),
             dbc.CardBody([html.P(dcc.Markdown('''
             By uploading csv files, you can obtain figures. File format restriction is strict. 
             Please see below for the info.
-            '''))])],
+            ''', style={'color':'navy'}))])],
             color='primary', outline = True),
             id='doc4',
             is_open=False,
         )),
     html.Br(),
     html.Br(),
-    html.H3('Basic Statistical Figures', style={'textAlign': 'left', 'color': '#503D36', 'font-size': 20}),
+    html.H3('Basic Statistical Figures', style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
     
     html.Div([
     dcc.Upload(
@@ -1170,7 +1159,7 @@ layout = html.Div([html.Br(),
     html.Div(id='output-data-upload'),
     html.Br(),
     html.H3('Relationship between multiple attributes and the Election Result', 
-            style={'textAlign': 'left', 'color': '#503D36', 'font-size': 20}),
+            style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
     
     html.Div([
     dcc.Upload(
@@ -1181,7 +1170,7 @@ layout = html.Div([html.Br(),
         multiple=False
     )]),
     
-    html.H3('Your Graphs:', style={'font-size':20}),
+    html.H3('Your Graphs:', style={'font-size':20, 'color':'navy'}),
     html.Br(),
     html.Div([
         dbc.Tabs([
@@ -1223,14 +1212,15 @@ layout = html.Div([html.Br(),
     ,
     html.Br(),
     html.Br(),
-    html.H3('File Format'),
+    html.H3('File Format', style={'color':'navy'}),
     html.Br(),
     html.Div(
     dbc.Accordion(
         [
             dbc.AccordionItem(
-                [html.P([html.B("File Type"),html.Div("-CSV")]), html.P([html.B("Encoding"), html.Div("-Shift JIS")]), 
-                 html.P([html.B("Columns"),dcc.Markdown('''
+                [html.P([html.B("File Type", style={'color':'navy'}),html.Div("-CSV", style={'color':'navy'})]), 
+                 html.P([html.B("Encoding", style={'color':'navy'}), html.Div("-Shift JIS", style={'color':'navy'})]), 
+                 html.P([html.B("Columns", style={'color':'navy'}),dcc.Markdown('''
                 *-Age* (Age of a candidate)
                 
                 *-Sex* (Sex of a candidate, Male or Female)
@@ -1248,12 +1238,14 @@ layout = html.Div([html.Br(),
                 *-Result* (Whether the candidate were elected, 1 for elected, 0 for not)
                 
                 *-Candidate:optional* (Name of a candidate)
-                 ''')]),
-                html.P([html.B("Note"), html.Div("-Columns which have nulls (NaNs, N/As) are deleted automatically")])]
+                 ''', style={'color':'navy'})]),
+                html.P([html.B("Note", style={'color':'navy'}), 
+                        html.Div("-Columns which have nulls (NaNs, N/As) are deleted automatically", style={'color':'navy'})])]
                 , title="Basic Statistical Figures"
             ),
-            dbc.AccordionItem([html.P([html.B("File Type"), html.Div("-CSV")]), html.P([html.B("Encoding"),html.Div("-Shift JIS")]), 
-                               html.P([html.B("Columns"), dcc.Markdown('''
+            dbc.AccordionItem([html.P([html.B("File Type", style={'color':'navy'}), html.Div("-CSV", style={'color':'navy'})]), 
+                               html.P([html.B("Encoding", style={'color':'navy'}),html.Div("-Shift JIS", style={'color':'navy'})]), 
+                               html.P([html.B("Columns", style={'color':'navy'}), dcc.Markdown('''
                 *-Age* (Age of a candidate)
                 
                 *-Sex* (Sex of a candidate, Male or Female)
@@ -1277,9 +1269,9 @@ layout = html.Div([html.Br(),
                 *-Result_p* (Whether the candidate were elected in the previous election, 1 for elected, 0 for not)
                 
                 *-Candidate:optional* (Name of a candidate)
-                ''')]), 
-                html.P([html.B("Note"), html.Div("-Columns which have nulls (NaNs, N/As) are deleted automatically")])]
-                , title="Relationship between multiple attributes and the Election Result")
+                ''', style={'color':'navy'})]), 
+                html.P([html.B("Note", style={'color':'navy'}), html.Div("-Columns which have nulls (NaNs, N/As) are deleted automatically")])]
+                , title="Relationship between multiple attributes and the Election Result", style={'color':'navy'})
             ,
                  ],
                  flush=True,
