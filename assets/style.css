@@ -17,7 +17,7 @@
 }
 
 .set-value-card {
-    color: #117a8b; /* Info color */
+    color: 'info'; /* Info color */
     width: 100%;
     margin: auto;
 }
