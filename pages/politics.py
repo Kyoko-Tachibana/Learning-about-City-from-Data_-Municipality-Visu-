@@ -57,7 +57,7 @@ def candidate_info(df):
                            df_y.Vote_num, df_y.Vote, df_y.Vote_num_p, df_y.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y.Result))]]*13,
                align='left',
-               font=dict(color='black', size='12px'))))
+               font=dict(color='black', size=12))))
 
     for year in df[df['Type']=='市長']['Year'].unique():
         df_y_mayor = df[(df['Year']==year)&(df['Type']=='市長')]
@@ -79,7 +79,7 @@ def candidate_info(df):
                            df_y_mayor.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y_mayor.Result))]]*13,
                align='left',
-               font=dict(color='black', size='12px', family=font_fam_sp))))
+               font=dict(color='black', size=12, family=font_fam_sp))))
 
 
     fig.update_layout(
