@@ -217,7 +217,7 @@ layout = html.Div([
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
                 html.Div('西東京市の都市・人口情報を見る。ほかの自治体の都市・人口情報を可視化する。', 
-                style={'font-family':'游明朝', 'textAlign':'left', 'color':'royalblue', 'font-size':20}),
+                style={'font-family':'游明朝', 'textAlign':'left', 'color':'blue', 'font-size':20}),
                 html.Br(),
                 html.Br(),
                 html.Div(
@@ -267,10 +267,11 @@ layout = html.Div([
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs(
-        dbc.Tab(label='POPULATION', tab_id = 'pop', id = 'pop_', children=[html.Br(),
+        dbc.Tab(label='POPULATION', tab_id = 'pop', id = 'pop_', style={'aria-controls':'pop_graph', 'aria-label':'Population'},
+                children=[html.Br(),
             dbc.Spinner(
                 dcc.Graph(
-                figure=population_general(df_pop)), color='dark'),
+                figure=population_general(df_pop)), color='dark', id='pop_graph'),
             dbc.Spinner(
                 dcc.Graph(figure=violin_general(df_pop)), color='dark')
         ]), id='basic_city'
@@ -471,7 +472,7 @@ layout = html.Div([
                     dbc.Row(
                         [
                             dbc.Col(html.Img(src='assets/github_mark.png', height=15), width="auto"),
-                            dbc.Col("Github", style={'font-size': '12px', 'textAlign': 'center', 'color': 'navy'}),
+                            dbc.Col("Github", style={'font-size': '12px', 'textAlign': 'center', 'color': 'mintcream'}),
                         ],
                         align="center",
                         className="align-items-center",
@@ -481,7 +482,7 @@ layout = html.Div([
             )
         ],
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
-        brand_style={'font-size': '12px', 'textAlign': 'center', 'color': 'navy', 'font': 'italic'},
+        brand_style={'font-size': '12px', 'textAlign': 'center', 'color': 'mintcream', 'font': 'italic'},
         color='info',
         dark=True,
         sticky='bottom',
