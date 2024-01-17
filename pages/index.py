@@ -15,7 +15,7 @@ layout = html.Div([
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '4.5vw', 'color': 'midnightblue', 
                'background-color':'lavender', 'width':'40vw'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '38%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
@@ -23,7 +23,7 @@ layout = html.Div([
             
             **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
         ''', 
-        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.6vw', 'color': 'black', 'width':'90%'}
+        style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.6vw', 'color': 'black', 'width':'92%'}
         )),
     ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'5vw'}),
 
