@@ -325,7 +325,7 @@ layout = html.Div([
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map',
-                  style = {'display': 'flex', 'color':'white', 'flexDirection': 'column', 'font-size':'12px'}
+                  style = {'display': 'flex', 'color':'white', 'font-size':'12px'}
                  )])
                  ]
             ), className='set-value-card', color='info')
