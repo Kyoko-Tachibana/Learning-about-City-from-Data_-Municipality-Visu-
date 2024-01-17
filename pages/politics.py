@@ -981,7 +981,7 @@ layout = html.Div([html.Br(),
                 figure=result_general(df, 1)
             )
         ])
-    ], id='basic_politics')
+    ])
     ),
     html.Br(),
     html.Br(),
@@ -1043,7 +1043,7 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div(dbc.Card(
         dbc.CardBody([dbc.Col([
-                  dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'3vw'})),
+                  dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'13px'})),
                   dbc.Row(
                   children=[
                             dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'12px'}), 
@@ -1122,7 +1122,7 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Br(),
     html.Div(dbc.Card(dbc.CardBody([dbc.Col([
-        dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'3vw'})),
+        dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'13px'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'12px'}), 
                           html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
     2022, id='input-year-network', clearable=False, className='dropdown'))
