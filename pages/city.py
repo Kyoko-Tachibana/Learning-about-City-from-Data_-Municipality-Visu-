@@ -225,7 +225,7 @@ layout = html.Div([
                dbc.Button(
                     "ABOUT",
                     id="about-offcanvas-scrollable_map",
-                   n_clicks=0,
+                   n_clicks=0, , style={'color':'navy'}
                ),
                dbc.Offcanvas(
                     [html.P(
@@ -845,7 +845,7 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
             print(e)
             return [html.Div('There was an error processing files.')]
         
-        return [html.Div(dbc.Spinner(dcc.Graph(figure=fig)), color='dark')]
+        return [html.Div(dbc.Spinner(dcc.Graph(figure=fig), color='dark'))]
 
 @callback(
     Output("doc2_map", "is_open"),
