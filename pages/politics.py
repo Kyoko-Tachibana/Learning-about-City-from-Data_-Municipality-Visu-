@@ -38,7 +38,7 @@ for y in range(2001, 2023):
 
 def candidate_info(df):
     fig = go.Figure()
-    colors = n_colors('rgb(197, 216, 255)', 'rgb(253, 222, 250)', 2, colortype='rgb')
+    colors = n_colors('rgb(239, 238, 255)', 'rgb(255, 236, 251)', 2, colortype='rgb')
     for year in df[df['Type']=='市議']['Year'].unique():
         df_y = df[(df['Year']==year)&(df['Type']=='市議')]
 
@@ -50,7 +50,7 @@ def candidate_info(df):
                 ['<b>EDUCATIONAL</b><br><b>PLEDGE</b>'], ['<b>WELFARE</b><br><b>PLEDGE</b>'], 
                 ['<b>CITYPLANNING</b><br><b>PLEDGE</b>'], ['<b>OTHER</b><br><b>PLEDGE</b>'], ['<b>VOTES<br></b>'], 
                 ['<b>VOTES<br></b>(%)'], ['<b>PREVIOUS<br>VOTES<br></b>'], ['<b>PREVIOUS<br>VOTES<br></b>(%)']],
-                fill_color='paleturquoise',
+                fill_color='aliceblue',
                 align='left',
                 font_size=10),
         cells=dict(values=[df_y.Candidate, df_y.Party, df_y.Age, df_y.Sex, df_y.Career, df_y.edu, df_y.wel, df_y.city, df_y.other, 
@@ -901,7 +901,7 @@ layout = html.Div([html.Br(),
                 html.Div('西東京市の政治についての分析を見る。ほかの自治体の政治を分析する。'
                          ,
                 style=
-                {'font-family':'游明朝', 'textAlign':'left', 'color':'royalblue', 'font-size':20}),
+                {'font-family':'游明朝', 'textAlign':'left', 'color':'blue', 'font-size':20}),
                 html.Br(),
                 html.Br(),
                 html.Div(
@@ -1297,7 +1297,7 @@ layout = html.Div([html.Br(),
                     dbc.Row(
                         [
                             dbc.Col(html.Img(src='assets/github_mark.png', height=15), width="auto"),
-                            dbc.Col("Github", style={'font-size': '12px', 'textAlign': 'center', 'color': 'navy'}),
+                            dbc.Col("Github", style={'font-size': '12px', 'textAlign': 'center', 'color': 'mintcream'}),
                         ],
                         align="center",
                         className="align-items-center",
@@ -1307,7 +1307,7 @@ layout = html.Div([html.Br(),
             )
         ],
         brand='This page uses Dash, is themed by Bootstrap.Morph, and is deployed by Render.',
-        brand_style={'font-size': '12px', 'textAlign': 'center', 'color': 'navy', 'font': 'italic'},
+        brand_style={'font-size': '12px', 'textAlign': 'center', 'color': 'mintcream', 'font': 'italic'},
         color='info',
         dark=True,
         sticky='bottom',
