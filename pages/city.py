@@ -225,7 +225,7 @@ layout = html.Div([
                dbc.Button(
                     "ABOUT",
                     id="about-offcanvas-scrollable_map",
-                   n_clicks=0, , style={'color':'navy'}
+                   n_clicks=0, style={'color':'navy'}
                ),
                dbc.Offcanvas(
                     [html.P(
@@ -321,13 +321,13 @@ layout = html.Div([
              html.Br(),
              html.Div([dbc.Card(
                  dbc.CardBody([
-                     html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'3vw'}),
+                     html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'16px'}),
                      html.Div([
-                     dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'12px'}), 
+                     dcc.Markdown('''Choose Attributes''', style={'color':'white', 'font-size':'16px'}), 
                        dcc.Checklist(['LANDMARK', 'STATION', 'EMERGENCY ROUTE', 'SHELTER', 'PARK', 
                                       'BORDER', 'SHARE CYCLE STATION'], 
                                      id='attributes_map',
-                  style = {'display': 'flex', 'color':'white', 'font-size':'12px'}
+                  style = {'display': 'flex', 'color':'white', 'font-size':'16px'}
                  )])
                  ]
             ), className='set-value-card', color='info')
