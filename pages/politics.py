@@ -53,7 +53,7 @@ def candidate_info(df):
                 fill_color="#d9e3f1",
                 align='left',
                 font_size=10,
-                color='navy'),
+                font=dict(color='navy')),
         cells=dict(values=[df_y.Candidate, df_y.Party, df_y.Age, df_y.Sex, df_y.Career, df_y.edu, df_y.wel, df_y.city, df_y.other, 
                            df_y.Vote_num, df_y.Vote, df_y.Vote_num_p, df_y.Vote_p],
                fill_color=[np.array(colors)[list(map(int, df_y.Result))]]*13,
