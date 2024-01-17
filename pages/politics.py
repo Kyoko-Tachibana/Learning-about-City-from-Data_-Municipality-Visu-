@@ -958,27 +958,32 @@ layout = html.Div([html.Br(),
         html.Br(),
         html.Br(),
         html.Div(dbc.Tabs([
-        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', children=[
+        dbc.Tab(label='PARTY', tab_id='party', id = 'party_', style={'aria-controls':'party_graph', 'aria-label':'Party'}, 
+            children=[
             dcc.Graph(
-                figure=party_across_year_general(df, 1))
+                figure=party_across_year_general(df, 1), id='party_graph')
         ]),
-        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', children=[
-            dcc.Graph(figure=sex_general(df, 1)
+        dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', style={'aria-controls':'sex_graph', 'aria-label':'Sex'},
+                children=[
+            dcc.Graph(figure=sex_general(df, 1), id='sex_graph'
             )
         ]),
-        dbc.Tab(label='AGE', tab_id='age', id = 'age_', children=[
+        dbc.Tab(label='AGE', tab_id='age', id = 'age_', style={'aria-controls':'age_graph', 'aria-label':'Age'},
+                children=[
             dcc.Graph(
-                figure=age_general(df, 1)
+                figure=age_general(df, 1), id='age_graph'
             )
         ]),
-        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', children=[
+        dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', style={'aria-controls':'vr_graph', 'aria-label':'Vote Rate'},
+                children=[
             dcc.Graph(
-                figure=vote_rate_council_mayor_general(df_vote_rate, 1)
+                figure=vote_rate_council_mayor_general(df_vote_rate, 1), id='vr_graph'
             )
         ]),
-        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', children=[
+        dbc.Tab(label='RESULT', tab_id='result', id = 'result_', style={'aria-controls':'result_graph', 'aria-label':'Result'},
+                children=[
             dcc.Graph(
-                figure=result_general(df, 1)
+                figure=result_general(df, 1), id='result_graph'
             )
         ])
     ])
@@ -1180,31 +1185,35 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div([
         dbc.Tabs([
-            dbc.Tab(tab_id='set 1', id = 'set 1_', label='SET 1', children=[html.Br(),
+            dbc.Tab(tab_id='set 1', id = 'set 1_', style={'aria-controls':'badge_1', 'aria-label':'set 1'}, 
+            label='SET 1', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
-            dbc.Badge('PARTY', text_color="dark", color="light")])
+            dbc.Badge('PARTY', text_color="dark", color="light")], id='badge_1')
         ]),
-        dbc.Tab(tab_id='set 2', id = 'set 2_', label='SET 2', children=[html.Br(),
+        dbc.Tab(tab_id='set 2', id = 'set 2_', label='SET 2', style={'aria-controls':'badge_2', 'aria-label':'set 2'},
+                children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
-            , dbc.Badge('VOTE(%)', text_color="dark", color="light")])
+            , dbc.Badge('VOTE(%)', text_color="dark", color="light")], id='badge_2')
         ]),
-        dbc.Tab(tab_id='set 3', id = 'set 3_', label='SET 3', children=[html.Br(),
+        dbc.Tab(tab_id='set 3', id = 'set 3_', label='SET 3', style={'aria-controls':'badge_3', 'aria-label':'set 3'},
+                children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
-            dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")])
+            dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")], id='badge_3')
         ]),
-        dbc.Tab(tab_id='set 4', id = 'set 4_', label='SET 4', children=[html.Br(),
+        dbc.Tab(tab_id='set 4', id = 'set 4_', label='SET 4', style={'aria-controls':'badge_4', 'aria-label':'set 4'},
+                children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light"),
-            dbc.Badge('PREVIOUS RESULT', text_color="dark", color="light")])
+            dbc.Badge('PREVIOUS RESULT', text_color="dark", color="light")], id='badge_4')
         ])
     ], id='upload2_tabs')
     ]), 
