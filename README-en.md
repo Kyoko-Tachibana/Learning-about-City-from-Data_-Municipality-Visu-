@@ -2,7 +2,7 @@
 
 [日本語版Readme](README.md)
 
-Created for Urban Data Challenge 2023 application. Basically it's about analysis of elections, population, facilities and so on of Nishitokyo, Tokyo, which where I live, it also has a function enabling an extension for other cities.
+Basically it's about analysis of elections, population, facilities and so on of Nishitokyo, Tokyo, which where I live, it also has a function enabling an extension for other cities.
 
 URL: https://machiran.onrender.com
 
