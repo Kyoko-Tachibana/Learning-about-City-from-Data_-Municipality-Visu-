@@ -6,7 +6,7 @@ Basically it's about analysis of elections, population, facilities and so on of 
 
 URL: https://machiran.onrender.com
 
-The load can be slow due to the server limitation.
+The load can be slow due to the server limitation. Screenshots in this Readme are taken during development, and can be different from what the actual product looks like.
 
 
 
