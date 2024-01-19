@@ -35,11 +35,11 @@ layout = html.Div([
                            color='light', size='lg')),
         dbc.Col(dcc.Markdown('''
         **ガイド**
-        ''', id='guide', style={'color':'deeppink', 'font-size':'3vw'})),
+        ''', id='guide', style={'color':'deeppink', 'font-size':'3vw', 'background-color':'lavender'})),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
-    ], style={'margin': 0, 'position': 'relative', 'top': '50%', 'transform': 'translateY(-50%)', 'left':'8vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'8vw'}),
     
     dbc.Tooltip(dcc.Markdown('''
     ①「都市」「政治」どちらかのボタンを押してスタート！
