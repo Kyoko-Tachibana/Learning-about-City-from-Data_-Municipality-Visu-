@@ -1,4 +1,4 @@
-# データで街について学べるサイト「まちラーン」
+# あなたの自治体、可視化します「自治体Visu」
 
 [English ver. Readme](README-en.md)
 
