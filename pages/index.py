@@ -15,7 +15,7 @@ layout = html.Div([
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '4.5vw', 'color': 'midnightblue', 
                'background-color':'lavender', 'width':'40vw'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '35%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '33%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
@@ -27,7 +27,7 @@ layout = html.Div([
         ''', 
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.6vw', 'color': 'black', 'width':'92%'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '40%', 'transform': 'translateY(-50%)', 'left':'5vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '37%', 'transform': 'translateY(-50%)', 'left':'5vw'}),
 
     dbc.Row([
         dbc.Col(dbc.Button('政治', href='/politics', outline=True, 
@@ -35,11 +35,11 @@ layout = html.Div([
                            color='light', size='lg')),
         dbc.Col(dcc.Markdown('''
         **ガイド**
-        ''', id='guide', style={'color':'deeppink', 'font-size':'12px'})),
+        ''', id='guide', style={'color':'deeppink', 'font-size':'3vw'})),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
-    ], style={'margin': 0, 'position': 'relative', 'top': '50%', 'transform': 'translateY(-50%)', 'left':'20vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '50%', 'transform': 'translateY(-50%)', 'left':'8vw'}),
     
     dbc.Tooltip(dcc.Markdown('''
     ①「都市」「政治」どちらかのボタンを押してスタート！
@@ -50,7 +50,7 @@ layout = html.Div([
     （西東京市の方は、表示されているグラフをそのままダウンロードできます。また、一部アップロード機能に対応していないグラフがあります。）
 
     ④表示されたグラフは、様々な用途に活用できる形式でダウンロードできます。いろいろな使い方を探してみてください！
-    ''', style={'font-size':'12px'}), target='guide', placement='top')
+    ''', style={'font-size':'15px', 'color':'black'}), target='guide', placement='top')
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
           'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'}, lang='ja')
