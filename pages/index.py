@@ -50,7 +50,8 @@ layout = html.Div([
     （西東京市の方は、表示されているグラフをそのままダウンロードできます。また、一部アップロード機能に対応していないグラフがあります。）
 
     ④表示されたグラフは、様々な用途に活用できる形式でダウンロードできます。いろいろな使い方を探してみてください！
-    ''', style={'font-size':'15px', 'color':'black'}), target='guide', placement='top')
+    ''', style={'font-size':'15px', 'color':'black', 'font-family':'游明朝', 'width':'30vw'}), 
+                target='guide', placement='top')
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
           'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'}, lang='ja')
