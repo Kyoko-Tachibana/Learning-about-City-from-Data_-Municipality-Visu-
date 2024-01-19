@@ -160,7 +160,7 @@ def candidate_info(df):
 
     fig.update_layout(title='<b>Choose a year</b>', title_font={'family':font_fam_sp})
 
-    fig.update_traces(marker_line_color='black')
+    fig.update_traces(cells=dict(line=dict(color='black')))
 
     return fig
 
