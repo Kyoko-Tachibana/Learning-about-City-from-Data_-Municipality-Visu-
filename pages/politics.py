@@ -21,6 +21,8 @@ from plotly.colors import n_colors
 from itertools import compress
 import math
 import dash_bootstrap_components as dbc
+import json
+import plotly
 
 font_fam_sp = '"Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif'
 
@@ -900,7 +902,7 @@ layout = html.Div([html.Br(),
                 html.Div(html.H1('POLITICS', 
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
-                html.Div('西東京市の政治についての分析を見る。ほかの自治体の政治を分析する。'
+                html.Div('西東京市の政治についての分析を見る。ほかの自治体の政治を分析する。それらの分析結果を、各種プラットフォームに応用可能な形でダウンロードする。'
                          ,
                 style=
                 {'font-family':'游明朝', 'textAlign':'left', 'color':'blue', 'font-size':20}),
@@ -915,11 +917,14 @@ layout = html.Div([html.Br(),
                ),
                dbc.Offcanvas(
                     [html.Hr(), html.P(
-                    "A resource for knowing, learning about and\ngetting excited about city council election,\ndesigned mainly for Nishi Tokyo City, Tokyo,\nbut can be applied to any other city."
+                    "A resource for visualizing your city's data and\ngetting excited about city council election,\ndesigned mainly for Nishi Tokyo City, Tokyo,\nbut can be applied to any other city."
                     , style={'color':'navy'}),
                      html.P("-Figures on elections held in Nishi Tokyo City", style={'color':'navy'}), 
                      html.P("-Quick review on Nishi Tokyo City Council", style={'color':'navy'}), 
-                     html.P("-Uploading your city's data and getting figures out", style={'color':'navy'}), html.Br(),
+                     html.P("-Uploading your city's data and getting figures out", style={'color':'navy'}), 
+                     html.P("-Downloading the figures as JSON files to embed them in your city home page", 
+                            style={'color':'navy'}), 
+                     html.Br(),
                     dcc.Markdown('''
                     **Contact : westt.sskry(at)gmail.com**
                     ''', style={'color':'navy'})],
@@ -964,32 +969,37 @@ layout = html.Div([html.Br(),
             children=[
             dcc.Graph(
                 figure=party_across_year_general(df, 1), id='party_graph')
-        ]),
+        ], style={'color':'navy'}),
         dbc.Tab(label='SEX', tab_id='sex', id = 'sex_', 
                 children=[
             dcc.Graph(figure=sex_general(df, 1), id='sex_graph'
             )
-        ]),
+        ], style={'color':'navy'}),
         dbc.Tab(label='AGE', tab_id='age', id = 'age_', 
                 children=[
             dcc.Graph(
                 figure=age_general(df, 1), id='age_graph'
             )
-        ]),
+        ], style={'color':'navy'}),
         dbc.Tab(label='VOTE RATE', tab_id='voterate', id = 'voterate_', 
                 children=[
             dcc.Graph(
                 figure=vote_rate_council_mayor_general(df_vote_rate, 1), id='vr_graph'
             )
-        ]),
+        ], style={'color':'navy'}),
         dbc.Tab(label='RESULT', tab_id='result', id = 'result_', 
                 children=[
             dcc.Graph(
                 figure=result_general(df, 1), id='result_graph'
             )
-        ])
-    ], style={'color':'navy'})
+        ], style={'color':'navy'})
+    ], id='tabs-basic-politics')
     ),
+    html.Div(id="graph-data-basic-politics", style={"display": "none"}),
+    html.Br(),
+    html.Br(),     
+    dbc.Button("Download This Figure as a JSON File", id="btn-download-basic-politics", style={'color':'navy'}),
+    dcc.Download(id="download-basic-politics"),
     html.Br(),
     html.Br(),
     html.Br(),
@@ -1014,7 +1024,12 @@ layout = html.Div([html.Br(),
         )),
     html.Br(),
     html.Br(),
-    html.Div(dbc.Spinner(dcc.Graph(figure = candidate_info(df_table)), color='dark')),
+    html.Div(dbc.Spinner(dcc.Graph(figure = candidate_info(df_table), id='table-politics'), color='dark')),
+    html.Div(id="graph-data-table-politics", style={"display": "none"}),
+    html.Br(),
+    html.Br(),     
+    dbc.Button("Download This Figure as a JSON File", id="btn-download-table-politics", style={'color':'navy'}),
+    dcc.Download(id="download-table-politics"),
     html.Br(),
     html.Br(),
     html.Br(),
@@ -1071,6 +1086,11 @@ layout = html.Div([html.Br(),
     html.Div(id='selection_completed'),
     html.Br(),
     html.Div(dcc.Graph(id='parcat')),
+    html.Div(id="graph-data-parcat-politics", style={"display": "none"}),
+    html.Br(),
+    html.Br(),     
+    dbc.Button("Download This Figure as a JSON File", id="btn-download-parcat-politics", style={'color':'navy'}),
+    dcc.Download(id="download-parcat-politics"),
     html.Br(),
     html.Br(),
     html.Br(),
@@ -1127,6 +1147,11 @@ layout = html.Div([html.Br(),
     )),
     html.Br(),
     html.Div([html.Br(), dbc.Spinner(dcc.Graph(id = 'network'), color='dark')]),
+    html.Div(id="graph-data-network-politics", style={"display": "none"}),
+    html.Br(),
+    html.Br(),     
+    dbc.Button("Download This Figure as a JSON File", id="btn-download-network-politics", style={'color':'navy'}),
+    dcc.Download(id="download-network-politics"),
     html.Br(),
     html.Br(),
     html.Br(),
@@ -1158,6 +1183,11 @@ layout = html.Div([html.Br(),
     html.H3('Your Graphs:', style={'font-size':20}),
     html.Br(),
     html.Div(id='output-data-upload'),
+    html.Div(id="graph-data-basic-politics-upload", style={"display": "none"}),
+    html.Br(),
+    html.Br(),
+    html.Div(id='download-button-turn-up'),
+    html.Br(),
     html.Br(),
     html.H3('Relationship between multiple attributes and the Election Result', 
             style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
@@ -1175,20 +1205,20 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div([
         dbc.Tabs([
-            dbc.Tab(tab_id='set 1', id = 'set 1_', style={'aria-controls':'badge_1', 'aria-label':'set 1'}, 
+            dbc.Tab(tab_id='set 1', id = 'set 1_', style={'color':'navy'}, 
             label='SET 1', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")], id='badge_1')
         ]),
-        dbc.Tab(tab_id='set 2', id = 'set 2_', label='SET 2', style={'aria-controls':'badge_2', 'aria-label':'set 2'},
+        dbc.Tab(tab_id='set 2', id = 'set 2_', label='SET 2', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light")], id='badge_2')
         ]),
-        dbc.Tab(tab_id='set 3', id = 'set 3_', label='SET 3', style={'aria-controls':'badge_3', 'aria-label':'set 3'},
+        dbc.Tab(tab_id='set 3', id = 'set 3_', label='SET 3', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
@@ -1196,7 +1226,7 @@ layout = html.Div([html.Br(),
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")], id='badge_3')
         ]),
-        dbc.Tab(tab_id='set 4', id = 'set 4_', label='SET 4', style={'aria-controls':'badge_4', 'aria-label':'set 4'},
+        dbc.Tab(tab_id='set 4', id = 'set 4_', label='SET 4', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
@@ -1205,15 +1235,18 @@ layout = html.Div([html.Br(),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS RESULT', text_color="dark", color="light")], id='badge_4')
         ])
-    ], id='upload2_tabs', style={'color':'navy'})
+    ], id='upload2_tabs')
     ]), 
     html.Br(), dbc.Button(id='submit-button-state2', n_clicks=0, children='Change Sets', color='info'),
     html.Div(id='selection_completed2'),
-    html.Div(id = 'upload2_set')
-    ,
+    html.Div(id = 'upload2_set'),
+    html.Div(id="graph-data-parcat-upload", style={"display": "none"}),
     html.Br(),
     html.Br(),
-    html.H3('File Format', style={'color':'navy'}),
+    html.Div(id='parcat-download-button-turn-up'),
+    html.Br(),
+    html.Br(),
+    html.H3('Upload File Format', style={'color':'navy'}),
     html.Br(),
     html.Div(
     dbc.Accordion(
@@ -1281,6 +1314,14 @@ layout = html.Div([html.Br(),
         ),
     html.Br(),
     html.Br(),
+    html.H3('About the Downloaded Files', style={'color':'navy'}),
+    html.Br(),
+    html.Div(dbc.Accordion([dbc.AccordionItem([html.P([html.B('File Format', style={'color':'navy'}), 
+                                                       html.Div('-JSON (stringified)', style={'color':'navy'})])]),
+                           dbc.AccordionItem([html.P([html.B('Term of Use (利用について)', style={'color':'navy'}), 
+                                                      html.Div('-Can be used for any purposes other than commercial use. (商用利用以外であれば、ご自由に利用いただけます。)', 
+                                                               style={'color':'navy'})])])], 
+                           flush=True,start_collapsed=True)),
     html.Br(),
     html.Div(
     dbc.NavbarSimple(
@@ -1315,6 +1356,257 @@ layout = html.Div([html.Br(),
 
 # In[ ]:
 
+@callback(
+    Output("graph-data-network-politics", "children"),
+    Input('network', "figure"),
+    prevent_initial_call=True
+)
+def store_network_data(network_figure):
+    try:
+        return json.dumps(network_figure, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-network-politics", "data"),
+    Input("btn-download-network-politics", "n_clicks"),
+    State("graph-data-network-politics", "children"),
+    prevent_initial_call=True,
+)
+def download_network_structure(n_clicks, network_structure_json):
+    try:
+        if n_clicks is None or not network_structure_json:
+            raise PreventUpdate
+
+        stored_network_structure = json.loads(network_structure_json)
+        content_string = json.dumps(stored_network_structure)
+
+        file_content = {
+        "filename": "council_politics_nishitokyo.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("graph-data-parcat-politics", "children"),
+    Input('parcat', "figure"),
+    prevent_initial_call=True
+)
+def store_parcat_data(parcat_figure):
+    try:
+        return json.dumps(parcat_figure, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-parcat-politics", "data"),
+    Input("btn-download-parcat-politics", "n_clicks"),
+    State("graph-data-parcat-politics", "children"),
+    prevent_initial_call=True,
+)
+def download_parcat_structure(n_clicks, parcat_structure_json):
+    try:
+        if n_clicks is None or not parcat_structure_json:
+            raise PreventUpdate
+
+        stored_parcat_structure = json.loads(parcat_structure_json)
+        content_string = json.dumps(stored_parcat_structure)
+
+        file_content = {
+        "filename": "relation_politics_nishitokyo.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("graph-data-table-politics", "children"),
+    Input('table-politics', "figure"),
+    prevent_initial_call=True
+)
+def store_table_data(table_figure):
+    try:
+        return json.dumps(table_figure, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-table-politics", "data"),
+    Input("btn-download-table-politics", "n_clicks"),
+    State("graph-data-table-politics", "children"),
+    prevent_initial_call=True,
+)
+def download_table_structure(n_clicks, table_structure_json):
+    try:
+        if n_clicks is None or not table_structure_json:
+            raise PreventUpdate
+
+        stored_table_structure = json.loads(table_structure_json)
+        content_string = json.dumps(stored_table_structure)
+
+        file_content = {
+        "filename": "table_politics_nishitokyo.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+
+@callback(Output('download-button-turn-up', 'children'),
+         Input('output-data-upload', 'children'),
+         prevent_initial_call=True)
+
+def turnup_download_button(yourgraph):
+    try:
+        if yourgraph is not None:
+            return [dbc.Button("Download This Figure as a JSON File", id="btn-download-basic-politics-upload", 
+                               style={'color':'navy'}),
+    dcc.Download(id="download-basic-politics-upload")]
+    
+        else:
+            raise PreventUpdate
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+        
+
+@callback(
+    Output("graph-data-basic-politics-upload", "children"),
+    Input('output-data-upload', "children"),
+    prevent_initial_call=True,
+)
+def store_graph_data2(graph_children):
+    try:
+        return json.dumps(graph_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-basic-politics-upload", "data"),
+    Input("btn-download-basic-politics-upload", "n_clicks"),
+    State("graph-data-basic-politics-upload", "children"),
+    prevent_initial_call=True,
+)
+def download_tabs_structure2(n_clicks, tabs_structure_json):
+    try:
+        if n_clicks is None or not tabs_structure_json:
+            raise PreventUpdate
+
+        stored_tabs_structure = json.loads(tabs_structure_json)
+        content_string = json.dumps(stored_tabs_structure)
+
+        file_content = {
+        "filename": "basic_politics_your_city.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(Output('parcat-download-button-turn-up', 'children'),
+         Input('upload2_set', 'figure'),
+         prevent_initial_call=True)
+
+def turnup_download_button_parcat(yourgraph):
+    try:
+        if yourgraph is not None:
+            return [dbc.Button("Download This Figure as a JSON File", id="btn-download-parcat-upload", 
+                               style={'color':'navy'}),
+    dcc.Download(id="download-parcat-upload")]
+    
+        else:
+            raise PreventUpdate
+    except Exception as e:
+        print(e)
+        raise PreventUpdate  
+
+@callback(
+    Output("graph-data-parcat-upload", "children"),
+    Input('upload2_set', "figure"),
+    prevent_initial_call=True,
+)
+def store_graph_data3(graph_children):
+    try:
+        return json.dumps(graph_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-parcat-upload", "data"),
+    Input("btn-download-parcat-upload", "n_clicks"),
+    State("graph-data-parcat-upload", "children"),
+    prevent_initial_call=True,
+)
+def download_parcat(n_clicks, parcat_json):
+    try:
+        if n_clicks is None or not parcat_json:
+            raise PreventUpdate
+
+        parcat_structure = json.loads(parcat_json)
+        content_string = json.dumps(parcat_structure)
+
+        file_content = {
+        "filename": "relation_your_city.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("graph-data-basic-politics", "children"),
+    Input('tabs-basic-politics', "children"),
+    prevent_initial_call=True
+)
+def store_graph_data(tabs_children):
+    try:
+        return json.dumps(tabs_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-basic-politics", "data"),
+    Input("btn-download-basic-politics", "n_clicks"),
+    State("graph-data-basic-politics", "children"),
+    prevent_initial_call=True,
+)
+def download_tabs_structure(n_clicks, tabs_structure_json):
+    try:
+        if n_clicks is None or not tabs_structure_json:
+            raise PreventUpdate
+
+        stored_tabs_structure = json.loads(tabs_structure_json)
+        content_string = json.dumps(stored_tabs_structure)
+
+        file_content = {
+        "filename": "basic_politics_nishitokyo.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
 
 def get_df(year):
     df = df_filtered_list[year-2001]
