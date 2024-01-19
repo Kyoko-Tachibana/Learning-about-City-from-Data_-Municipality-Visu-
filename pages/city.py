@@ -20,6 +20,8 @@ from dash.dependencies import Input, Output
 from plotly.colors import n_colors
 import geopandas as gpd
 import ast
+import json
+import plotly
 
 
 # In[ ]:
@@ -216,7 +218,7 @@ layout = html.Div([
                 html.Div(html.H1('CITY', className="display-2", 
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
-                html.Div('西東京市の都市・人口情報を見る。ほかの自治体の都市・人口情報を可視化する。', 
+                html.Div('西東京市の都市・人口情報を見る。ほかの自治体の都市・人口情報を可視化する。それらの分析結果を、各種プラットフォームに応用可能な形でダウンロードする。', 
                 style={'font-family':'游明朝', 'textAlign':'left', 'color':'blue', 'font-size':20}),
                 html.Br(),
                 html.Br(),
@@ -270,14 +272,17 @@ layout = html.Div([
         html.Div(dbc.Tabs(
         dbc.Tab(label='POPULATION', tab_id = 'pop', id = 'pop_', style={'color':'navy'},
                 children=[html.Br(),
-            dbc.Spinner(
                 dcc.Graph(
-                figure=population_general(df_pop)), color='dark', id='pop_graph'),
-            dbc.Spinner(
-                dcc.Graph(figure=violin_general(df_pop)), color='dark')
-        ]), id='basic_city', style={'color':'navy'}
+                figure=population_general(df_pop)),
+                dcc.Graph(figure=violin_general(df_pop))
+        ]), id='basic_city'
         )
     ),
+        html.Div(id="graph-data-basic-city", style={"display": "none"}),
+        html.Br(),
+        html.Br(),
+        dbc.Button("Download This Figure as a JSON File", id="btn-download-basic-city", style={'color':'navy'}),
+        dcc.Download(id="download-basic-city"),
         html.Br(),
         html.Br(),
         html.Br(),
@@ -365,6 +370,10 @@ layout = html.Div([
     html.H3('Your Graphs:', style={'font-size':20, 'color':'navy'}),
     html.Br(),
     html.Div(id='output-data-upload_pop'),
+    html.Div(id="graph-data-basic-city-upload", style={"display": "none"}),
+    html.Br(),
+    html.Br(),
+    html.Div(id='basic-city-download-button-turn-up'),
     html.Br(),
     html.H3('City Features', style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
     html.Div([
@@ -502,6 +511,95 @@ layout = html.Div([
 
 # In[ ]:
 
+@callback(
+    Output("graph-data-basic-city-upload", "children"),
+    Input('output-data-upload_pop', "children"),
+    prevent_initial_call=True,
+)
+def store_graph_data3_city(graph_children):
+    try:
+        return json.dumps(graph_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-basic-city-upload", "data"),
+    Input("btn-download-basic-city-upload", "n_clicks"),
+    State("graph-data-basic-city-upload", "children"),
+    prevent_initial_call=True,
+)
+def download_basic_city_upload(n_clicks, basic_city_json):
+    try:
+        if n_clicks is None or not basic_city_json:
+            raise PreventUpdate
+
+        basic_city_structure = json.loads(basic_city_json)
+        content_string = json.dumps(basic_city_structure)
+
+        file_content = {
+        "filename": "basic_your_city.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(Output('basic-city-download-button-turn-up', 'children'),
+         Input('output-data-upload_pop', 'children'),
+         prevent_initial_call=True)
+
+def turnup_download_button_city(yourgraph):
+    try:
+        if yourgraph is not None:
+            return [dbc.Button("Download This Figure as a JSON File", id="btn-download-basic-city-upload", 
+                               style={'color':'navy'}),
+    dcc.Download(id="download-basic-city-upload")]
+    
+        else:
+            raise PreventUpdate
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+
+@callback(
+    Output("graph-data-basic-city", "children"),
+    Input('tabs-basic-city', "children"),
+    prevent_initial_callback=True
+)
+def store_graph_data_city(tabs_children):
+    try:
+        return json.dumps(tabs_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-basic-city", "data"),
+    Input("btn-download-basic-city", "n_clicks"),
+    State("graph-data-basic-city", "children"),
+    prevent_initial_call=True,
+)
+def download_tabs_structure_city(n_clicks, tabs_structure_json):
+    try:
+        if n_clicks is None or not tabs_structure_json:
+            raise PreventUpdate
+
+        stored_tabs_structure = json.loads(tabs_structure_json)
+        content_string = json.dumps(stored_tabs_structure)
+
+        file_content = {
+        "filename": "basic_city.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
 
 @callback(
     Output("upload-data_landmark", "style"),
