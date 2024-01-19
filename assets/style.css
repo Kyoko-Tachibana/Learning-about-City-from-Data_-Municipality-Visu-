@@ -28,7 +28,7 @@
 .dropdown{
     width: 15vw; 
     color: midnightblue; 
-    font-size: 2vw;
+    font-size: 2vh;
     textAlign: center;
     aria-role: listbox;
 }
