@@ -1568,7 +1568,7 @@ def download_tabs_structure2(n_clicks, tabs_structure_json):
         raise PreventUpdate
 
 @callback(Output('parcat-download-button-turn-up', 'children'),
-         Input('upload2_set', 'figure'),
+         Input('upload2_set', 'children'),
          prevent_initial_call=True)
 
 def turnup_download_button_parcat(yourgraph):
@@ -1586,7 +1586,7 @@ def turnup_download_button_parcat(yourgraph):
 
 @callback(
     Output("graph-data-parcat-upload", "children"),
-    Input('upload2_set', "figure"),
+    Input('upload2_set', "children"),
     prevent_initial_call=True,
 )
 def store_graph_data3(graph_children):
@@ -1622,8 +1622,7 @@ def download_parcat(n_clicks, parcat_json):
 
 @callback(
     Output("graph-data-basic-politics", "children"),
-    Input('tabs-basic-politics', "children"),
-    prevent_initial_call=True
+    Input('tabs-basic-politics', "children")
 )
 def store_graph_data(tabs_children):
     try:
