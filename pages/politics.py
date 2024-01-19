@@ -160,6 +160,8 @@ def candidate_info(df):
 
     fig.update_layout(title='<b>Choose a year</b>', title_font={'family':font_fam_sp})
 
+    fig.update_traces(marker_line_color='black')
+
     return fig
 
 def vote_rate_council_mayor_general(df, n):
@@ -1317,10 +1319,56 @@ layout = html.Div([html.Br(),
     html.H3('About the Downloaded Files', style={'color':'navy'}),
     html.Br(),
     html.Div(dbc.Accordion([dbc.AccordionItem([html.P([html.B('File Format', style={'color':'navy'}), 
-                                                       html.Div('-JSON (stringified)', style={'color':'navy'})])]),
+                                                       html.Div('-JSON (stringified)', style={'color':'navy'})])],
+                                             title='Downloaded File Format'),
                            dbc.AccordionItem([html.P([html.B('Term of Use (利用について)', style={'color':'navy'}), 
                                                       html.Div('-Can be used for any purposes other than commercial use. (商用利用以外であれば、ご自由に利用いただけます。)', 
-                                                               style={'color':'navy'})])])], 
+                                                               style={'color':'navy'})])],
+                                            title='Term of Use'),
+                            dbc.AccordionItem([html.P([html.B('Integration into your Web site', style={'color':'navy'}),
+                                                      dcc.Markdown('''
+                                                      Created by ChatGPT 3.5
+                                                      ```
+                                                      <!DOCTYPE html>
+                                                      <html lang="en">
+                                                      <head>
+                                                           <meta charset="UTF-8">
+                                                           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                           <title>Your Website</title>
+
+                                                           <!-- Plotly.js library -->
+                                                           <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                                                       </head>
+                                                       <body>
+
+                                                           <!-- Your website content -->
+
+                                                           <!-- Placeholder div for the Plotly graph -->
+                                                           <div id="plotly-graph"></div>
+
+                                                           <!-- Your website content -->
+
+                                                       </body>
+                                                       </html>
+
+                                                       <!-- Your website content -->
+
+                                                       <script>
+                                                           // Fetch your Plotly JSON data (replace 'your_graph.json' with the actual filename)
+                                                           fetch('your_graph.json')
+                                                               .then(response => response.json())
+                                                               .then(graphData => {
+                                                                   // Display the Plotly graph using the fetched JSON data
+                                                                   Plotly.newPlot('plotly-graph', graphData);
+                                                               })
+                                                               .catch(error => console.error('Error fetching Plotly JSON:', error));
+                                                      </script>
+
+                                                      <!-- Your website content -->
+                                                      ```
+                                                    
+                                                      ''')], title='How to use')])
+                           ], 
                            flush=True,start_collapsed=True)),
     html.Br(),
     html.Div(
