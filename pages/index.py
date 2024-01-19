@@ -15,13 +15,15 @@ layout = html.Div([
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '4.5vw', 'color': 'midnightblue', 
                'background-color':'lavender', 'width':'40vw'}
         )),
-    ], style={'margin': 0, 'position': 'relative', 'top': '38%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '35%', 'transform': 'translateY(-50%)', 'left':'30vw'}),
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
-            **まちラーンでは各ページに表示されている、西東京市のデータに基づいた分析結果を見るのはもちろんのこと、**
+            **政治、都市の二分野で西東京市のデータを可視化するほか、アップロードされたデータを可視化します。**
             
-            **自分で作成したデータセットをアップロードすることで、それらと同様の分析をほかの自治体に対して行うこともできます。**
+            **また、それらの可視化結果を各種プラットフォームに統合可能な形式でダウンロードできます。**
+            
+            **ご自身の自治体を魅力的に外部に発信したい方向けのサービスです。**
         ''', 
         style={'textAlign': 'center', 'font-family': '游明朝', 'font-size': '1.6vw', 'color': 'black', 'width':'92%'}
         )),
