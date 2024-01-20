@@ -34,8 +34,9 @@ layout = html.Div([
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
         dbc.Col(dcc.Markdown('''
-        **ガイド**
-        ''', id='guide', style={'color':'deeppink', 'font-size':'3vw', 'background-color':'lavender'})),
+        **ガイドを見る**
+        ''', id='guide', style={'color':'deeppink', 'font-size':'3vw', 'background-color':'lavender', 'font-family':'游明朝',
+                               'width':'25vw'})),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
