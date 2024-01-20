@@ -29,18 +29,20 @@ layout = html.Div([
         )),
     ], style={'margin': 0, 'position': 'relative', 'top': '34%', 'transform': 'translateY(-50%)', 'left':'5vw'}),
 
+    dbc.Row(dbc.Col(dcc.Markdown('''
+        **ガイドを見る**
+        ''', id='guide', style={'color':'deeppink', 'font-size':'2vw', 'background-color':'lavender', 'font-family':'游明朝',
+                               'width':'25vw', 'textAlign':'center', 'top':'45%'}))
+           ),
+
     dbc.Row([
         dbc.Col(dbc.Button('政治', href='/politics', outline=True, 
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
-        dbc.Col(dcc.Markdown('''
-        **ガイドを見る**
-        ''', id='guide', style={'color':'deeppink', 'font-size':'2vw', 'background-color':'lavender', 'font-family':'游明朝',
-                               'width':'25vw', 'textAlign':'center'})),
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
-    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'8%'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20%'}),
     
     dbc.Tooltip(dcc.Markdown('''
     ①「都市」「政治」どちらかのボタンを押してスタート！
@@ -52,7 +54,7 @@ layout = html.Div([
 
     ④表示されたグラフは、様々な用途に活用できる形式でダウンロードできます。いろいろな使い方を探してみてください！
     ''', style={'font-size':'15px', 'color':'black', 'font-family':'游明朝', 'width':'30vw'}), 
-                target='guide', placement='top', style={'width':'30vw'})
+                target='guide', placement='top', style={'width':'40vw', 'zIndex': 1000})
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
           'background-size': 'cover', 'background-position': 'center', 'margin': 0, 'overflow-x': 'hidden'}, lang='ja')
