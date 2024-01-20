@@ -32,7 +32,7 @@ layout = html.Div([
     dbc.Row(dbc.Col(dcc.Markdown('''
         **ガイドを見る**
         ''', id='guide', style={'color':'deeppink', 'font-size':'2vw', 'background-color':'lavender', 'font-family':'游明朝',
-                               'width':'25vw', 'textAlign':'center', 'top':'45%'}))
+                               'width':'25vw', 'textAlign':'center', 'top':'80vh', 'left':'37.5vw'}))
            ),
 
     dbc.Row([
@@ -42,7 +42,7 @@ layout = html.Div([
         dbc.Col(dbc.Button('都市', href='/city', outline=True,
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg')),
-    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'20%'}),
+    ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'17%'}),
     
     dbc.Tooltip(dcc.Markdown('''
     ①「都市」「政治」どちらかのボタンを押してスタート！
