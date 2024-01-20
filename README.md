@@ -142,7 +142,7 @@ Python 3.12 より低いバージョンで動かせる環境。（開発環境�
 #### 1. このリポジトリのクローン
 クローンするには、[Git for Windows](https://gitforwindows.org/) をインストールする必要があります。
 ```
-git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git
+git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Municipality-Visu-.git
 ```
 
 
