@@ -1207,20 +1207,20 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div([
         dbc.Tabs([
-            dbc.Tab(tab_id='set 1', id = 'set 1_', style={'color':'navy'}, 
+            dbc.Tab(style={'color':'navy'}, 
             label='SET 1', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")], id='badge_1')
         ]),
-        dbc.Tab(tab_id='set 2', id = 'set 2_', label='SET 2', style={'color':'navy'},
+        dbc.Tab(label='SET 2', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light")], id='badge_2')
         ]),
-        dbc.Tab(tab_id='set 3', id = 'set 3_', label='SET 3', style={'color':'navy'},
+        dbc.Tab(label='SET 3', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
@@ -1228,7 +1228,7 @@ layout = html.Div([html.Br(),
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")], id='badge_3')
         ]),
-        dbc.Tab(tab_id='set 4', id = 'set 4_', label='SET 4', style={'color':'navy'},
+        dbc.Tab(label='SET 4', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
