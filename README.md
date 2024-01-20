@@ -149,7 +149,7 @@ git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Muni
 #### 2. 実行
 以下を順に実行してください。
 ```
-cd C:\Users\USERNAME\Learning-about-City-from-Data_-Machi-Learn-
+cd C:\Users\USERNAME\Learning-about-City-from-Data_-Municipality-Visu-
 pip install -r requirements.txt
 python app.py
 ```
