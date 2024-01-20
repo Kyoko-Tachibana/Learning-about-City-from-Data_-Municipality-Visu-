@@ -212,7 +212,7 @@ def vote_rate_council_mayor_general(df, n):
     fig.update_yaxes(title_text="Vote Number", secondary_y=False, title_font={'family':font_fam_sp})
     
     fig.update_layout(
-    dragmode="select", hovermode='closest', clickmode='select', template='plotly_white')
+    dragmode="select", hovermode='closest', clickmode='select', template='plotly_white', width=500, height=500)
     
     return fig
 
@@ -254,7 +254,7 @@ def result_general(df, n):
             yanchor="top")
           ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp})
+    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
     
     return fig     
 
@@ -296,7 +296,7 @@ def sex_general(df, n):
             yanchor="top")
           ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp})
+    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
     
     return fig 
 
@@ -335,7 +335,7 @@ def party_across_year_general(df, n):
             y=1.35,
             yanchor="top")])
 
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp})
+    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
     
     return fig
 
@@ -375,7 +375,7 @@ def age_general(df, n):
             yanchor="top")
             ])
 
-    fig.update_layout(title_text="<b>Choose a year</b>", template = 'plotly_white', title_font={'family':font_fam_sp})
+    fig.update_layout(title_text="<b>Choose a year</b>", template = 'plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
 
     return fig
 
@@ -1067,7 +1067,7 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div(dbc.Card(
         dbc.CardBody([dbc.Col([
-                  dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'16px'})),
+                  dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'18px'})),
                   dbc.Row(
                   children=[
                             dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'16px'}), 
@@ -1139,7 +1139,7 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Br(),
     html.Div(dbc.Card(dbc.CardBody([dbc.Col([
-        dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'16px'})),
+        dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'18px'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'16px'}), 
                           html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
     value=2022, id='input-year-network', clearable=False, className='dropdown'))
@@ -1207,39 +1207,40 @@ layout = html.Div([html.Br(),
     html.Br(),
     html.Div([
         dbc.Tabs([
-            dbc.Tab(style={'color':'navy'}, 
+            dbc.Tab(tab_id='SET 1', style={'color':'navy'}, 
             label='SET 1', children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
-            dbc.Badge('PARTY', text_color="dark", color="light")], id='badge_1')
+            dbc.Badge('PARTY', text_color="dark", color="light")])
         ]),
-        dbc.Tab(label='SET 2', style={'color':'navy'},
+        dbc.Tab(tab_id='SET 2', label='SET 2', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
-            , dbc.Badge('VOTE(%)', text_color="dark", color="light")], id='badge_2')
+            , dbc.Badge('VOTE(%)', text_color="dark", color="light")])
         ]),
-        dbc.Tab(label='SET 3', style={'color':'navy'},
+        dbc.Tab(tab_id='SET 3', label='SET 3', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
-            dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")], id='badge_3')
+            dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light")])
         ]),
-        dbc.Tab(label='SET 4', style={'color':'navy'},
+        dbc.Tab(tab_id='SET 4', label='SET 4', style={'color':'navy'},
                 children=[html.Br(),
             html.Span([dbc.Badge('AGE', text_color="dark", color="light")
             , dbc.Badge('SEX', text_color="dark", color="light"),
             dbc.Badge('PARTY', text_color="dark", color="light")
             , dbc.Badge('VOTE(%)', text_color="dark", color="light"),
             dbc.Badge('PREVIOUS VOTE(%)', text_color="dark", color="light"),
-            dbc.Badge('PREVIOUS RESULT', text_color="dark", color="light")], id='badge_4')
+            dbc.Badge('PREVIOUS RESULT', text_color="dark", color="light")])
         ])
     ], id='upload2_tabs')
     ]), 
-    html.Br(), dbc.Button(id='submit-button-state2', n_clicks=0, children='Change Sets', color='info'),
+    html.Br(), 
+    dbc.Button(id='submit-button-state2', n_clicks=0, children='Change Sets', color='info'),
     html.Div(id='selection_completed2'),
     html.Div(id = 'upload2_set'),
     html.Div(id="graph-data-parcat-upload", style={"display": "none"}),
@@ -1354,8 +1355,8 @@ layout = html.Div([html.Br(),
                                                        <!-- Your website content -->
 
                                                        <script>
-                                                           // Fetch your Plotly JSON data (replace 'your_graph.json' with the actual filename)
-                                                           fetch('your_graph.json')
+                                                           // Fetch your Plotly JSON data (replace 'DOWNLOADED FILE.json' with the actual filename)
+                                                           fetch('DOWNLOADED FILE.json')
                                                                .then(response => response.json())
                                                                .then(graphData => {
                                                                    // Display the Plotly graph using the fetched JSON data
