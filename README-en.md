@@ -1,4 +1,4 @@
-# Learn about your City from Data 'Machi Learn'
+# Learn about your City from Data 'Municipality Visu'
 
 [日本語版Readme](README.md)
 
@@ -144,7 +144,7 @@ Run as follows.
 #### 1. Clone this repository
 You will need to install [Git for Windows](https://gitforwindows.org/) for cloning.
 ```
-git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-.git
+git clone https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Municipality-Visu-.git
 ```
 
 
