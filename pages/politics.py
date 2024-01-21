@@ -48,10 +48,10 @@ def candidate_info(df):
         columnwidth = [1.5, 1.1, 1, 1, 3.2, 3.2, 3, 3.2, 3, 1.2, 1.2, 1.8, 1.8]
         
         fig.add_trace(go.Table(columnorder=columnorder, columnwidth=columnwidth, name='Candidates of {} city council election'.format(year),
-        header=dict(values=[['<b>NAME</b>'], ['<b>PARTY</b>'], ['<b>AGE</b>'], ['<b>SEX</b>'], ['<b>CAREER</b>'], 
-                ['<b>EDUCATIONAL</b><br><b>PLEDGE</b>'], ['<b>WELFARE</b><br><b>PLEDGE</b>'], 
-                ['<b>CITYPLANNING</b><br><b>PLEDGE</b>'], ['<b>OTHER</b><br><b>PLEDGE</b>'], ['<b>VOTES<br></b>'], 
-                ['<b>VOTES<br></b>(%)'], ['<b>PREVIOUS<br>VOTES<br></b>'], ['<b>PREVIOUS<br>VOTES<br></b>(%)']],
+        header=dict(values=[['**NAME**'], ['**PARTY**'], ['**AGE**'], ['**SEX**'], ['**CAREER**'], 
+                ['**EDUCATIONAL**  **PLEDGE**'], ['**WELFARE**  **PLEDGE**'], 
+                ['**CITYPLANNING**  **PLEDGE**'], ['**OTHER**  **PLEDGE**'], ['**VOTES**'], 
+                ['**VOTES**  (%)'], ['**PREVIOUS**  **VOTES**'], ['**PREVIOUS**  **VOTES**  (%)']],
                 fill_color="#d9e3f1",
                 align='left',
                 font_size=10,
@@ -69,10 +69,10 @@ def candidate_info(df):
         columnwidth = [1.5, 1.1, 1, 1, 3.2, 3.2, 3, 3.2, 3, 1.2, 1.2, 1.8, 1.8]
         
         fig.add_trace(go.Table(columnorder=columnorder, columnwidth=columnwidth, name='Candidates of {} mayor election'.format(year),
-        header=dict(values=[['<b>NAME</b>'], ['<b>PARTY</b>'], ['<b>AGE</b>'], ['<b>SEX</b>'], ['<b>CAREER</b>'], 
-                ['<b>EDUCATIONAL</b><br><b>PLEDGE</b>'], ['<b>WELFARE</b><br><b>PLEDGE</b>'], 
-                ['<b>CITYPLANNING</b><br><b>PLEDGE</b>'], ['<b>OTHER</b><br><b>PLEDGE</b>'], ['<b>VOTES<br></b>'], 
-                ['<b>VOTES<br></b>(%)'], ['<b>PREVIOUS<br>VOTES</b>'], ['<b>PREVIOUS<br>VOTES</b><br>(%)']],
+        header=dict(values=[['**NAME**'], ['**PARTY**'], ['**AGE**'], ['**SEX**'], ['**CAREER**'], 
+                ['**EDUCATIONAL**  **PLEDGE**'], ['**WELFARE**  **PLEDGE**'], 
+                ['**CITYPLANNING**  **PLEDGE**'], ['**OTHER**  **PLEDGE**'], ['**VOTES**'], 
+                ['**VOTES**  (%)'], ['**PREVIOUS**  **VOTES**'], ['**PREVIOUS**  **VOTES**  (%)']],
                 fill_color="#d9e3f1",
                 align='left',
                 font_size=10,
@@ -158,7 +158,7 @@ def candidate_info(df):
     template="plotly_white",
     )
 
-    fig.update_layout(title='<b>Choose a year</b>', title_font={'family':font_fam_sp})
+    fig.update_layout(title='**Choose a year**', title_font={'family':font_fam_sp})
 
     fig.update_traces(cells=dict(line=dict(color='black')), header=dict(line=dict(color='black')))
 
@@ -186,15 +186,15 @@ def vote_rate_council_mayor_general(df, n):
                 dict(label="City Council",
                      method="update",
                      args=[{"visible": [True, True, False, False]},
-                           {"title": "<b>Vote Rate and number of City council election</b>", 'font':{'family':font_fam_sp}}]),
+                           {"title": "**Vote Rate and number of City council election**", 'font':{'family':font_fam_sp}}]),
                 dict(label="Mayor",
                      method="update",
                      args=[{"visible": [False, False, True, True]},
-                           {"title": "<b>Vote Rate and number of Mayor election</b>", 'font':{'family':font_fam_sp}}]),
+                           {"title": "**Vote Rate and number of Mayor election**", 'font':{'family':font_fam_sp}}]),
                 dict(label="City Council & Mayor",
                      method="update",
                      args=[{"visible": [True, True, True, True]},
-                           {"title": "<b>Vote Rate and number of City council election and Mayor election</b>", 'font':{'family':font_fam_sp}}])
+                           {"title": "**Vote Rate and number of City council election and Mayor election**", 'font':{'family':font_fam_sp}}])
                 
             ]),
             direction="down",
@@ -207,12 +207,12 @@ def vote_rate_council_mayor_general(df, n):
        )
     ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", xaxis_title='Year', title_font={'family':font_fam_sp})
+    fig.update_layout(title_text="**Choose a year**", xaxis_title='Year', title_font={'family':font_fam_sp})
     fig.update_yaxes(title_text="Vote Rate", secondary_y=True, title_font={'family':font_fam_sp})
     fig.update_yaxes(title_text="Vote Number", secondary_y=False, title_font={'family':font_fam_sp})
     
     fig.update_layout(
-    dragmode="select", hovermode='closest', clickmode='select', template='plotly_white', width=500, height=500)
+    dragmode="select", hovermode='closest', clickmode='select', template='plotly_white', width=1000, height=500)
     
     return fig
 
@@ -237,7 +237,7 @@ def result_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>Distribution of Result across candidates {}</b>".format(year), 'font':{'family':font_fam_sp}}])
+                           {"title": "**Distribution of Result across candidates {}**".format(year), 'font':{'family':font_fam_sp}}])
         button_list.append(button)
 
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -254,7 +254,7 @@ def result_general(df, n):
             yanchor="top")
           ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
+    fig.update_layout(title_text="**Choose a year**", template='plotly_white', title_font={'family':font_fam_sp}, width=1000, height=500)
     
     return fig     
 
@@ -279,7 +279,7 @@ def sex_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>Distribution of Sex across candidates {}</b>".format(year), 'font':{'family':font_fam_sp}}])
+                           {"title": "**Distribution of Sex across candidates {}**".format(year), 'font':{'family':font_fam_sp}}])
         button_list.append(button)
         
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -296,7 +296,7 @@ def sex_general(df, n):
             yanchor="top")
           ])
     
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
+    fig.update_layout(title_text="**Choose a year**", template='plotly_white', title_font={'family':font_fam_sp}, width=1000, height=500)
     
     return fig 
 
@@ -318,7 +318,7 @@ def party_across_year_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>市議会議員立候補者の所属政党 {}</b>".format(year)}])
+                           {"title": "**市議会議員立候補者の所属政党 {}**".format(year)}])
         button_list.append(button)
         
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -335,7 +335,7 @@ def party_across_year_general(df, n):
             y=1.35,
             yanchor="top")])
 
-    fig.update_layout(title_text="<b>Choose a year</b>", template='plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
+    fig.update_layout(title_text="**Choose a year**", template='plotly_white', title_font={'family':font_fam_sp}, width=1000, height=500)
     
     return fig
 
@@ -357,7 +357,7 @@ def age_general(df, n):
         button = dict(label="{}".format(year),
                      method="update",
                      args=[{"visible": all_f},
-                           {"title": "<b>Distribution of Age across candidates {}</b>".format(year), 'font':{'family':font_fam_sp}}])
+                           {"title": "**Distribution of Age across candidates {}**".format(year), 'font':{'family':font_fam_sp}}])
         button_list.append(button)
 
     fig.update_layout(paper_bgcolor=bgcolor,
@@ -375,7 +375,7 @@ def age_general(df, n):
             yanchor="top")
             ])
 
-    fig.update_layout(title_text="<b>Choose a year</b>", template = 'plotly_white', title_font={'family':font_fam_sp}, width=500, height=500)
+    fig.update_layout(title_text="**Choose a year**", template = 'plotly_white', title_font={'family':font_fam_sp}, width=1000, height=500)
 
     return fig
 
@@ -495,7 +495,7 @@ def parcat_general6(df):
         label="{}".format(yunique[i]),
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]),
+        {"title": "**Relation between multiple variables and whether they were elected {}**".format(df[df['Type']=='市議']['Year'].unique()[i]),
         'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="#d9e3f1",
@@ -593,7 +593,7 @@ def parcat_general5(df):
                                                                                       votedratef_min+2*dvrf), 
         '{}-{}'.format(votedratef_min+2*dvrf, votedratef_min+3*dvrf), '{}-{}'.format(votedratef_min+3*dvrf, 
                                                                                      votedratef_min+4*dvrf), 
-        '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[2])),)
+        '{}-{}'.format(votedratef_min+4*dvrf, votedratef_min+5*dvrf)], counts_ln[2])))
 
         if 0 in df_y['Result'].unique() and 1 in df_y['Result'].unique():
 
@@ -626,7 +626,7 @@ def parcat_general5(df):
         label="{}".format(yunique[i]),
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]), 
+        {"title": "**Relation between multiple variables and whether they were elected {}**".format(df[df['Type']=='市議']['Year'].unique()[i]), 
          'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="#d9e3f1",
@@ -746,7 +746,7 @@ def parcat_general4(df):
         label="{}".format(yunique[i]),
         method="update",
         args=[{"visible": buttons_tf[i]},
-        {"title": "<b>Relation between multiple variables and whether they were elected {}</b>".format(df[df['Type']=='市議']['Year'].unique()[i]),
+        {"title": "**Relation between multiple variables and whether they were elected {}**".format(df[df['Type']=='市議']['Year'].unique()[i]),
         'font':{'family':font_fam_sp}}]))
     
     fig.update_layout(paper_bgcolor="#d9e3f1",
@@ -852,7 +852,7 @@ def parcat_general3(df):
     for i in range(len(yunique)):
     
         label="{}".format(yunique[i])
-        title="<b>Relation between multiple variables and whether they were elected {}</b>".format(yunique[i])
+        title="**Relation between multiple variables and whether they were elected {}**".format(yunique[i])
 
         dict_list.append(dict(
         label=label,
@@ -1938,7 +1938,7 @@ def parcat_dash(entered_year, entered_attributes):
                   line={'colorscale': colorscale, 'color': color, 'shape': 'hspline'})])
             
             fig.update_layout(paper_bgcolor = '#d9e3f1',
-                             title = '<b>{}</b>'.format(entered_year), title_font={'family':font_fam_sp})
+                             title = '**{}**'.format(entered_year), title_font={'family':font_fam_sp})
             
             fig.show()
     
@@ -2085,7 +2085,7 @@ def parcat_dash(entered_year, entered_attributes):
                 autosize=True,
                 margin=dict(t=50, b=80, l=50, r=80),
                 template="plotly_white",
-                title = '<b>{}</b>'.format(entered_year)
+                title = '**{}**'.format(entered_year)
                 )
             
             fig.show()   
@@ -2169,7 +2169,7 @@ def update_output2(content2, at, filename2, n):
         raise PreventUpdate
         
 @callback(Output('selection_completed2', 'children'),
-          Input('upload-data2', 'contents'),
+          State('upload-data2', 'contents'),
          Input('submit-button-state2', 'n_clicks'))
 
 def completion_alert(content2, n_clicks):
