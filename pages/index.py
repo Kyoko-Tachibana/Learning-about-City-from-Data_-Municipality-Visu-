@@ -32,7 +32,7 @@ layout = html.Div([
     dbc.Row(dbc.Col(dcc.Markdown('''
         **ガイドを見る**
         ''', id='guide', style={'color':'deeppink', 'font-size':'2vw', 'background-color':'lavender', 'font-family':'游明朝',
-                               'width':'25vw', 'textAlign':'center', 'top':'80vh', 'left':'37.5vw'}))
+                               'width':'25vw', 'textAlign':'center', 'top':'60%', 'left':'37.5%', 'position':'relative'}))
            ),
 
     dbc.Row([
