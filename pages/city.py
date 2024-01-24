@@ -230,11 +230,14 @@ layout = html.Div([
                    n_clicks=0, style={'color':'navy'}
                ),
                dbc.Offcanvas(
-                    [html.P(
-                    "A resource for knowing, learning about and\ngetting excited about a city,\ndesigned mainly for Nishi Tokyo City, Tokyo,\nbut can be applied to any other city."
-                    , style={'color':'navy'}),
-                     html.P("-Map visualization of facilities in Nishi Tokyo", style={'color':'navy'}), 
-                     html.P("-Uploading your city's PLATEAU data and getting a map out", style={'color':'navy'}), 
+                    [dcc.Markdown('''
+                     ①最初に表示されているのは西東京市のデータを可視化したグラフです。グラフは触って動かすことが出来ます。気になるグラフを探してみましょう。
+
+                     ②気になるグラフを見つけたら、自分の自治体用にそのグラフを作ってみましょう！ 指定されているフォーマットに従ってデータを作成、アップロードします。
+                    （西東京市の方は、表示されているグラフをそのままダウンロードできます。また、一部アップロード機能に対応していないグラフがあります。）
+
+                     ③表示されたグラフは、様々な用途に活用できる形式でダウンロードできます。いろいろな使い方を探してみてください！
+                    ''', style={'color':'navy'}), 
                      html.Br(),
                     dcc.Markdown('''
                     **Contact : westt.sskry(at)gmail.com**
