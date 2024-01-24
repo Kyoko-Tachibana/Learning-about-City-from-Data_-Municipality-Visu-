@@ -50,7 +50,8 @@ nlplot==1.6.0
 
 ## Overview
 ### タイトルページ
-![スクリーンショット (617)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/623ab034-d6b1-482b-85fd-500cb460c54d)
+![スクリーンショット (669)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Municipality-Visu-/assets/156287780/f7e2f4cf-0656-4693-96b3-86a9e1cb1da4)
+
 
 
 ### 政治
