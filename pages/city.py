@@ -667,7 +667,7 @@ layout = html.Div([
         | ... | ... | ... | ... | ... |
         
         ''', style={'color':'navy'})]),
-        html.P([html.B('Note', style={'color':'navy'}), html.Div('-Please visit the repository to look for the sample csv file', style={'color':'navy'})])], 
+        html.P([html.B('Note', style={'color':'navy'}), html.Div('-Please visit the repository to look for the sample csv file (Money.csv)', style={'color':'navy'})])], 
             title='Finance'),],
                  flush=True,
                  start_collapsed=True,
