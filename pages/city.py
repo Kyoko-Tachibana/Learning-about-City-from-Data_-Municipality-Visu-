@@ -424,7 +424,7 @@ layout = html.Div([
                 dcc.Graph(
                 figure=icicle_money_rev(df_money)),
                 html.Br(),
-                dcc.Graph(figure=icicle_money_spe(df_pop))
+                dcc.Graph(figure=icicle_money_spe(df_money))
         ]), id='finance_city'
         )
     ),
