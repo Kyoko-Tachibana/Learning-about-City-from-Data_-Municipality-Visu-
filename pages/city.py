@@ -388,7 +388,7 @@ layout = html.Div([
                 dcc.Graph(
                 figure=population_general(df_pop)),
                 dcc.Graph(figure=violin_general(df_pop))
-        ]), id='basic_city'
+        ]), id='tabs_basic_city'
         )
     ),
         html.Div(id="graph-data-basic-city", style={"display": "none"}),
@@ -401,7 +401,7 @@ layout = html.Div([
         html.Br(),
         html.Div([html.H2('Finance', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3_map')
+                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2_map')
                  ]),
              html.Div(dbc.Collapse(
                  dbc.Card([dbc.CardHeader('Figure DESCRIPTION', style={'color':'navy'}),
@@ -413,7 +413,7 @@ layout = html.Div([
             https://www.city.nishitokyo.lg.jp/siseizyoho/zaisei/yosan/index.html
             ''', style={'color':'navy'}))])])],
             color='dark', outline = True),
-            id='doc3_map',
+            id='doc2_map',
             is_open=False,
         )),
         html.Br(),
@@ -425,7 +425,7 @@ layout = html.Div([
                 figure=icicle_money_rev(df_money)),
                 html.Br(),
                 dcc.Graph(figure=icicle_money_spe(df_money))
-        ]), id='finance_city'
+        ]), id='tabs_finance_city'
         )
     ),
         html.Div(id="graph-data-finance-city", style={"display": "none"}),
@@ -438,7 +438,7 @@ layout = html.Div([
         html.Br(),
         html.Div([html.H2('City Features', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2_map')
+                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3_map')
                  ]),
              html.Div(dbc.Collapse(
                       dbc.Card([dbc.CardHeader('MAP DESCRIPTION', style={'color':'navy'}),
@@ -465,7 +465,7 @@ layout = html.Div([
             https://www.odpt.org/2022/06/28/press20220628_bikeshare/
             ''', style={'color':'navy'})])])],
             color='dark', outline = True),
-            id='doc2_map',
+            id='doc3_map',
             is_open=False,
         )),
              html.Br(),
@@ -495,7 +495,7 @@ layout = html.Div([
     html.Br(),
     html.Br(),
     html.Div([html.H2('Make figures of your city!', style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
-             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3_map')]),
+             dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button4_map')]),
     html.Div(dbc.Collapse(
             dbc.Card([dbc.CardHeader('DESCRIPTION', style={'color':'navy'}),
             dbc.CardBody([html.P(dcc.Markdown('''
@@ -503,7 +503,7 @@ layout = html.Div([
             Please see below for the info.
             ''', style={'color':'navy'}))])],
             color='dark', outline = True),
-            id='doc3_map',
+            id='doc4_map',
             is_open=False,
         )),
     html.Br(),
@@ -1504,11 +1504,32 @@ def toggle_collapse1_map(n, is_open):
     return is_open
 
 @callback(
+    Output("doc2_map", "is_open"),
+    Input("doc_button2_map", "n_clicks"),
+    State("doc2_map", "is_open"),
+)
+def toggle_collapse2_map(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+
+@callback(
     Output("doc3_map", "is_open"),
     Input("doc_button3_map", "n_clicks"),
     State("doc3_map", "is_open"),
 )
 def toggle_collapse3_map(n, is_open):
+    if n:
+        return not is_open
+    return is_open
+
+@callback(
+    Output("doc4_map", "is_open"),
+    Input("doc_button4_map", "n_clicks"),
+    State("doc4_map", "is_open"),
+)
+def toggle_collapse4_map(n, is_open):
     if n:
         return not is_open
     return is_open
