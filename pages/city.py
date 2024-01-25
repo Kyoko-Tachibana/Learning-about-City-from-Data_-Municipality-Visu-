@@ -52,8 +52,118 @@ df_border['lat'] = df_border['lat'].apply(lambda x: listrize(x))
 df_emergency_route['lon'] = df_emergency_route['lon'].apply(lambda x: listrize(x))
 df_emergency_route['lat'] = df_emergency_route['lat'].apply(lambda x: listrize(x))
 
+df_money=pd.read_csv('assets/Money.csv', encoding='shift-jis')
+
 
 # In[ ]:
+
+def icicle_money_rev(df):
+    fig = go.Figure()
+    
+    tf_list = []
+    
+    for y in df['Year'].unique():
+        
+        tf = [False]*len(list(df['Year'].unique()))
+        i = list(df['Year'].unique()).index(y)
+        tf[i] = True
+        tf_list.append(tf)
+        
+        df_y_rev = df[(df['Year']==y)&(df['ids']=='revenue')]
+        
+        fig.add_trace(go.Icicle(
+        ids = df_y_rev.labels,
+        labels = df_y_rev.labels,
+        parents = df_y_rev.parents,
+        values = df_y_rev.amount,
+        root_color="lightgrey",
+        tiling = dict(
+            orientation='h'
+        ), name='{}'.format(y)))
+                      
+    dict_list = []
+    
+    for i in range(len(list(df['Year'].unique()))):
+        dict_list.append(dict(
+        label="{}".format(list(df['Year'].unique())[i]),
+        method="update",
+        args=[{"visible": tf_list[i]},
+        {"title": "<b>歳入 (千円) {}</b>".format(df['Year'].unique()[i])}]))
+    
+    fig.update_layout(paper_bgcolor="#d9e3f1",
+                      title='<b>Choose a year</b>',
+                      width=1200,
+                      height=600,
+        updatemenus=[
+            dict(
+                active=0,
+                buttons=list(dict_list),
+                direction="down",
+                pad={"r": 10, "t": 10},
+                showactive=True,
+                x=0.2,
+                xanchor="left",
+                y=1.2,
+                yanchor="top")
+        ])
+    
+    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+                      
+    return fig  
+
+def icicle_money_spe(df):
+    fig = go.Figure()
+    
+    tf_list = []
+    
+    for y in df['Year'].unique():
+        
+        tf = [False]*len(list(df['Year'].unique()))
+        i = list(df['Year'].unique()).index(y)
+        tf[i] = True
+        tf_list.append(tf)
+        
+        df_y_spe = df[(df['Year']==y)&(df['ids']=='spending')]
+        
+        fig.add_trace(go.Icicle(
+        ids = df_y_spe.labels,
+        labels = df_y_spe.labels,
+        parents = df_y_spe.parents,
+        values = df_y_spe.amount,
+        root_color="lightgrey",
+        tiling = dict(
+            orientation='h'
+        ), name='{}'.format(y)))
+                      
+    dict_list = []
+    
+    for i in range(len(list(df['Year'].unique()))):
+        dict_list.append(dict(
+        label="{}".format(list(df['Year'].unique())[i]),
+        method="update",
+        args=[{"visible": tf_list[i]},
+        {"title": "<b>歳出 (千円) {}</b>".format(df['Year'].unique()[i])}]))
+    
+    fig.update_layout(paper_bgcolor="#d9e3f1",
+                      title='<b>Choose a year</b>',
+                      width=1200,
+                      height=600,
+        updatemenus=[
+            dict(
+                active=0,
+                buttons=list(dict_list),
+                direction="down",
+                pad={"r": 10, "t": 10},
+                showactive=True,
+                x=0.2,
+                xanchor="left",
+                y=1.2,
+                yanchor="top")
+        ])
+    
+    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+                      
+    return fig  
 
 
 def num_b_r(d_num):
@@ -289,6 +399,43 @@ layout = html.Div([
         html.Br(),
         html.Br(),
         html.Br(),
+        html.Div([html.H2('Finance', 
+                               style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
+                  dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button3_map')
+                 ]),
+             html.Div(dbc.Collapse(
+                 dbc.Card([dbc.CardHeader('Figure DESCRIPTION', style={'color':'navy'}),
+                 dbc.CardBody([
+                 html.P( 
+                 dcc.Markdown('''
+            *BUDGET*: 当初予算（一部、要求予算）。
+            ''', style={'color':'navy'})), html.P([html.B('Source', style={'color':'navy'}), html.Div(dcc.Markdown('''
+            https://www.city.nishitokyo.lg.jp/siseizyoho/zaisei/yosan/index.html
+            ''', style={'color':'navy'}))])])],
+            color='dark', outline = True),
+            id='doc3_map',
+            is_open=False,
+        )),
+        html.Br(),
+        html.Br(),
+        html.Div(dbc.Tabs(
+        dbc.Tab(label='BUDGET', tab_id = 'budget', id = 'budget_', style={'color':'navy'},
+                children=[html.Br(),
+                dcc.Graph(
+                figure=icicle_money_rev(df_money)),
+                html.Br(),
+                dcc.Graph(figure=icicle_money_spe(df_pop))
+        ]), id='finance_city'
+        )
+    ),
+        html.Div(id="graph-data-finance-city", style={"display": "none"}),
+        html.Br(),
+        html.Br(),
+        dbc.Button("Download This Figure as a JSON File", id="btn-download-finance-city", style={'color':'navy'}),
+        dcc.Download(id="download-finance-city"),
+        html.Br(),
+        html.Br(),
+        html.Br(),
         html.Div([html.H2('City Features', 
                                style={'textAlign': 'center', 'color': 'navy', 'font-size': 30}),
                   dbc.Button('?', className="btn btn-outline-info custom-button", n_clicks=0, id='doc_button2_map')
@@ -378,6 +525,25 @@ layout = html.Div([
     html.Br(),
     html.Div(id='basic-city-download-button-turn-up'),
     html.Br(),
+
+    html.H3('Finance', style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
+    html.Div(
+    dcc.Upload(
+        id='upload-data_finance',
+        children=html.Div(['Drag and Drop or ',html.A('Select a CSV File')
+        ]),
+        className='upload-box-style',
+        multiple=False
+    )),
+    html.H3('Your Graphs:', style={'font-size':20, 'color':'navy'}),
+    html.Br(),
+    html.Div(id='output-data-upload_finance'),
+    html.Div(id="graph-data-finance-city-upload", style={"display": "none"}),
+    html.Br(),
+    html.Br(),
+    html.Div(id='finance-city-download-button-turn-up'),
+    html.Br(),
+    
     html.H3('City Features', style={'textAlign': 'left', 'color': 'navy', 'font-size': 20}),
     html.Div([
     dcc.Upload(
@@ -474,7 +640,35 @@ layout = html.Div([
                 html.P([html.B("Note", style={'color':'navy'}), 
                         html.Div("-Columns which have nulls (NaNs, N/As) are replaced with 0 automatically", style={'color':'navy'})])]
                 , title="City Features"
-            ),],
+            ),
+           dbc.AccordionItem(
+        [html.P([html.B('File Type', style={'color':'navy'}), html.Div('-CSV', style={'color':'navy'})]), 
+         html.P([html.B('Encoding', style={'color':'navy'}), html.Div('-Shift JIS', style={'color':'navy'})]),
+        html.P([html.B('Columns', style={'color':'navy'}), dcc.Markdown('''
+        *-Year* (Year)
+        
+        *-ids* (revenue for 歳入 or spending for 歳出)
+        
+        *-labels* (The category)
+        
+        *-parents* (The parent category of 'labels')
+        
+        *-amount* (The amount of budget for the category (千円))
+        
+        e.g The file must look like:
+
+        | Year | ids | labels | parents | amount |
+        | ---- | --- | ------ | ------- | ------ |
+        | 2020 | revenue | 市民税 | 市税 | 10000000 |
+        | 2020 | revenue | 固定資産税 | 市税 | 10000000 |
+        | ... | ... | ... | ... | ... |
+        | 2020 | revenue | 歳入 |     | (The total of 'amount' in this column) |
+        | 2020 | spending | 議会費 | 歳出 | 10000000 |
+        | ... | ... | ... | ... | ... |
+        
+        ''', style={'color':'navy'})]),
+        html.P([html.B('Note', style={'color':'navy'}), html.Div('-Please visit the repository to look for the sample csv file', style={'color':'navy'})])], 
+            title='Finance'),],
                  flush=True,
                  start_collapsed=True,
              ),
@@ -567,6 +761,128 @@ layout = html.Div([
 
 
 # In[ ]:
+
+def parse_content_finance(content, filename):
+    content_type, content_string = content.split(',')
+
+    decoded = base64.b64decode(content_string)
+    try:
+        if 'csv' in filename:
+            df_in = pd.read_csv(
+                io.StringIO(decoded.decode('shift-jis')))
+            
+    except Exception as e:
+        print(e)
+        return html.Div([
+            'There was an error processing this file.'
+        ])
+    return html.Div(dbc.Tabs(dbc.Tab(label='FINANCE', children=[html.Br(),
+            dcc.Graph(
+                figure=icicle_money_rev(df_in)),
+            html.Br(),
+            dcc.Graph(figure=icicle_money_spe(df_in))
+        ]),))
+    
+@callback(
+          Output('output-data-upload_finance', 'children'),
+               Input('upload-data_finance', 'contents'),
+               State('upload-data_finance', 'filename')
+             )
+
+def update_output_finance(content, name):
+    if content is not None:
+        children = [parse_content_finance(content, name)]
+        return children
+
+@callback(
+    Output("graph-data-finance-city-upload", "children"),
+    Input('output-data-upload_finance', "children"),
+    prevent_initial_call=True,
+)
+def store_graph_data4_city(graph_children):
+    try:
+        return json.dumps(graph_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-finance-city-upload", "data"),
+    Input("btn-download-finance-city-upload", "n_clicks"),
+    State("graph-data-finance-city-upload", "children"),
+    prevent_initial_call=True,
+)
+def download_finance_city_upload(n_clicks, finance_city_json):
+    try:
+        if n_clicks is None or not finance_city_json:
+            raise PreventUpdate
+
+        finance_city_structure = json.loads(finance_city_json)
+        content_string = json.dumps(finance_city_structure)
+
+        file_content = {
+        "filename": "finance_your_city.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(Output('finance-city-download-button-turn-up', 'children'),
+         Input('output-data-upload_finance', 'children'),
+         prevent_initial_call=True)
+
+def turnup_download_button_city2(yourgraph):
+    try:
+        if yourgraph is not None:
+            return [dbc.Button("Download This Figure as a JSON File", id="btn-download-finance-city-upload", 
+                               style={'color':'navy'}),
+    dcc.Download(id="download-finance-city-upload")]
+    
+        else:
+            raise PreventUpdate
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+
+@callback(
+    Output("graph-data-finance-city", "children"),
+    Input('tabs-finance-city', "children"),
+    prevent_initial_callback=True
+)
+def store_graph_data_city5(tabs_children):
+    try:
+        return json.dumps(tabs_children, cls=plotly.utils.PlotlyJSONEncoder)
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
+
+@callback(
+    Output("download-finance-city", "data"),
+    Input("btn-download-finance-city", "n_clicks"),
+    State("graph-data-finance-city", "children"),
+    prevent_initial_call=True,
+)
+def download_tabs_structure_city2(n_clicks, tabs_structure_json):
+    try:
+        if n_clicks is None or not tabs_structure_json:
+            raise PreventUpdate
+
+        stored_tabs_structure = json.loads(tabs_structure_json)
+        content_string = json.dumps(stored_tabs_structure)
+
+        file_content = {
+        "filename": "finance_city.json",
+        "content": content_string,
+        "type": "application/json",
+    }
+        return file_content
+    except Exception as e:
+        print(e)
+        raise PreventUpdate
 
 @callback(
     Output("graph-data-basic-city-upload", "children"),
