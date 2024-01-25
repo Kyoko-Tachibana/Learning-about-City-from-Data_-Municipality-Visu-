@@ -103,7 +103,7 @@ def icicle_money_rev(df):
                 showactive=True,
                 x=0.2,
                 xanchor="left",
-                y=1.2,
+                y=1.15,
                 yanchor="top")
         ])
     
@@ -157,7 +157,7 @@ def icicle_money_spe(df):
                 showactive=True,
                 x=0.2,
                 xanchor="left",
-                y=1.2,
+                y=1.15,
                 yanchor="top")
         ])
     
