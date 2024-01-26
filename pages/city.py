@@ -1318,16 +1318,6 @@ def return_a_map(c_land, f_land, c_sta, f_sta, c_er, f_er, c_sh, f_sh, c_pa, f_p
         
         return [html.Div(dbc.Spinner(dcc.Graph(figure=fig), color='dark'))]
 
-@callback(
-    Output("doc2_map", "is_open"),
-    Input("doc_button2_map", "n_clicks"),
-    State("doc2_map", "is_open"),
-)
-def toggle_collapse2_map(n, is_open):
-    if n:
-        return not is_open
-    return is_open
-
 def map_drawing(values_ln):
     fig = go.Figure()
     
