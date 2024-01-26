@@ -19,7 +19,7 @@ layout = html.Div([
 
     dbc.Row([
         dbc.Col(dcc.Markdown('''
-            **政治、都市の二分野で西東京市のデータを可視化するほか、アップロードされたデータを可視化します。**
+            **政治、暮らしの二分野で西東京市のデータを可視化するほか、アップロードされたデータを可視化します。**
             
             **また、それらの可視化結果は各種プラットフォームに統合可能な形式でダウンロードできます。**
             
@@ -42,20 +42,13 @@ layout = html.Div([
                'textAlign':'center', 'width':'50%', 'height':'6vh'}), 
                 style={'width':4, 'position':'relative', 'top':'50%'}),
         
-        dbc.Col(dbc.Button('都市', href='/city', outline=True,
+        dbc.Col(dbc.Button('暮らし', href='/city', outline=True,
                style={'font-family': '游明朝', 'font-size': '3.5vw', 'textAlign': 'center', 'color':'navy'}, 
                            color='light', size='lg'), style={'width':4}),
     ], style={'margin': 0, 'position': 'relative', 'top': '45%', 'transform': 'translateY(-50%)', 'left':'10%'}),
     
     dbc.Tooltip(dcc.Markdown('''
-    ①「都市」「政治」どちらかのボタンを押してスタート！
-
-    ②最初に表示されているのは西東京市のデータを可視化したグラフです。グラフは触って動かすことが出来ます。気になるグラフを探してみましょう。
-
-    ③気になるグラフを見つけたら、自分の自治体用にそのグラフを作ってみましょう！ 指定されているフォーマットに従ってデータを作成、アップロードします。
-    （西東京市の方は、表示されているグラフをそのままダウンロードできます。また、一部アップロード機能に対応していないグラフがあります。）
-
-    ④表示されたグラフは、様々な用途に活用できる形式でダウンロードできます。いろいろな使い方を探してみてください！
+    「暮らし」「政治」どちらかのボタンを押してスタート！
     ''', style={'font-size':'15px', 'color':'black', 'font-family':'游明朝'}), 
                 target='guide', placement='top', style={'maxWidth':'80vw', 'zIndex': 1000, 'width':'40vw', 
                                                         'height':'60vh'})
