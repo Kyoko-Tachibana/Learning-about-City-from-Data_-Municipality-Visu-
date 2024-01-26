@@ -1470,7 +1470,7 @@ def download_parcat_structure(n_clicks, parcat_structure_json):
 @callback(
     Output("graph-data-table-politics", "children"),
     Input('table-politics', "figure"),
-    prevent_initial_call=True
+    prevent_initial_call=False
 )
 def store_table_data(table_figure):
     try:
