@@ -35,8 +35,9 @@ nlplot==1.6.0
 + 指定されたフォーマットに従って作成したデータをアップロードすると、上記の分析・可視化の一部をほかの自治体について行えるセクション
 
 
-### 都市
+### 暮らし
 + 西東京市の人口・人口構成の推移についてのグラフ
++ 西東京市の財政についての図
 + 西東京市に存在する施設、避難所、避難経路の地図上への可視化
 + 指定されたフォーマットに従って作成したデータをアップロードすると、上記の分析・可視化をほかの自治体について行えるセクション
 
@@ -88,7 +89,7 @@ nlplot==1.6.0
 ![スクリーンショット (622)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/21a2977f-5093-40ff-b586-5396f341bf55)
 
 
-### 都市
+### 暮らし
 
 ![スクリーンショット (623)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/770a14e9-f425-4ff5-b806-47e327754656)
 
@@ -97,6 +98,12 @@ nlplot==1.6.0
 西東京市の人口・人口構成推移。他自治体分析対応。
 
 ![スクリーンショット (624)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Machi-Learn-/assets/156287780/0221a59b-b95d-4641-af93-eab081786a29)
+
+
+#### ☆Finance
+西東京市の当初予算
+
+![スクリーンショット (680)](https://github.com/Kyoko-Tachibana/Learning-about-City-from-Data_-Municipality-Visu-/assets/156287780/35ba889a-aeee-4a1c-b754-cb1b1edd2cfa)
 
 
 #### ☆City Features
@@ -120,6 +127,7 @@ nlplot==1.6.0
 3. [西東京市　人口・世帯数](https://www.city.nishitokyo.lg.jp/siseizyoho/tokei/zinko/index.html)
 4. [PLATEAU　オープンデータ-関連データセット](https://www.mlit.go.jp/plateau/)
 5. [ODPT　シェアサイクルステーションデータ](https://www.odpt.org/2022/06/28/press20220628_bikeshare/)
+6. [西東京市　予算](https://www.city.nishitokyo.lg.jp/siseizyoho/zaisei/yosan/index.html)
 
 
 
