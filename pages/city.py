@@ -548,42 +548,42 @@ layout = html.Div([
     html.Div([
     dcc.Upload(
         id='upload-data_landmark',
-        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains LANDMARK info'
+        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), ' that contains LANDMARK info'
         ]),
         className='upload-box-style',
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_station',
-        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains STATION info'
+        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), ' that contains STATION info'
         ]),
         className='upload-box-style',
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_emergency_route',
-        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains EMERGENCY ROUTE info'
+        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), ' that contains EMERGENCY ROUTE info'
         ]),
         className='upload-box-style',
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_shelter',
-        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains SHELTER info'
+        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), ' that contains SHELTER info'
         ]),
         className='upload-box-style',
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_park',
-        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains PARK info'
+        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), ' that contains PARK info'
         ]),
         className='upload-box-style',
         multiple=False
     ),
     dcc.Upload(
         id='upload-data_border',
-        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), 'that contains BORDER info'
+        children=html.Div(['Drag and Drop or ',html.A('Select a GeoJSON File'), ' that contains BORDER info'
         ]),
         className='upload-box-style',
         multiple=False
@@ -850,7 +850,7 @@ def turnup_download_button_city2(yourgraph):
 
 @callback(
     Output("graph-data-finance-city", "children"),
-    Input('tabs-finance-city', "children")
+    Input('tabs_finance_city', "children")
 )
 def store_graph_data_city5(tabs_children):
     try:
@@ -939,8 +939,7 @@ def turnup_download_button_city(yourgraph):
 
 @callback(
     Output("graph-data-basic-city", "children"),
-    Input('tabs-basic-city', "children"),
-    prevent_initial_callback=True
+    Input('tabs_basic_city', "children"),
 )
 def store_graph_data_city(tabs_children):
     try:
@@ -953,7 +952,7 @@ def store_graph_data_city(tabs_children):
     Output("download-basic-city", "data"),
     Input("btn-download-basic-city", "n_clicks"),
     State("graph-data-basic-city", "children"),
-    prevent_initial_call=False,
+    prevent_initial_call=True,
 )
 def download_tabs_structure_city(n_clicks, tabs_structure_json):
     try:
