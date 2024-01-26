@@ -1132,7 +1132,7 @@ layout = html.Div([html.Br(),
         dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'18px'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'16px'}), 
                           html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2024))], 
-    value=2022, id='input-year-network', clearable=False, className='dropdown'))
+    value=2023, id='input-year-network', clearable=False, className='dropdown'))
              ])
        ])
       ]), className='set-value-card', color='info'
