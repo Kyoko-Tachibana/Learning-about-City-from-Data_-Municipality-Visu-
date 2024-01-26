@@ -2,7 +2,7 @@
 
 [English ver. Readme](README-en.md)
 
-[より詳細な説明（日本語）](Detailed information.pdf)
+[より詳細な説明（日本語）](Detailed-information.pdf)
 
 ベースは私の居住地である東京都西東京市の選挙や人口、施設についての分析ですが、それをほかの自治体にも応用できるような機能も搭載しています。
 
