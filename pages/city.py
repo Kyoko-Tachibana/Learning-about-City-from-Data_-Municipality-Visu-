@@ -850,8 +850,7 @@ def turnup_download_button_city2(yourgraph):
 
 @callback(
     Output("graph-data-finance-city", "children"),
-    Input('tabs-finance-city', "children"),
-    prevent_initial_callback=True
+    Input('tabs-finance-city', "children")
 )
 def store_graph_data_city5(tabs_children):
     try:
