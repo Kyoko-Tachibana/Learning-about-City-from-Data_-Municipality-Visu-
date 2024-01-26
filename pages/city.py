@@ -954,7 +954,7 @@ def store_graph_data_city(tabs_children):
     Output("download-basic-city", "data"),
     Input("btn-download-basic-city", "n_clicks"),
     State("graph-data-basic-city", "children"),
-    prevent_initial_call=True,
+    prevent_initial_call=False,
 )
 def download_tabs_structure_city(n_clicks, tabs_structure_json):
     try:
