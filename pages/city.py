@@ -325,10 +325,10 @@ df_docomo['size'] = df_docomo['capacity'].apply(lambda x: sizeconversion(x, df_d
 
 layout = html.Div([
                 html.Br(),
-                html.Div(html.H1('CITY', className="display-2", 
+                html.Div(html.H1('LIVING', className="display-2", 
                         style={'textAlign':'left', 'color':'midnightblue', 'font-size':30})
                         ),
-                html.Div('西東京市の都市・人口情報を見る。ほかの自治体の都市・人口情報を可視化する。それらの分析結果を、各種プラットフォームに応用可能な形でダウンロードする。', 
+                html.Div('西東京市の暮らしについての情報を見る。ほかの自治体の暮らしについての情報を可視化する。それらの分析結果を、各種プラットフォームに応用可能な形でダウンロードする。', 
                 style={'font-family':'游明朝', 'textAlign':'left', 'color':'blue', 'font-size':20}),
                 html.Br(),
                 html.Br(),
