@@ -32,7 +32,7 @@ df_vote_rate = pd.read_csv('assets/Vote_rate.csv')
 df_table_city = df_table[df_table['Type']=='市議']
 
 df_filtered_list = []
-for y in range(2001, 2023):
+for y in range(2001, 2024):
     df_f = pd.read_csv('assets/{} filtered.csv'.format(y), encoding='shift-jis')
     df_f.dropna(subset=['selectednouns'], inplace=True)
     df_f['selectednouns'] = df_f['selectednouns'].apply(ast.literal_eval)
@@ -158,7 +158,7 @@ def candidate_info(df):
     template="plotly_white",
     )
 
-    fig.update_layout(title='**Choose a year**', title_font={'family':font_fam_sp})
+    fig.update_layout(title='<b>Choose a year</b>', title_font={'family':font_fam_sp})
 
     fig.update_traces(cells=dict(line=dict(color='black')), header=dict(line=dict(color='black')))
 
@@ -1131,7 +1131,7 @@ layout = html.Div([html.Br(),
     html.Div(dbc.Card(dbc.CardBody([dbc.Col([
         dbc.Row(html.H3('SET VALUES', className="card-title", style={'color':'white', 'font-size':'18px'})),
         dbc.Row(children=[dcc.Markdown('''Choose a year''', style={'color':'white', 'font-size':'16px'}), 
-                          html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2023))], 
+                          html.Div(dcc.Dropdown([y for y in reversed(range(2001, 2024))], 
     value=2022, id='input-year-network', clearable=False, className='dropdown'))
              ])
        ])
