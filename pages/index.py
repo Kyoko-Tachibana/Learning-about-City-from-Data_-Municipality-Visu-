@@ -50,7 +50,7 @@ layout = html.Div([
     dbc.Tooltip(dcc.Markdown('''
     「暮らし」「政治」どちらかのボタンを押してスタート！
     ''', style={'font-size':'15px', 'color':'black', 'font-family':'游明朝'}), 
-                target='guide', placement='top', style={'maxWidth':'80vw', 'zIndex': 1000, 'width':'40vw', 
+                target='guide', placement='bottom', style={'maxWidth':'80vw', 'zIndex': 1000, 'width':'40vw', 
                                                         'height':'60vh'})
 
 ],style={'background-image': 'url(assets/city_img.jpg)', 'height': '100vh', 
