@@ -151,11 +151,11 @@ def candidate_info(df):
     ])
 
     fig.update_layout(paper_bgcolor="#d9e3f1",
-    width=1180,
+    width=1300,
     height=500,
     autosize=False,
     margin=dict(t=0, b=0, l=0, r=0),
-    template="plotly_white",
+    template="plotly_white"
     )
 
     fig.update_layout(title='<b>Choose a year</b>', title_font={'family':font_fam_sp})
