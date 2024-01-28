@@ -40,7 +40,7 @@ for y in range(2001, 2024):
 
 def candidate_info(df):
     fig = go.Figure()
-    colors = n_colors('rgb(169, 181, 255)', 'rgb(255, 169, 236)', 2, colortype='rgb')
+    colors = n_colors('rgb(210, 234, 252)', 'rgb(252, 210, 248)', 2, colortype='rgb')
     for year in df[df['Type']=='市議']['Year'].unique():
         df_y = df[(df['Year']==year)&(df['Type']=='市議')]
 
